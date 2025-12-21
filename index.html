@@ -70,22 +70,22 @@ h1 {
   color: white;
 }
 
-.discord-btn:hover {
-  box-shadow: 0 0 30px rgba(255,100,0,.8);
-}
-
-/* PANELS */
+/* ===== SQUARE PANELS ===== */
 .panel {
   display: none;
   position: absolute;
   width: 320px;
-  height: 160px;
+  height: 320px; /* ← square */
   padding: 18px;
   border-radius: 22px;
   background: linear-gradient(180deg, #1a0707, #0b0505);
   box-shadow: 0 0 50px rgba(255,80,0,.9);
   z-index: 2;
   animation: slideIn .6s ease;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 @keyframes slideIn {
@@ -108,11 +108,7 @@ h1 {
 .title { color: #ff6a00; }
 .beta { font-size: 12px; color: red; }
 
-.status {
-  font-size: 13px;
-  margin-top: 2px;
-}
-
+.status { font-size: 13px; }
 .status.online { color: #00ff6a; }
 .status.updating { color: #ffaa00; }
 
@@ -120,12 +116,10 @@ h1 {
 .panel-buttons {
   display: flex;
   gap: 10px;
-  margin-top: 14px;
+  margin-top: auto;
 }
 
-.panel-buttons .panel-btn {
-  flex: 1;
-}
+.panel-buttons .panel-btn { flex: 1; }
 
 .copy {
   background: linear-gradient(45deg, #ff0000, #ff6a00);
@@ -162,27 +156,6 @@ h1 {
   box-shadow: 0 0 50px rgba(255,80,0,.9);
   padding: 20px;
   z-index: 999;
-  animation: popIn .4s ease;
-}
-
-.popup h3 {
-  color: #ff6a00;
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-
-.popup .close {
-  position: absolute;
-  top: 8px;
-  right: 12px;
-  color: white;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-@keyframes popIn {
-  from { opacity:0; transform: translate(-50%, -40%); }
-  to { opacity:1; transform: translate(-50%, -50%); }
 }
 
 /* NOTIFICATION */
@@ -196,17 +169,7 @@ h1 {
   padding: 14px 26px;
   border-radius: 30px;
   display: none;
-  animation: notifyIn .35s ease;
   z-index: 999;
-}
-
-@keyframes notifyIn {
-  from { opacity:0; transform: translate(-50%, 20px); }
-  to { opacity:1; transform: translate(-50%, 0); }
-}
-
-@keyframes fadeOut {
-  to { opacity:0; transform: scale(.9); }
 }
 </style>
 </head>
@@ -215,28 +178,12 @@ h1 {
 <canvas id="particles"></canvas>
 <div id="notify">Script copied!</div>
 
-<!-- HOME -->
 <div class="container" id="home">
   <img src="standard (10).gif" class="logo">
   <h1>XENA HUB</h1>
-
-  <div>
-    <button class="btn primary" onclick="openPanels()">CONTINUE</button>
-    <button class="discord-btn" onclick="openDiscord()">DISCORD</button>
-  </div>
-
-  <div class="changelog">
-    <b>MODERATION TEAM</b><br><br>
-    Owner: shiro<br>
-    Admin: shiro<br>
-    Developers: shiro, Azairo, kiro<br>
-    Head Staff: kiro<br>
-    Staff: kiro<br>
-    Trial Staff: none
-  </div>
+  <button class="btn primary" onclick="openPanels()">CONTINUE</button>
 </div>
 
-<!-- FIREWORKS PANEL -->
 <div class="panel" id="fireworks" style="top:80px;">
   <div class="panel-header">
     <img src="Screenshot_20251220_145217_com.roblox.client_edit_107002055564400.jpg">
@@ -248,12 +195,11 @@ h1 {
   </div>
 
   <div class="panel-buttons">
-    <button class="panel-btn copy" onclick="copyScript('fireworks')">COPY SCRIPT</button>
-    <button class="panel-btn log-btn" onclick="openPopup('fireworksPopup')">CHANGELOG</button>
+    <button class="panel-btn copy">COPY SCRIPT</button>
+    <button class="panel-btn log-btn">CHANGELOG</button>
   </div>
 </div>
 
-<!-- PIGGY PANEL -->
 <div class="panel" id="piggy" style="top:300px;">
   <div class="panel-header">
     <img src="Screenshot_20251220_145207_com.roblox.client_edit_107032225822728.jpg">
@@ -264,97 +210,18 @@ h1 {
   </div>
 
   <div class="panel-buttons">
-    <button class="panel-btn copy" onclick="copyScript('piggy')">COPY SCRIPT</button>
-    <button class="panel-btn log-btn" onclick="openPopup('piggyPopup')">CHANGELOG</button>
+    <button class="panel-btn copy">COPY SCRIPT</button>
+    <button class="panel-btn log-btn">CHANGELOG</button>
   </div>
 </div>
 
-<!-- FIREWORKS POPUP -->
-<div class="popup" id="fireworksPopup">
-  <span class="close" onclick="closePopup('fireworksPopup')">&times;</span>
-  <h3>Fireworks Playground Beta</h3>
-  <p>• New more aesthetic GUI with minimize button<br>
-     • Improved auto collect chest</p>
-</div>
-
-<!-- PIGGY POPUP -->
-<div class="popup" id="piggyPopup">
-  <span class="close" onclick="closePopup('piggyPopup')">&times;</span>
-  <h3>Piggy Script v1.0</h3>
-  <p>Changelogs:<br>
-     • Tools GUI for Book 1<br>
-     • Fly and invisible script button<br>
-     • Auto spam doors open and close<br>
-     • Teleport to players and WalkSpeed</p>
-</div>
-
 <script>
-const home = document.getElementById("home");
-const fireworks = document.getElementById("fireworks");
-const piggy = document.getElementById("piggy");
-
-function openPanels() {
-  home.style.animation = "fadeOut .4s ease forwards";
-  setTimeout(() => {
-    home.style.display = "none";
-    fireworks.style.display = "block";
-    piggy.style.display = "block";
-  }, 400);
+function openPanels(){
+  document.getElementById("home").style.display="none";
+  document.getElementById("fireworks").style.display="flex";
+  document.getElementById("piggy").style.display="flex";
 }
-
-function openPopup(id) {
-  document.getElementById(id).style.display = "block";
-}
-
-function closePopup(id) {
-  document.getElementById(id).style.display = "none";
-}
-
-function openDiscord() {
-  window.open("https://discord.gg/55Cc5bYS6T", "_blank");
-}
-
-function copyScript(type) {
-  const text =
-    type === "fireworks"
-    ? 'loadstring(game:HttpGet("https://raw.githubusercontent.com/jhondrogerdump-dev/Xenahub/refs/heads/main/Xena%20hub%20fireworks%20playground%20Beta"))()'
-    : 'loadstring(game:HttpGet("https://raw.githubusercontent.com/jhondrogerdump-dev/Xenahub/refs/heads/main/Xena%20hub%20piggy"))()';
-
-  navigator.clipboard.writeText(text).then(showNotify);
-}
-
-function showNotify() {
-  const n = document.getElementById("notify");
-  n.style.display = "block";
-  setTimeout(() => n.style.display = "none", 1800);
-}
-
-/* PARTICLES */
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
-canvas.width = innerWidth;
-canvas.height = innerHeight;
-
-let particles = Array.from({length:80},()=>({
-  x:Math.random()*canvas.width,
-  y:Math.random()*canvas.height,
-  r:Math.random()*2+1,
-  dx:(Math.random()-.5),
-  dy:(Math.random()-.5)
-}));
-
-(function animate(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle="rgba(255,80,0,.8)";
-  particles.forEach(p=>{
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fill();
-    p.x+=p.dx; p.y+=p.dy;
-  });
-  requestAnimationFrame(animate);
-})();
 </script>
+
 </body>
-</html> 
- 
+</html>
