@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Hub - DNS Script Panel</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: black;
+            background-image: radial-gradient(circle, #333 1px, transparent 1px);
+            background-size: 20px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        /* Welcome Screen */
+        #welcome-screen {
+            display: block;
+        }
+
+        #panel-screen {
+            display: none;
+        }
+
+        .logo {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.8);
+        }
+
+        h1 {
+            font-size: 60px;
+            margin-bottom: 50px;
+            text-shadow: 0 0 20px rgba(0, 191, 255, 0.8);
+            letter-spacing: 10px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 20px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        #continue-btn {
+            background: white;
+            color: black;
+            box-shadow: 0 0 20px white;
+        }
+
+        #continue-btn:hover {
+            transform: scale(1.1);
+        }
+
+        #discord-btn {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        #discord-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Panel Screen */
+        .panel {
+            width: 350px;
+            background: rgba(50, 50, 0, 0.8);
+            border: 2px solid #ffd700;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .script-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            background: #888; /* Placeholder for script icon */
+        }
+
+        .changelog-btn {
+            background: #444;
+            color: white;
+            padding: 8px 15px;
+            font-size: 14px;
+            border-radius: 10px;
+        }
+
+        .script-title {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .last-updated {
+            font-size: 14px;
+            color: #aaa;
+            margin: 5px 0;
+        }
+
+        .status {
+            color: #0f0;
+            font-size: 14px;
+        }
+
+        .buy-key-btn {
+            display: block;
+            width: 100%;
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 50px;
+            font-size: 18px;
+        }
+
+        .copy-script-btn {
+            display: block;
+            width: 100%;
+            background: #ffd700;
+            color: black;
+            padding: 15px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 0 20px #ffd700;
+        }
+
+        .copy-script-btn:hover, .buy-key-btn:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen">
+            <img src="https://via.placeholder.com/200x200/000033/00bfff?text=NOVA+HUB" alt="Nova Hub Logo" class="logo">
+            <h1>WELCOME TO<br>NOVA HUB</h1>
+            <div class="btn-group">
+                <button id="continue-btn">CONTINUE</button>
+                <button id="discord-btn">DISCORD</button>
+            </div>
+        </div>
+
+        <!-- Panel Screen -->
+        <div id="panel-screen">
+            <div class="panel">
+                <div class="panel-header">
+                    <img src="https://via.placeholder.com/60x60/888888/ffffff?text=SCRIPT" alt="Script Icon" class="script-icon">
+                    <button class="changelog-btn">CHANGELOG</button>
+                </div>
+                <h2 class="script-title">DIESEL N STEEL</h2>
+                <p class="last-updated">Last Updated: Dec 18, 2025</p>
+                <p class="status">● ONLINE</p>
+                <p>✓ 2.1.0 STABLE</p>
+                <button class="buy-key-btn">BUY KEY</button>
+                <button class="copy-script-btn">COPY SCRIPT</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const panelScreen = document.getElementById('panel-screen');
+        const continueBtn = document.getElementById('continue-btn');
+
+        continueBtn.addEventListener('click', () => {
+            welcomeScreen.style.display = 'none';
+            panelScreen.style.display = 'block';
+        });
+
+        // Optional: Add functionality for other buttons
+        document.querySelector('.changelog-btn').addEventListener('click', () => {
+            alert('Changelog feature not implemented yet.');
+        });
+
+        document.querySelector('.buy-key-btn').addEventListener('click', () => {
+            alert('Buy Key feature not implemented yet.');
+        });
+
+        document.querySelector('.copy-script-btn').addEventListener('click', () => {
+            navigator.clipboard.writeText('Your script code here...');
+            alert('Script copied to clipboard!');
+        });
+
+        document.getElementById('discord-btn').addEventListener('click', () => {
+            alert('Redirect to Discord not implemented.');
+        });
+    </script>
+</body>
+</html>
