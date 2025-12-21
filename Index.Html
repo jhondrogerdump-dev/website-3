@@ -3,25 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Hub - DNS Script Panel</title>
+    <title>Nova Hub - Diesel N Steel Script</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             height: 100vh;
-            background: black;
-            background-image: radial-gradient(circle, #333 1px, transparent 1px);
-            background-size: 20px 20px;
+            background: #000 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==') repeat; /* Simple dark grid fallback */
+            background-color: #111;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Arial', sans-serif;
-            color: white;
+            font-family: Arial, sans-serif;
             overflow: hidden;
         }
 
+        .grid-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 215, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 215, 0, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+        }
+
         .container {
+            position: relative;
             text-align: center;
+            color: white;
         }
 
         /* Welcome Screen */
@@ -29,193 +39,182 @@
             display: block;
         }
 
-        #panel-screen {
+        #script-panel {
             display: none;
         }
 
         .logo {
             width: 200px;
             height: 200px;
-            margin-bottom: 40px;
+            background: radial-gradient(circle, #00ffff, #0000ff);
             border-radius: 20px;
-            box-shadow: 0 0 30px rgba(0, 191, 255, 0.8);
-        }
-
-        h1 {
-            font-size: 60px;
-            margin-bottom: 50px;
-            text-shadow: 0 0 20px rgba(0, 191, 255, 0.8);
-            letter-spacing: 10px;
-        }
-
-        .btn-group {
+            margin: 0 auto 30px;
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.8);
             display: flex;
             justify-content: center;
-            gap: 30px;
+            align-items: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: cyan;
+            text-shadow: 0 0 10px cyan;
         }
 
-        button {
+        .title {
+            font-size: 48px;
+            margin-bottom: 50px;
+            text-shadow: 0 0 20px white;
+        }
+
+        .btn {
             padding: 15px 40px;
+            margin: 0 15px;
             font-size: 20px;
-            border-radius: 50px;
             border: none;
+            border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s;
+            box-shadow: 0 0 15px rgba(255,255,255,0.5);
         }
 
-        #continue-btn {
+        .continue-btn {
             background: white;
             color: black;
-            box-shadow: 0 0 20px white;
         }
 
-        #continue-btn:hover {
-            transform: scale(1.1);
-        }
-
-        #discord-btn {
+        .discord-btn {
             background: transparent;
             color: white;
             border: 2px solid white;
         }
 
-        #discord-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255,255,255,0.8);
         }
 
-        /* Panel Screen */
+        /* Script Panel */
         .panel {
-            width: 350px;
-            background: rgba(50, 50, 0, 0.8);
-            border: 2px solid #ffd700;
-            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid gold;
+            border-radius: 15px;
             padding: 20px;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+            width: 350px;
+            box-shadow: 0 0 30px gold;
         }
 
         .panel-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
+            background: linear-gradient(to bottom, gold, #b8860b);
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            margin: -20px -20px 20px -20px;
+            position: relative;
         }
 
         .script-icon {
             width: 60px;
             height: 60px;
+            background: url('https://via.placeholder.com/60?text=Jeepney') no-repeat center/cover; /* Replace with actual icon URL if available */
             border-radius: 10px;
-            background: #888; /* Placeholder for script icon */
+            display: inline-block;
+            vertical-align: middle;
         }
 
         .changelog-btn {
-            background: #444;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
             color: white;
-            padding: 8px 15px;
             font-size: 14px;
-            border-radius: 10px;
+            cursor: pointer;
         }
 
         .script-title {
             font-size: 24px;
-            margin: 0;
+            margin: 10px 0 5px;
         }
 
         .last-updated {
             font-size: 14px;
-            color: #aaa;
-            margin: 5px 0;
+            opacity: 0.8;
         }
 
         .status {
-            color: #0f0;
-            font-size: 14px;
+            color: lime;
+            margin: 15px 0;
         }
 
         .buy-key-btn {
-            display: block;
-            width: 100%;
             background: transparent;
-            color: white;
             border: 2px solid white;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 50px;
-            font-size: 18px;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            border-radius: 30px;
+            margin: 15px 0;
+            cursor: pointer;
         }
 
         .copy-script-btn {
-            display: block;
-            width: 100%;
-            background: #ffd700;
+            background: gold;
             color: black;
             padding: 15px;
-            border-radius: 50px;
-            font-size: 18px;
+            width: 100%;
+            border-radius: 30px;
             font-weight: bold;
-            box-shadow: 0 0 20px #ffd700;
+            cursor: pointer;
+            box-shadow: 0 0 15px gold;
         }
 
         .copy-script-btn:hover, .buy-key-btn:hover {
-            transform: scale(1.05);
+            opacity: 0.9;
         }
     </style>
 </head>
 <body>
+    <div class="grid-bg"></div>
     <div class="container">
+
         <!-- Welcome Screen -->
         <div id="welcome-screen">
-            <img src="https://via.placeholder.com/200x200/000033/00bfff?text=NOVA+HUB" alt="Nova Hub Logo" class="logo">
-            <h1>WELCOME TO<br>NOVA HUB</h1>
-            <div class="btn-group">
-                <button id="continue-btn">CONTINUE</button>
-                <button id="discord-btn">DISCORD</button>
+            <div class="logo">NOVA HUB</div>
+            <p>WELCOME TO</p>
+            <h1 class="title">NOVA HUB</h1>
+            <button class="btn continue-btn" onclick="showScriptPanel()">CONTINUE</button>
+            <button class="btn discord-btn">DISCORD</button>
+        </div>
+
+        <!-- Script Panel -->
+        <div id="script-panel">
+            <div class="panel">
+                <div class="panel-header">
+                    <div class="script-icon"></div>
+                    <button class="changelog-btn">CHANGELOG</button>
+                </div>
+                <div class="script-title">DIESEL N STEEL 🔧</div>
+                <p class="last-updated">Last Updated: Dec 18, 2025</p>
+                <p class="status">• ONLINE ✅ 2.1.0 STABLE</p>
+                <button class="buy-key-btn">🔑 BUY KEY</button>
+                <button class="copy-script-btn" onclick="copyScript()">📋 COPY SCRIPT</button>
             </div>
         </div>
 
-        <!-- Panel Screen -->
-        <div id="panel-screen">
-            <div class="panel">
-                <div class="panel-header">
-                    <img src="https://via.placeholder.com/60x60/888888/ffffff?text=SCRIPT" alt="Script Icon" class="script-icon">
-                    <button class="changelog-btn">CHANGELOG</button>
-                </div>
-                <h2 class="script-title">DIESEL N STEEL</h2>
-                <p class="last-updated">Last Updated: Dec 18, 2025</p>
-                <p class="status">● ONLINE</p>
-                <p>✓ 2.1.0 STABLE</p>
-                <button class="buy-key-btn">BUY KEY</button>
-                <button class="copy-script-btn">COPY SCRIPT</button>
-            </div>
-        </div>
     </div>
 
     <script>
-        const welcomeScreen = document.getElementById('welcome-screen');
-        const panelScreen = document.getElementById('panel-screen');
-        const continueBtn = document.getElementById('continue-btn');
+        function showScriptPanel() {
+            document.getElementById('welcome-screen').style.display = 'none';
+            document.getElementById('script-panel').style.display = 'block';
+        }
 
-        continueBtn.addEventListener('click', () => {
-            welcomeScreen.style.display = 'none';
-            panelScreen.style.display = 'block';
-        });
-
-        // Optional: Add functionality for other buttons
-        document.querySelector('.changelog-btn').addEventListener('click', () => {
-            alert('Changelog feature not implemented yet.');
-        });
-
-        document.querySelector('.buy-key-btn').addEventListener('click', () => {
-            alert('Buy Key feature not implemented yet.');
-        });
-
-        document.querySelector('.copy-script-btn').addEventListener('click', () => {
-            navigator.clipboard.writeText('Your script code here...');
-            alert('Script copied to clipboard!');
-        });
-
-        document.getElementById('discord-btn').addEventListener('click', () => {
-            alert('Redirect to Discord not implemented.');
-        });
+        function copyScript() {
+            // Placeholder script - replace with actual loadstring if needed
+            const script = `print("Diesel N Steel script loaded - Nova Hub")`;
+            navigator.clipboard.writeText(script).then(() => {
+                alert("Script copied to clipboard!");
+            });
+        }
     </script>
 </body>
-</html>
+</html> 
