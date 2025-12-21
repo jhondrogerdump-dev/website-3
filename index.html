@@ -2,216 +2,306 @@
 <html>
 <head>
   <title>Xena Hub</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #0a0505;
+      background-image:
+        linear-gradient(rgba(255,120,0,0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,120,0,0.15) 1px, transparent 1px);
+      background-size: 40px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      color: white;
+      overflow: hidden;
+      position: relative;
+    }
 
-<style>
-* { font-family: 'Orbitron', sans-serif; font-weight: 900; }
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
 
-body {
-  margin: 0;
-  height: 100vh;
-  background-color: #0a0a05;
-  background-image:
-    linear-gradient(rgba(255,255,0,0.15) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,0,0.15) 1px, transparent 1px);
-  background-size: 40px 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  color: white;
-}
+    .container {
+      text-align: center;
+      z-index: 2;
+    }
 
-canvas { position: absolute; inset: 0; z-index: 0; }
-.container { text-align: center; z-index: 2; }
+    .logo {
+      width: 200px;
+      border-radius: 25px;
+      box-shadow: 0 0 40px rgba(255, 80, 0, 0.9);
+    }
 
-.logo {
-  width: 200px;
-  border-radius: 25px;
-  box-shadow: 0 0 40px rgba(255,255,0,.9);
-}
+    h1 {
+      margin-top: 20px;
+      font-size: 44px;
+      letter-spacing: 5px;
+      color: #ff4500;
+      text-shadow:
+        0 0 10px #ff0000,
+        0 0 30px #ff6a00,
+        0 0 60px #ff4500;
+    }
 
-h1 {
-  font-size: 44px;
-  color: #ffe600;
-  text-shadow: 0 0 15px #ffff00, 0 0 35px #ffd500;
-  letter-spacing: 4px;
-}
+    .btn {
+      padding: 14px 32px;
+      margin: 10px;
+      border-radius: 30px;
+      border: 2px solid #ff6a00;
+      background: transparent;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.25s;
+    }
 
-/* BUTTONS */
-.btn, .panel-btn, .discord-btn {
-  padding: 14px 26px;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: transform .15s ease, box-shadow .15s ease;
-}
+    .btn:hover {
+      box-shadow: 0 0 25px #ff4500;
+      transform: scale(1.05);
+    }
 
-.btn:active, .panel-btn:active, .discord-btn:active {
-  transform: scale(.92);
-  box-shadow: 0 0 45px rgba(255,255,0,.9);
-}
+    .btn.primary {
+      background: linear-gradient(45deg, #ff0000, #ff6a00);
+      border: none;
+      color: black;
+      font-weight: bold;
+    }
 
-.btn {
-  border: 2px solid #ffe600;
-  background: transparent;
-  color: white;
-}
+    /* PANELS */
+    .panel {
+      display: none;
+      position: absolute;
+      width: 320px;
+      padding: 20px;
+      border-radius: 25px;
+      background: linear-gradient(180deg, #1a0707, #0b0505);
+      box-shadow: 0 0 50px rgba(255, 80, 0, 0.9);
+      text-align: center;
+      z-index: 2;
+    }
 
-.btn.primary {
-  background: linear-gradient(45deg, #fff700, #ffd500);
-  color: black;
-  border: none;
-}
+    .panel-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-.discord-btn {
-  margin-left: 12px;
-  border: 2px solid #ffe600;
-  background: transparent;
-  color: white;
-}
+    .panel img {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+    }
 
-/* ===== SQUARE PANELS ===== */
-.panel {
-  display: none;
-  position: absolute;
-  width: 320px;
-  height: 320px;
-  padding: 18px;
-  border-radius: 22px;
-  background: linear-gradient(180deg, #1a1a07, #0b0b05);
-  box-shadow: 0 0 50px rgba(255,255,0,.9);
-  z-index: 2;
-  animation: slideIn .6s ease;
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #ff6a00;
+    }
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+    .beta {
+      font-size: 12px;
+      color: #ff0000;
+    }
 
-@keyframes slideIn {
-  from { opacity:0; transform: translateY(40px); }
-  to { opacity:1; transform: translateY(0); }
-}
+    .status {
+      margin: 10px 0;
+      color: #ff4500;
+    }
 
-.panel-header {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
+    .panel-btn {
+      width: 100%;
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 25px;
+      border: none;
+      font-size: 15px;
+      cursor: pointer;
+    }
 
-.panel img {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-}
+    .copy {
+      background: linear-gradient(45deg, #ff0000, #ff6a00);
+      color: black;
+      font-weight: bold;
+    }
 
-.title { color: #ffe600; }
-.beta { font-size: 12px; color: #ffdd00; }
+    .discord {
+      background: transparent;
+      border: 2px solid #ff6a00;
+      color: white;
+    }
 
-.status { font-size: 13px; }
-.status.online { color: #7cff00; }
-.status.updating { color: #ffcc00; }
+    /* STAFF TEXTBOX */
+    .textbox {
+      width: 360px;
+      padding: 20px;
+      border-radius: 25px;
+      background: linear-gradient(180deg, #1a0707, #0b0505);
+      box-shadow: 0 0 50px rgba(255, 80, 0, 0.9);
+      color: white;
+      z-index: 2;
+      text-align: left;
+      font-size: 16px;
+      line-height: 1.5;
+      margin-top: 30px;
+    }
 
-/* PANEL BUTTON ROW */
-.panel-buttons {
-  display: flex;
-  gap: 10px;
-  margin-top: auto;
-}
+    .textbox h2 {
+      font-size: 20px;
+      color: #ff6a00;
+      margin-bottom: 10px;
+      text-align: center;
+    }
 
-.panel-buttons .panel-btn { flex: 1; }
+    /* NOTIFICATION */
+    .notification {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(45deg, #ff0000, #ff6a00);
+      color: black;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-weight: bold;
+      box-shadow: 0 0 25px #ff4500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      z-index: 10;
+    }
 
-.copy {
-  background: linear-gradient(45deg, #fff700, #ffd500);
-  color: black;
-  border: none;
-}
-
-.log-btn {
-  background: transparent;
-  border: 2px solid #ffe600;
-  color: white;
-}
-
-/* POPUP */
-.popup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 320px;
-  background: linear-gradient(180deg, #1a1a07, #0b0b05);
-  border-radius: 20px;
-  box-shadow: 0 0 50px rgba(255,255,0,.9);
-  padding: 20px;
-  z-index: 999;
-}
-
-/* NOTIFICATION */
-#notify {
-  position: fixed;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(45deg, #fff700, #ffd500);
-  color: black;
-  padding: 14px 26px;
-  border-radius: 30px;
-  display: none;
-  z-index: 999;
-}
-</style>
+    .notification.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
 </head>
 
 <body>
-<canvas id="particles"></canvas>
-<div id="notify">Script copied!</div>
 
-<div class="container" id="home">
-  <img src="standard (13).gif" class="logo">
-  <h1>XENA HUB</h1>
-  <button class="btn primary" onclick="openPanels()">CONTINUE</button>
-</div>
+  <!-- PARTICLES CANVAS -->
+  <canvas id="particles"></canvas>
 
-<div class="panel" id="fireworks" style="top:80px;">
-  <div class="panel-header">
-    <img src="Screenshot_20251220_145217_com.roblox.client_edit_107002055564400.jpg">
-    <div>
-      <div class="title">Fireworks Playground</div>
-      <div class="beta">Beta</div>
-      <div class="status online">Online</div>
+  <!-- NOTIFICATION -->
+  <div id="notif" class="notification">Script copied!</div>
+
+  <!-- MAIN SCREEN -->
+  <div class="container" id="home">
+    <img src="standard (10).gif" class="logo">
+    <h1>XENA HUB</h1>
+    <button class="btn primary" onclick="openPanels()">CONTINUE</button>
+    <a class="btn" href="https://discord.gg/55Cc5bYS6T" target="_blank">DISCORD</a>
+
+    <!-- STAFF TEXTBOX ON MAIN SCREEN -->
+    <div class="textbox">
+      <h2>Moderation Team</h2>
+      Owner: Shiro<br>
+      Admin: Shiro<br>
+      Developer/Coder: Azairo, Kiro<br>
+      Staff: Kiro, Azairo
     </div>
   </div>
 
-  <div class="panel-buttons">
-    <button class="panel-btn copy">COPY SCRIPT</button>
-    <button class="panel-btn log-btn">CHANGELOG</button>
-  </div>
-</div>
-
-<div class="panel" id="piggy" style="top:300px;">
-  <div class="panel-header">
-    <img src="Screenshot_20251220_145207_com.roblox.client_edit_107032225822728.jpg">
-    <div>
-      <div class="title">Piggy Script</div>
-      <div class="status updating">Updating</div>
+  <!-- PANEL 1: Fireworks Playground -->
+  <div class="panel" id="fireworks" style="top: 100px;">
+    <div class="panel-header">
+      <img src="fireworks.png">
+      <div>
+        <div class="title">Fireworks Playground</div>
+        <div class="beta">Beta</div>
+      </div>
     </div>
+    <div class="status">● ONLINE</div>
+    <button class="panel-btn copy" onclick="copyScript('fireworks')">COPY SCRIPT</button>
+    <a href="https://discord.gg/55Cc5bYS6T" target="_blank">
+      <button class="panel-btn discord">JOIN DISCORD</button>
+    </a>
   </div>
 
-  <div class="panel-buttons">
-    <button class="panel-btn copy">COPY SCRIPT</button>
-    <button class="panel-btn log-btn">CHANGELOG</button>
+  <!-- PANEL 2: Piggy Script -->
+  <div class="panel" id="piggy" style="top: 460px;">
+    <div class="panel-header">
+      <img src="piggy.png">
+      <div>
+        <div class="title">Piggy Script</div>
+      </div>
+    </div>
+    <div class="status">● UPDATING</div>
+    <button class="panel-btn copy" onclick="copyScript('piggy')">COPY SCRIPT</button>
   </div>
-</div>
 
-<script>
-function openPanels(){
-  document.getElementById("home").style.display="none";
-  document.getElementById("fireworks").style.display="flex";
-  document.getElementById("piggy").style.display="flex";
-}
-</script>
+  <script>
+    // Show panels and hide main screen
+    function openPanels() {
+      document.getElementById('home').style.display = 'none';
+      document.getElementById('fireworks').style.display = 'block';
+      document.getElementById('piggy').style.display = 'block';
+    }
+
+    // Copy script function with correct URLs
+    function copyScript(panel) {
+      let text = "";
+      if (panel === "fireworks") {
+        text = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/jhondrogerdump-dev/Xenahub/refs/heads/main/Xena%20hub%20fireworks%20playground%20Beta"))()';
+      } else if (panel === "piggy") {
+        text = 'loadstring(game:HttpGet("https://raw.githubusercontent.com/jhondrogerdump-dev/Xenahub/refs/heads/main/Xena%20hub%20piggy"))()';
+      }
+
+      navigator.clipboard.writeText(text);
+
+      const notif = document.getElementById("notif");
+      notif.textContent = "Script copied!";
+      notif.classList.add("show");
+      setTimeout(() => {
+        notif.classList.remove("show");
+      }, 2000);
+    }
+
+    // RED PARTICLES BACKGROUND
+    const canvas = document.getElementById("particles");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles = [];
+    for (let i = 0; i < 80; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 2 + 1,
+        dx: (Math.random() - 0.5) * 0.5,
+        dy: (Math.random() - 0.5) * 0.5
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "rgba(255, 0, 0, 0.8)";
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+      });
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    window.onresize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+  </script>
 
 </body>
 </html>
