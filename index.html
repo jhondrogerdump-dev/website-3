@@ -30,7 +30,7 @@
     }
 
     header {
-        padding:100px 0 80px;
+        padding:100px 0 60px;
         text-align:center;
     }
 
@@ -65,7 +65,7 @@
         display:grid;
         grid-template-columns:repeat(auto-fit, minmax(380px, 1fr));
         gap:2.5rem;
-        padding:40px 0 100px;
+        padding:40px 0 80px;
     }
 
     .panel {
@@ -122,6 +122,7 @@
         transition:all 0.4s;
         box-shadow:0 8px 25px rgba(255,170,0,0.55);
         animation:btnPulse 4s infinite alternate;
+        margin:0.6rem;
     }
 
     .exec-btn:hover {
@@ -134,21 +135,79 @@
         100% { background-position:300% 50%; }
     }
 
-    footer {
-        text-align:center;
-        padding:90px 0 130px;
-        color:#ffcc6699;
-        font-size:1.1rem;
+    .faq-section {
+        max-width:900px;
+        margin:0 auto 100px;
+        padding:40px 20px;
+        background:rgba(35,20,0,0.5);
+        border:2px solid rgba(255,180,0,0.3);
+        border-radius:18px;
+        backdrop-filter:blur(10px);
     }
 
-    .discord-btn {
-        padding:1.15rem 4.2rem;
-        font-size:1.35rem;
+    .faq-title {
+        font-family:'Orbitron', sans-serif;
+        font-size:2.2rem;
+        text-align:center;
+        margin-bottom:2rem;
+        color:#ffd700;
+        text-shadow:0 0 20px #ffaa00aa;
+    }
+
+    .faq-item {
+        margin:1.8rem 0;
+        padding:1.2rem;
+        background:rgba(50,30,0,0.4);
+        border-left:4px solid #ffaa00;
+        border-radius:8px;
+    }
+
+    .faq-q {
+        font-weight:700;
+        font-size:1.3rem;
+        color:#ffcc66;
+        margin-bottom:0.6rem;
+    }
+
+    .faq-a {
+        font-size:1.1rem;
+        color:#ffe680;
+        opacity:0.92;
+    }
+
+    .next-page-btn {
+        display:block;
+        margin:80px auto 0;
+        padding:1.4rem 5rem;
+        font-size:1.5rem;
+        font-weight:700;
+        background:linear-gradient(90deg, #ff8800, #ffaa00, #ffd700);
+        background-size:300%;
+        color:#0f0800;
+        border:none;
+        border-radius:60px;
+        cursor:pointer;
+        box-shadow:0 10px 35px rgba(255,140,0,0.6);
+        transition:all 0.4s;
+        animation:btnPulse 5s infinite alternate;
+    }
+
+    .next-page-btn:hover {
+        transform:scale(1.1);
+        box-shadow:0 20px 60px rgba(255,140,0,0.8);
+    }
+
+    footer {
+        text-align:center;
+        padding:80px 0 120px;
+        color:#ffcc6699;
+        font-size:1.1rem;
     }
 
     @media (max-width:900px) {
         .glow-text { font-size:5.8rem; }
         .scripts-grid { grid-template-columns:1fr; }
+        .next-page-btn { font-size:1.3rem; padding:1.2rem 4rem; }
     }
 </style>
 </head>
@@ -163,7 +222,6 @@
 
     <section class="scripts-grid">
 
-        <!-- Panel 1 -->
         <div class="panel">
             <div class="panel-header">PIGGY</div>
             <div class="panel-body">
@@ -174,7 +232,6 @@
             </div>
         </div>
 
-        <!-- Panel 2 -->
         <div class="panel">
             <div class="panel-header">TAXI BOSS</div>
             <div class="panel-body">
@@ -185,7 +242,6 @@
             </div>
         </div>
 
-        <!-- Panel 3 -->
         <div class="panel">
             <div class="panel-header">FIREWORKS BETA</div>
             <div class="panel-body">
@@ -198,10 +254,33 @@
 
     </section>
 
+    <section class="faq-section">
+        <h2 class="faq-title">F.A.Q</h2>
+
+        <div class="faq-item">
+            <div class="faq-q">Q: Is the script free?</div>
+            <div class="faq-a">A: Yes, completely free & keyless.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">Q: Is the script keyless?</div>
+            <div class="faq-a">A: Yes, completely keyless – no key system at all!</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">Q: When will staff applications open?</div>
+            <div class="faq-a">A: Staff applications will open when we hit 50 members in the Discord!</div>
+        </div>
+    </section>
+
+    <button class="next-page-btn" onclick="window.location.href='page2.html';">
+        → GO TO NEXT PAGE
+    </button>
+
     <footer>
         <p>© 2025–2026 XENA HUB • Free Roblox Scripts</p>
         <p style="margin:2.5rem 0;">
-            <a href="https://discord.gg/qp7bjUTvk5" target="_blank" class="exec-btn discord-btn">
+            <a href="https://discord.gg/qp7bjUTvk5" target="_blank" class="exec-btn" style="text-decoration:none;">
                 JOIN DISCORD
             </a>
         </p>
@@ -212,7 +291,7 @@
 <script>
 function copy(text) {
     navigator.clipboard.writeText(text)
-        .then(() => alert("Script copied! Paste it in your executor now 🔥"))
+        .then(() => alert("Script copied! Paste it in your executor 🔥"))
         .catch(() => prompt("Copy manually:", text));
 }
 </script>
