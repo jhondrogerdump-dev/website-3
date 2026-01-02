@@ -3,353 +3,275 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Roblox Scripts Hub • 2025-2026</title>
+    <title>XENA HUB - Ultimate Script Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-        :root {
-            --bg: #0f0f1a;
-            --dark: #0a0a12;
-            --primary: #7b2cbf;
-            --primary-dark: #5a1e9b;
-            --accent: #00ffea;
-            --text: #e0e0ff;
-            --text-muted: #a0a0cc;
-            --card: #16162a;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        * { margin:0; padding:0; box-sizing:border-box; }
-
         body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background: var(--bg);
-            color: var(--text);
+            background: #0d001a;
+            color: #e0d0ff;
+            font-family: 'Roboto Mono', monospace;
             background-image: 
-                radial-gradient(circle at 25% 15%, rgba(123,44,191,0.12) 0%, transparent 25%),
-                radial-gradient(circle at 75% 85%, rgba(0,255,234,0.08) 0%, transparent 35%);
+                radial-gradient(circle at 20% 30%, rgba(120, 40, 255, 0.12) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(180, 60, 255, 0.09) 0%, transparent 30%);
             background-attachment: fixed;
             line-height: 1.6;
         }
 
-        header {
-            background: linear-gradient(to bottom, rgba(10,10,18,0.95), rgba(10,10,18,0.85));
-            backdrop-filter: blur(10px);
-            padding: 1.2rem 5%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(123,44,191,0.15);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .container {
             max-width: 1400px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(90deg, #9d4edd, #00ffea);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin-left: 2.2rem;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-            text-shadow: 0 0 10px rgba(0,255,234,0.4);
-        }
-
-        .search-container {
-            max-width: 1200px;
-            margin: 2.5rem auto;
-            padding: 0 5%;
+        header {
+            padding: 60px 0 80px;
+            text-align: center;
             position: relative;
         }
 
-        .search-bar {
-            width: 100%;
-            padding: 1rem 1.4rem;
-            font-size: 1.1rem;
-            background: var(--card);
-            border: 2px solid rgba(0,255,234,0.2);
-            border-radius: 12px;
-            color: var(--text);
-            outline: none;
-            transition: all 0.3s;
-        }
-
-        .search-bar:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(0,255,234,0.15);
-        }
-
-        main {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 5%;
-        }
-
-        h1 {
-            font-size: 3.2rem;
-            background: linear-gradient(90deg, #c77dff, #00ffea, #ff6bcb);
+        .glow-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(3.5rem, 8vw, 9rem);
+            font-weight: 900;
+            background: linear-gradient(90deg, #a78bfa, #c084fc, #e879f9, #a78bfa);
+            background-size: 200% auto;
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 40px rgba(168, 85, 247, 0.7);
+            animation: glow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(168, 85, 247, 0.5); }
+            to   { text-shadow: 0 0 80px rgba(168, 85, 247, 0.9), 0 0 120px rgba(168, 85, 247, 0.4); }
+        }
+
+        .subtitle {
+            margin-top: 1rem;
+            font-size: 1.5rem;
+            color: #b19cd9;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .status-bar {
+            background: rgba(30, 10, 60, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 12px;
+            padding: 1rem 2rem;
+            margin: 2rem auto;
+            max-width: 700px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .status-item {
             text-align: center;
-            margin-bottom: 0.8rem;
         }
 
-        .intro-card {
-            background: var(--card);
-            border-radius: 16px;
-            padding: 2rem;
-            margin: 2rem 0;
-            border: 1px solid rgba(123,44,191,0.25);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+        .status-number {
+            font-size: 2.1rem;
+            font-weight: bold;
+            color: #d8b4fe;
         }
 
-        .warning {
-            background: rgba(255, 71, 87, 0.15);
-            border-left: 5px solid #ff4757;
-            padding: 1.1rem 1.4rem;
-            border-radius: 8px;
-            margin: 1.8rem 0;
+        .status-label {
+            font-size: 0.9rem;
+            color: #a78bfa88;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .scripts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-            gap: 1.6rem;
-            margin-top: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.8rem;
+            padding: 40px 0;
         }
 
         .script-card {
-            background: var(--card);
-            border-radius: 12px;
-            padding: 1.6rem;
-            border: 1px solid rgba(0,255,234,0.1);
-            transition: all 0.3s ease;
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .script-card.hidden {
-            display: none;
+            background: rgba(25, 15, 50, 0.45);
+            border: 1px solid rgba(168, 85, 247, 0.25);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.35s ease;
+            backdrop-filter: blur(6px);
+            position: relative;
         }
 
         .script-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--accent);
-            box-shadow: 0 12px 30px rgba(0,255,234,0.14);
+            transform: translateY(-12px);
+            border-color: #c084fc;
+            box-shadow: 0 25px 60px rgba(126, 34, 206, 0.35);
         }
 
-        .script-title {
-            color: var(--accent);
-            margin-bottom: 0.9rem;
+        .card-header {
+            background: linear-gradient(135deg, #4c1d95, #6d28d9);
+            padding: 1.4rem 1.8rem;
+            font-weight: bold;
             font-size: 1.35rem;
+            border-bottom: 2px solid #a78bfa55;
         }
 
-        pre {
-            background: #0a0a14;
-            padding: 1.2rem;
-            border-radius: 9px;
-            overflow-x: auto;
-            font-size: 0.92rem;
-            border: 1px solid rgba(123,44,191,0.18);
+        .card-body {
+            padding: 1.6rem;
         }
 
-        .copy-btn {
-            background: rgba(123,44,191,0.3);
+        .features {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .features li {
+            margin: 0.8rem 0;
+            padding-left: 1.8rem;
+            position: relative;
+        }
+
+        .features li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #c084fc;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #7c3aed, #a855f7);
             color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1.2rem;
+            transition: all 0.3s ease;
             border: none;
-            padding: 0.55rem 1.1rem;
-            border-radius: 6px;
             cursor: pointer;
-            margin-top: 0.9rem;
-            transition: all 0.25s;
         }
 
-        .copy-btn:hover { background: rgba(123,44,191,0.5); }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(126, 34, 206, 0.5);
+        }
 
         footer {
             text-align: center;
-            padding: 4rem 1rem 2.5rem;
-            color: var(--text-muted);
-            border-top: 1px solid rgba(123,44,191,0.15);
-            margin-top: 4rem;
+            padding: 60px 0 100px;
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+
+        .discord-btn {
+            background: linear-gradient(90deg, #5865F2, #7289DA);
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.4rem; }
-            nav { flex-direction: column; gap: 1.2rem; }
-            .nav-links a { margin: 0 1.2rem; }
-            .scripts-grid { grid-template-columns: 1fr; }
+            .glow-text { font-size: 4.5rem; }
+            .status-bar { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <nav>
-        <div class="logo">Roblox<span style="color:#00ffea">Scripts</span></div>
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#scripts">Scripts</a>
-            <a href="#">Rules</a>
-            <a href="#">Tools</a>
-        </div>
-    </nav>
-</header>
+<div class="container">
 
-<div class="search-container">
-    <input type="text" id="searchInput" class="search-bar" placeholder="Search scripts... (brainrot, steal, blox fruits, auto farm, piggy, esp, redz...)">
-</div>
-
-<main>
-
-    <h1>Roblox Scripts Collection <small>January 2026 Edition</small></h1>
-
-    <div class="intro-card">
-        <h2>Trending 2025-2026 Scripts Hub</h2>
-        <p>Steal a Brainrot • Blox Fruits • Piggy • Funny universal tools<br><strong>Private servers / learning only — public = ban speedrun</strong></p>
-
-        <div class="warning">
-            <strong>⚠️ 2026 Reality Check:</strong><br>
-            Hyperion + AI detection = extremely strong<br>
-            Public games → almost instant ban (even loadstring)<br>
-            <strong>Safest:</strong> your places • private servers • alts only
-        </div>
-    </div>
-
-    <section id="scripts" class="scripts-grid">
-
-        <div class="script-card" data-keywords="steal a brainrot steal brainrot auto steal auto lock base dupe inf money">
-            <div class="script-title">Steal a Brainrot - Chilli Hub (Auto Steal + Dupe)</div>
-            <pre><code>loadstring(game:HttpGet("https://pastefy.app/3P0o3D66/raw", true))()</code></pre>
-            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.textContent)">Copy</button>
-        </div>
-
-        <div class="script-card" data-keywords="steal a brainrot steal brainrot lunarhub auto farm esp">
-            <div class="script-title">Steal a Brainrot - Lunar Hub (2026 Popular)</div>
-            <pre><code>loadstring(game:HttpGet("https://raw.githubusercontent.com/VOXHOB/steal-a-brainrot/refs/heads/main/lunarhub.lua"))()</code></pre>
-            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.textContent)">Copy</button>
-        </div>
-
-        <div class="script-card" data-keywords="blox fruits bloxfruits auto farm mastery sea event redz hub">
-            <div class="script-title">Blox Fruits - REDz Hub (Auto Farm + Events 2026)</div>
-            <pre><code>loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruits/main/REDzHub.lua"))()</code></pre>
-            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.textContent)">Copy</button>
-        </div>
-
-        <div class="script-card" data-keywords="blox fruits bloxfruits auto farm quantumonyx fruit sniper">
-            <div class="script-title">Blox Fruits - QuantumOnyx (Auto Farm + Fruit Sniper)</div>
-            <pre><code>loadstring(game:HttpGet("https://raw.githubusercontent.com/flazhy/QuantumOnyx/refs/heads/main/QuantumOnyx.lua"))()</code></pre>
-            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.textContent)">Copy</button>
-        </div>
-
-        <div class="script-card" data-keywords="piggy escape esp teleport god mode auto items">
-            <div class="script-title">Piggy - GUI Exploit (ESP + Teleport + God Mode)</div>
-            <pre><code>loadstring(game:HttpGet("https://raw.githubusercontent.com/BaconBABA/script/refs/heads/main/piggy.lua"))()</code></pre>
-            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.textContent)">Copy</button>
-        </div>
-
-        <div class="script-card" data-keywords="infinite jump jump fly high jump universal">
-            <div class="script-title">Infinite Jump (Toggle - J key)</div>
-            <pre><code>-- Press J to toggle
-local InfiniteJumpEnabled = false
-
-game:GetService("UserInputService").JumpRequest:Connect(function()
-    if InfiniteJumpEnabled then
-        game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
-    end
-end)
-
-game:GetService("UserInputService").InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.J then
-        InfiniteJumpEnabled = not InfiniteJumpEnabled
-        print("Infinite Jump: " .. (InfiniteJumpEnabled and "ON" or "OFF"))
-    end
-end)</code></pre>
-            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.textContent)">Copy</button>
-        </div>
-
-        <div class="script-card" data-keywords="fling flinger everything push yeet">
-            <div class="script-title">Fling Everyone (Funny Universal)</div>
-            <pre><code>for _, plr in ipairs(game.Players:GetPlayers()) do
-    if plr ~= game.Players.LocalPlayer and plr.Character then
-        local hrp = plr.Character:FindFirstChild("HumanoidRootPart")
-        if hrp then
-            local bv = Instance.new("BodyVelocity", hrp)
-            bv.MaxForce = Vector3.new(1e9,1e9,1e9)
-            bv.Velocity = Vector3.new(math.random(-600,600), 300, math.random(-600,600))
-            game.Debris:AddItem(bv, 0.45)
-        end
-    end
-end
-
-print("Flinged everyone (they might get kicked lol)")</code></pre>
-            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.textContent)">Copy</button>
-        </div>
-
-        <div class="script-card" data-keywords="esp redz hub redzhub wallhack simple box">
-            <div class="script-title">Simple Box ESP (Redz Style - Universal)</div>
-            <pre><code>local Players = game:GetService("Players")
-
-for _, player in ipairs(Players:GetPlayers()) do
-    if player ~= Players.LocalPlayer and player.Character then
-        local box = Instance.new("BoxHandleAdornment")
-        box.Size = Vector3.new(4.5, 6.2, 4.5)
-        box.Transparency = 0.6
-        box.Color3 = Color3.fromRGB(255, 60, 60)
-        box.AlwaysOnTop = true
-        box.Adornee = player.Character:FindFirstChild("HumanoidRootPart")
-        box.Parent = player.Character
+    <header>
+        <h1 class="glow-text">XENA HUB</h1>
+        <div class="subtitle">Your #1 Source For Premium Scripts</div>
         
-        player.CharacterAdded:Connect(function(char)
-            box.Adornee = char:WaitForChild("HumanoidRootPart", 8)
-        end)
-    end
-end
+        <div class="status-bar">
+            <div class="status-item">
+                <div class="status-number">120+</div>
+                <div class="status-label">Scripts</div>
+            </div>
+            <div class="status-item">
+                <div class="status-number">45K+</div>
+                <div class="status-label">Downloads</div>
+            </div>
+            <div class="status-item">
+                <div class="status-number">v3.9</div>
+                <div class="status-label">Latest Update</div>
+            </div>
+        </div>
+    </header>
 
-print("Redz-like Box ESP loaded")</code></pre>
-            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.textContent)">Copy</button>
+    <section class="scripts-grid">
+        
+        <div class="script-card">
+            <div class="card-header">Universal Blox Fruits</div>
+            <div class="card-body">
+                <ul class="features">
+                    <li>Auto Farm • Mirage • Raid</li>
+                    <li>Fastest Fruit Finder 2025</li>
+                    <li>Working Boat + Mirage ESP</li>
+                    <li>Full GUI • Keyless option</li>
+                </ul>
+                <a href="#" class="btn">Get Script →</a>
+            </div>
+        </div>
+
+        <div class="script-card">
+            <div class="card-header">Arsenal Godmode + Aimbot</div>
+            <div class="card-body">
+                <ul class="features">
+                    <li>Silent Aim • Wallbang</li>
+                    <li>ESP Boxes + Tracers</li>
+                    <li>Custom Crosshair + Hitbox</li>
+                    <li>Undetectable Jan 2026</li>
+                </ul>
+                <a href="#" class="btn">Get Script →</a>
+            </div>
+        </div>
+
+        <div class="script-card">
+            <div class="card-header">Da Hood Premium</div>
+            <div class="card-body">
+                <ul class="features">
+                    <li>Auto Stomp • Farm Cash</li>
+                    <li>Godmode + Anti-Lock</li>
+                    <li>Best Aimbot + Prediction</li>
+                    <li>Customizable UI</li>
+                </ul>
+                <a href="#" class="btn">Get Script →</a>
+            </div>
+        </div>
+
+        <div class="script-card">
+            <div class="card-header">Pet Simulator 99</div>
+            <div class="card-body">
+                <ul class="features">
+                    <li>Auto Farm • Huge Pets</li>
+                    <li>Teleport • Speed Farm</li>
+                    <li>Auto Sell • Auto Hatch</li>
+                    <li>Working after last wipe</li>
+                </ul>
+                <a href="#" class="btn">Get Script →</a>
+            </div>
         </div>
 
     </section>
 
-</main>
+    <footer>
+        <p>© 2025-2026 XENA HUB • All Rights Reserved</p>
+        <p style="margin-top: 1rem;">
+            <a href="#" class="btn discord-btn" style="padding: 0.8rem 2.5rem;">Join Discord Community</a>
+        </p>
+    </footer>
 
-<footer>
-    <p>Educational & private server use only • 2026 public games = very fast ban</p>
-    <p style="margin-top:1rem; opacity:0.6;">Stay safe, use alts, don't ruin public lobbies ✌️</p>
-</footer>
-
-<script>
-    const searchInput = document.getElementById('searchInput');
-    const cards = document.querySelectorAll('.script-card');
-
-    searchInput.addEventListener('input', (e) => {
-        const query = e.target.value.toLowerCase().trim();
-
-        cards.forEach(card => {
-            const keywords = card.getAttribute('data-keywords') || '';
-            if (query === '') {
-                card.classList.remove('hidden');
-            } else {
-                const matches = keywords.toLowerCase().includes(query);
-                card.classList.toggle('hidden', !matches);
-            }
-        });
-    });
-</script>
+</div>
 
 </body>
-</html> 
+</html>
