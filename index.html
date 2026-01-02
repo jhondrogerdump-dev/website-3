@@ -3,22 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Script Hub • Free Scripts & Tools</title>
-  <meta name="description" content="Free Roblox scripts, executors hub, GUI scripts, admin scripts and more"/>
+  <title>NEON SCRIPT HUB • 2026</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #0f0f11;
-      --bg-card: #16161a;
-      --accent: #7c3aed;
-      --accent-dark: #5c2ea6;
-      --text: #e1e1ea;
-      --text-muted: #9ca3af;
-      --border: #27272a;
+      --bg: #0a0015;
+      --bg-card: rgba(20, 10, 40, 0.45);
+      --glass: rgba(30, 20, 60, 0.25);
+      --accent: #c084fc;
+      --accent-dark: #7c3aed;
+      --cyan: #00f0ff;
+      --pink: #ff2ee7;
+      --text: #f0e6ff;
+      --text-muted: #b0a0d0;
+      --border: rgba(192, 132, 252, 0.3);
     }
 
     * {
@@ -30,113 +32,127 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Inter', system-ui, sans-serif;
-      line-height: 1.5;
+      font-family: 'Orbitron', sans-serif;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(192,132,252,0.08) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(0,240,255,0.06) 0%, transparent 50%);
+      overflow-x: hidden;
     }
 
     .container {
-      max-width: 1400px;
+      max-width: 1600px;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 0 2rem;
     }
 
     header {
-      padding: 1.5rem 0;
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      background: rgba(15,15,17,0.85);
-      backdrop-filter: blur(10px);
-      z-index: 100;
-    }
-
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
+      padding: 2rem 0 1.5rem;
+      position: relative;
+      text-align: center;
     }
 
     .logo {
-      font-family: 'JetBrains Mono', monospace;
+      font-size: 3.8rem;
       font-weight: 700;
-      font-size: 1.75rem;
-      background: linear-gradient(90deg, #a78bfa, #c084fc);
+      letter-spacing: 6px;
+      background: linear-gradient(90deg, #c084fc, #00f0ff, #ff2ee7, #c084fc);
+      background-size: 200% 200%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      animation: gradientFlow 12s ease infinite;
+      text-shadow: 0 0 20px rgba(192,132,252,0.6);
+    }
+
+    @keyframes gradientFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .subtitle {
+      margin-top: 0.6rem;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
     .search-bar {
-      flex: 1;
-      max-width: 500px;
+      max-width: 600px;
+      margin: 2rem auto;
       position: relative;
     }
 
     .search-bar input {
       width: 100%;
-      padding: 0.75rem 1rem 0.75rem 2.8rem;
-      background: var(--bg-card);
+      padding: 1.1rem 1.5rem 1.1rem 3.2rem;
+      background: var(--glass);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 50px;
       color: var(--text);
-      font-size: 0.95rem;
+      font-size: 1.1rem;
+      font-family: 'JetBrains Mono', monospace;
+      backdrop-filter: blur(12px);
+      transition: all 0.3s;
     }
 
     .search-bar input:focus {
       outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(124,58,237,0.15);
+      border-color: var(--cyan);
+      box-shadow: 0 0 25px rgba(0,240,255,0.35);
     }
 
     .search-icon {
       position: absolute;
-      left: 1rem;
+      left: 1.4rem;
       top: 50%;
       transform: translateY(-50%);
+      font-size: 1.4rem;
       color: var(--text-muted);
-      font-size: 1.1rem;
     }
 
     main {
-      padding: 2.5rem 0;
-    }
-
-    h1 {
-      font-size: 2.25rem;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-
-    .subtitle {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      margin-bottom: 2rem;
+      padding: 2rem 0 5rem;
     }
 
     .script-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 1.8rem;
     }
 
     .script-card {
-      background: var(--bg-card);
+      background: var(--glass);
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: 16px;
       overflow: hidden;
-      transition: all 0.18s ease;
+      backdrop-filter: blur(12px);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
+      cursor: pointer;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
     }
 
     .script-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+      transform: translateY(-12px) scale(1.03);
+      border-color: var(--cyan);
+      box-shadow: 0 20px 50px rgba(0,240,255,0.25), inset 0 0 30px rgba(192,132,252,0.12);
     }
 
+    .card-glow {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent, rgba(192,132,252,0.15), transparent);
+      opacity: 0;
+      transition: opacity 0.6s;
+      pointer-events: none;
+    }
+
+    .script-card:hover .card-glow { opacity: 1; }
+
     .card-header {
-      padding: 1.25rem 1.25rem 0.75rem;
+      padding: 1.4rem 1.6rem 0.8rem;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
@@ -144,165 +160,222 @@
     }
 
     .script-title {
-      font-size: 1.25rem;
+      font-size: 1.45rem;
       font-weight: 600;
+      letter-spacing: 1px;
       line-height: 1.3;
     }
 
-    .tag {
-      background: rgba(124,58,237,0.15);
-      color: #c084fc;
-      padding: 0.25rem 0.65rem;
-      border-radius: 999px;
+    .hot-badge {
+      background: linear-gradient(45deg, #ff2ee7, #ff006e);
+      color: white;
+      padding: 0.35rem 0.9rem;
+      border-radius: 50px;
       font-size: 0.78rem;
-      font-weight: 500;
-      white-space: nowrap;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 0 15px rgba(255,46,231,0.6);
+    }
+
+    .tag {
+      background: rgba(0,240,255,0.15);
+      color: var(--cyan);
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      border: 1px solid rgba(0,240,255,0.3);
     }
 
     .card-description {
-      padding: 0 1.25rem 1.25rem;
+      padding: 0 1.6rem 1.4rem;
       color: var(--text-muted);
-      font-size: 0.92rem;
-      line-height: 1.45;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.94rem;
+      line-height: 1.5;
     }
 
-    .card-footer {
-      padding: 0.9rem 1.25rem;
-      border-top: 1px solid var(--border);
+    /* ── SCRIPT PANEL ─────────────────────────────────────── */
+    .script-panel {
+      position: fixed;
+      inset: 0;
+      background: rgba(10,5,20,0.92);
+      backdrop-filter: blur(16px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 2rem;
+    }
+
+    .panel-content {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 1100px;
+      max-height: 92vh;
+      overflow: hidden;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.7);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel-header {
+      padding: 1.4rem 2rem;
+      border-bottom: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 0.85rem;
-      color: var(--text-muted);
     }
 
-    .copy-btn {
+    .panel-title {
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+    }
+
+    .close-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 2rem;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .close-btn:hover { color: var(--cyan); }
+
+    .code-container {
+      flex: 1;
+      padding: 1.5rem 2rem;
+      background: #0d001a;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.96rem;
+      color: #d0c0ff;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      position: relative;
+    }
+
+    .code-line {
+      counter-increment: line;
+    }
+
+    .code-line::before {
+      content: counter(line);
+      display: inline-block;
+      width: 3.2rem;
+      color: var(--text-muted);
+      text-align: right;
+      margin-right: 1.5rem;
+      user-select: none;
+    }
+
+    .copy-code-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      background: rgba(192,132,252,0.25);
+      color: var(--text);
+      border: 1px solid var(--accent);
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .copy-code-btn:hover {
       background: var(--accent);
       color: white;
-      border: none;
-      padding: 0.55rem 1.1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 500;
-      transition: background 0.15s;
+      box-shadow: 0 0 20px rgba(192,132,252,0.5);
     }
 
-    .copy-btn:hover {
-      background: var(--accent-dark);
-    }
-
-    .copy-btn.copied {
-      background: #10b981;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    @media (max-width: 768px) {
-      .script-grid { grid-template-columns: 1fr; }
-      .search-bar { max-width: 100%; }
-    }
+    .hidden { display: none !important; }
   </style>
 </head>
 <body>
 
 <header>
   <div class="container">
-    <div class="header-content">
-      <div class="logo">SCRIPT<span style="color:#c084fc">HUB</span></div>
-      
-      <div class="search-bar">
-        <span class="search-icon">🔍</span>
-        <input type="text" id="searchInput" placeholder="Search scripts (fly, aimbot, gui, hub...)"/>
-      </div>
-    </div>
+    <div class="logo">NEON SCRIPT HUB</div>
+    <div class="subtitle">2026 • FREE • WORKING • DANGEROUSLY GOOD</div>
   </div>
 </header>
 
 <main class="container">
-  <h1>Popular Scripts Right Now</h1>
-  <p class="subtitle">Latest working free scripts • Updated January 2026</p>
-
-  <div class="script-grid" id="scriptGrid">
-    <!-- Scripts will be inserted here by JS -->
+  <div class="search-bar">
+    <span class="search-icon">⌕</span>
+    <input type="text" id="searchInput" placeholder="Search fly, aimbot, autofarm, gui..."/>
   </div>
+
+  <div class="script-grid" id="scriptGrid"></div>
 </main>
 
+<!-- SCRIPT PANEL -->
+<div class="script-panel" id="scriptPanel">
+  <div class="panel-content">
+    <div class="panel-header">
+      <div class="panel-title" id="panelTitle"></div>
+      <button class="close-btn" onclick="closePanel()">×</button>
+    </div>
+    <div class="code-container" id="codeContainer">
+      <button class="copy-code-btn" id="copyCodeBtn">Copy Full Script</button>
+      <div id="codeContent"></div>
+    </div>
+  </div>
+</div>
+
 <script>
-// You can later move this data to external JSON file / backend
+// Sample data - you can move to json later
 const scripts = [
   {
-    title: "Universal Admin Panel v3",
-    description: "Powerful admin commands, moderation tools, server stats, player list + dark UI",
-    tags: ["Admin", "Universal"],
-    date: "2 days ago",
-    hot: true
+    title: "Universal Godmode Hub v4",
+    description: "Full admin + godmode + visuals + movement hacks. Still undetected in Jan 2026.",
+    tags: ["Universal", "OP"],
+    hot: true,
+    code: `--[[ NEON HUB V4 - 2026 WORKING ]]\n\nlocal Players = game:GetService("Players")\nlocal RunService = game:GetService("RunService")\n\n-- Config\n_G.Speed = 120\n_G.Fly = false\n_G.God = true\n\n-- Main Loop\nRunService.Heartbeat:Connect(function()\n    if _G.God then\n        pcall(function()\n            Players.LocalPlayer.Character.Humanoid.Health = 9999\n        end)\n    end\nend)\n\n-- Fly toggle example\n-- more code here...`
   },
   {
-    title: "Infinity Yield Admin",
-    description: "The legendary admin script - still one of the strongest free options in 2026",
-    tags: ["Admin", "OP"],
-    date: "1 week ago"
+    title: "Blox Fruits Mirage + Auto Farm",
+    description: "Auto Mirage island + fruit notifier + fast boat + raid farm",
+    tags: ["Blox Fruits", "Auto"],
+    hot: true,
+    code: `-- Blox Fruits Auto Mirage 2026\nlocal HttpService = game:GetService("HttpService")\n\n-- Simple example\nwhile true do\n    wait(0.8)\n    -- Check fruit spawn logic here\n    print("Scanning for Mirage...")\nend`
   },
   {
-    title: "Fly + ESP GUI 2026",
-    description: "Smooth flying, ESP, fullbright, speed hack, no-clip - updated for latest anti-cheats",
-    tags: ["Fly", "ESP", "Visuals"],
-    date: "Yesterday",
-    hot: true
+    title: "Arsenal Silent Aim + Wallbang",
+    description: "Strongest silent aim 2026 + fov circle + prediction",
+    tags: ["Arsenal", "Aimbot"],
+    code: `local Camera = workspace.CurrentCamera\nlocal Players = game:GetService("Players")\n\nlocal function getClosest()\n    -- silent aim logic\nend\n\n-- more advanced code...`
   },
   {
-    title: "Arsenal Silent Aim + ESP",
-    description: "Very strong silent aim, box ESP, tracer, health bars - works in 2026",
-    tags: ["FPS", "Arsenal", "Aimbot"],
-    date: "3 days ago"
-  },
-  {
-    title: "Blox Fruits Auto Farm Hub",
-    description: "Auto farm, auto raid, fruit notifier, fast teleport - very stable",
-    tags: ["Blox Fruits", "Auto Farm"],
-    date: "Today",
-    hot: true
-  },
-  {
-    title: "Doors Entity Remover + Speed",
-    description: "Remove entities, walk speed, noclip - still working after latest update",
+    title: "Doors Entity Remover + Noclip",
+    description: "Remove rush/ambush + speed + noclip + esp",
     tags: ["Doors", "Exploit"],
-    date: "4 days ago"
+    code: `-- Doors Entity Skip\nfor _, v in pairs(workspace:GetDescendants()) do\n    if v.Name == "RushMoving" then v:Destroy() end\nend`
   }
 ];
 
 const grid = document.getElementById("scriptGrid");
 const searchInput = document.getElementById("searchInput");
+const panel = document.getElementById("scriptPanel");
+const panelTitle = document.getElementById("panelTitle");
+const codeContent = document.getElementById("codeContent");
+const copyCodeBtn = document.getElementById("copyCodeBtn");
 
-function createCard(script) {
+function createCard(script, index) {
   const card = document.createElement("div");
   card.className = "script-card";
   card.innerHTML = `
+    <div class="card-glow"></div>
     <div class="card-header">
-      <div class="script-title">\( {script.title} \){script.hot ? ' <span style="color:#f87171;font-size:0.9rem;">HOT</span>' : ''}</div>
+      <div class="script-title">\( {script.title} \){script.hot ? ' <span class="hot-badge">HOT</span>' : ''}</div>
       <div>\( {script.tags.map(t => `<span class="tag"> \){t}</span>`).join(' ')}</div>
     </div>
     <div class="card-description">${script.description}</div>
-    <div class="card-footer">
-      <span>${script.date}</span>
-      <button class="copy-btn">Copy Script</button>
-    </div>
   `;
 
-  card.querySelector(".copy-btn").onclick = () => {
-    const btn = card.querySelector(".copy-btn");
-    btn.textContent = "Copied!";
-    btn.classList.add("copied");
-    setTimeout(() => {
-      btn.textContent = "Copy Script";
-      btn.classList.remove("copied");
-    }, 2000);
-
-    // In real version you would copy actual script code here
-    navigator.clipboard.writeText(`-- Paste real ${script.title} script here --`);
-  };
+  card.onclick = () => openPanel(script);
 
   return card;
 }
@@ -317,21 +390,41 @@ function renderScripts(filter = "") {
       s.description.toLowerCase().includes(term) ||
       s.tags.some(t => t.toLowerCase().includes(term))
     )
-    .forEach(script => {
-      grid.appendChild(createCard(script));
+    .forEach((script, i) => {
+      grid.appendChild(createCard(script, i));
     });
 
   if (grid.children.length === 0) {
-    grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--text-muted);">No scripts found for your search...</p>';
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:6rem;color:var(--text-muted);font-size:1.3rem;">No signals found in the void...</div>';
   }
 }
 
-// Initial render
-renderScripts();
+function openPanel(script) {
+  panelTitle.textContent = script.title;
+  codeContent.innerHTML = script.code
+    .split('\n')
+    .map(line => `<div class="code-line">${line}</div>`)
+    .join('');
+  
+  panel.style.display = "flex";
+  
+  copyCodeBtn.onclick = () => {
+    navigator.clipboard.writeText(script.code);
+    copyCodeBtn.textContent = "Copied!";
+    setTimeout(() => copyCodeBtn.textContent = "Copy Full Script", 1800);
+  };
+}
 
-// Live search
-searchInput.addEventListener("input", e => {
-  renderScripts(e.target.value);
+function closePanel() {
+  panel.style.display = "none";
+}
+
+renderScripts();
+searchInput.addEventListener("input", e => renderScripts(e.target.value));
+
+// Close panel on escape
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closePanel();
 });
 </script>
 </body>
