@@ -3,187 +3,223 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>XENA HUB • Features & Upcoming</title>
+<title>XENA HUB • Script Features</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
     body {
-        background:#0f0800;
-        color:#ffe680;
-        font-family:'Roboto Mono', monospace;
-        min-height:100vh;
+        background: #0f0800;
+        color: #ffe680;
+        font-family: 'Roboto Mono', monospace;
+        min-height: 100vh;
         background-image:
-            radial-gradient(circle at 15% 20%, rgba(255,200,40,0.18) 0%, transparent 30%),
-            radial-gradient(circle at 85% 75%, rgba(255,160,0,0.16) 0%, transparent 35%);
-        background-attachment:fixed;
+            radial-gradient(circle at 10% 15%, rgba(255,220,60,0.22) 0%, transparent 35%),
+            radial-gradient(circle at 90% 80%, rgba(255,170,0,0.20) 0%, transparent 40%);
+        background-attachment: fixed;
+        overflow-x: hidden;
     }
 
     .container {
-        max-width:1280px;
-        margin:0 auto;
-        padding:0 20px;
-        position:relative;
-        z-index:1;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 0 25px;
+        position: relative;
+        z-index: 1;
     }
 
     header {
-        padding:100px 0 60px;
-        text-align:center;
+        padding: 120px 0 70px;
+        text-align: center;
+        position: relative;
     }
 
     .glow-text {
-        font-family:'Orbitron', sans-serif;
-        font-size:clamp(4.5rem,10vw,10rem);
-        font-weight:900;
-        background:linear-gradient(90deg, #ffd700, #ffaa00, #ff8800, #ffd700);
-        background-size:300% auto;
-        -webkit-background-clip:text;
-        background-clip:text;
-        -webkit-text-fill-color:transparent;
-        text-shadow:0 0 40px #ffaa0088, 0 0 80px #ff8800cc;
-        animation:neon 5s ease-in-out infinite;
+        font-family: 'Orbitron', sans-serif;
+        font-size: clamp(4.8rem, 10vw, 11rem);
+        font-weight: 900;
+        background: linear-gradient(90deg, #fff200, #ffcc00, #ff9900, #fff200);
+        background-size: 400% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 
+            0 0 30px #ffcc0088,
+            0 0 60px #ff9900aa,
+            0 0 100px #ff7700;
+        animation: neonPulse 7s ease-in-out infinite;
     }
 
-    @keyframes neon {
-        0%,100% { background-position:0% 50%; }
-        50%     { background-position:300% 50%; }
+    @keyframes neonPulse {
+        0%, 100% { background-position: 0% 50%; text-shadow: 0 0 30px #ffcc0088, 0 0 60px #ff9900aa; }
+        50%      { background-position: 400% 50%; text-shadow: 0 0 50px #ffcc00cc, 0 0 90px #ff9900ff; }
     }
 
     .subtitle {
-        margin-top:1rem;
-        font-size:1.8rem;
-        color:#ffcc66;
-        letter-spacing:4px;
-        text-transform:uppercase;
-        font-weight:300;
+        margin-top: 1.2rem;
+        font-size: 1.9rem;
+        color: #ffdd88;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        font-weight: 300;
+        text-shadow: 0 0 15px rgba(255, 200, 0, 0.6);
     }
 
     .features-section {
-        padding:40px 0 80px;
+        padding: 40px 0 100px;
     }
 
     .feature-card {
-        background:rgba(35,20,0,0.7);
-        border:2px solid rgba(255,180,0,0.4);
-        border-radius:18px;
-        overflow:hidden;
-        backdrop-filter:blur(10px);
-        margin-bottom:2.5rem;
-        box-shadow:0 10px 35px rgba(0,0,0,0.65);
-        transition:all 0.45s ease;
+        background: rgba(40, 22, 0, 0.72);
+        border: 2px solid rgba(255, 190, 0, 0.45);
+        border-radius: 22px;
+        overflow: hidden;
+        backdrop-filter: blur(12px);
+        margin-bottom: 3rem;
+        box-shadow: 0 12px 40px rgba(0,0,0,0.7);
+        transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        position: relative;
+    }
+
+    .feature-card::before {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        background: linear-gradient(45deg, transparent, rgba(255, 200, 0, 0.4), transparent);
+        border-radius: 24px;
+        opacity: 0;
+        transition: opacity 0.6s;
+        pointer-events: none;
     }
 
     .feature-card:hover {
-        transform:translateY(-12px);
-        border-color:#ffd700;
-        box-shadow:0 25px 70px rgba(255,140,0,0.55);
+        transform: translateY(-16px) scale(1.02);
+        border-color: #fff200;
+        box-shadow: 0 30px 80px rgba(255, 170, 0, 0.55);
+    }
+
+    .feature-card:hover::before {
+        opacity: 1;
     }
 
     .feature-header {
-        background:linear-gradient(135deg, #b38f00, #e6b800);
-        padding:1.6rem;
-        font-family:'Orbitron', sans-serif;
-        font-weight:800;
-        font-size:1.9rem;
-        text-align:center;
-        color:#0f0800;
-        text-shadow:0 1px 3px rgba(0,0,0,0.5);
-        border-bottom:3px solid #ffcc0088;
+        background: linear-gradient(135deg, #c2a300, #ffcc00, #ffb300);
+        padding: 1.8rem;
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 900;
+        font-size: 2rem;
+        text-align: center;
+        color: #0f0800;
+        text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+        border-bottom: 4px solid rgba(255, 255, 255, 0.2);
     }
 
     .feature-list {
-        padding:2.2rem 2.5rem;
-        font-size:1.15rem;
-        color:#ffe680;
-        line-height:1.8;
+        padding: 2.6rem 3rem;
+        font-size: 1.22rem;
+        color: #fff0c2;
+        line-height: 2;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.4);
     }
 
     .feature-list li {
-        margin:1rem 0;
-        position:relative;
-        padding-left:2rem;
+        margin: 1.2rem 0;
+        position: relative;
+        padding-left: 2.2rem;
     }
 
     .feature-list li::before {
-        content:"・";
-        position:absolute;
-        left:0;
-        color:#ffd700;
-        font-size:1.6rem;
-        line-height:1;
+        content: "✦";
+        position: absolute;
+        left: 0;
+        color: #fff200;
+        font-size: 1.4rem;
     }
 
     .upcoming-section {
-        max-width:900px;
-        margin:0 auto 100px;
-        padding:40px;
-        background:rgba(35,20,0,0.6);
-        border:2px solid rgba(255,180,0,0.35);
-        border-radius:18px;
-        backdrop-filter:blur(10px);
+        max-width: 900px;
+        margin: 0 auto 120px;
+        padding: 50px;
+        background: rgba(40, 22, 0, 0.65);
+        border: 2px solid rgba(255, 190, 0, 0.4);
+        border-radius: 22px;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 15px 50px rgba(0,0,0,0.7);
     }
 
     .upcoming-title {
-        font-family:'Orbitron', sans-serif;
-        font-size:2.4rem;
-        text-align:center;
-        margin-bottom:1.8rem;
-        color:#ffd700;
-        text-shadow:0 0 20px #ffaa00aa;
-    }
-
-    .upcoming-list {
-        font-size:1.4rem;
-        text-align:center;
-        color:#ffcc66;
+        font-family: 'Orbitron', sans-serif;
+        font-size: 2.6rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        background: linear-gradient(90deg, #fff200, #ffcc00);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 25px rgba(255, 200, 0, 0.7);
     }
 
     .upcoming-list li {
-        margin:1.2rem 0;
-        font-weight:300;
+        font-size: 1.5rem;
+        text-align: center;
+        margin: 1.5rem 0;
+        color: #ffdd88;
+        font-weight: 300;
     }
 
-    .back-btn {
-        display:block;
-        margin:60px auto;
-        padding:1.3rem 4.5rem;
-        font-size:1.4rem;
-        font-weight:700;
-        background:linear-gradient(90deg, #ffaa00, #ffd700, #ffcc00);
-        background-size:300%;
-        color:#0f0800;
-        border:none;
-        border-radius:60px;
-        cursor:pointer;
-        box-shadow:0 10px 35px rgba(255,140,0,0.6);
-        transition:all 0.4s;
-        animation:btnPulse 5s infinite alternate;
-        text-decoration:none;
-        text-align:center;
+    .nav-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        flex-wrap: wrap;
+        margin: 60px 0 100px;
     }
 
-    .back-btn:hover {
-        transform:scale(1.08);
-        box-shadow:0 20px 60px rgba(255,140,0,0.8);
+    .nav-btn {
+        padding: 1.4rem 5rem;
+        font-size: 1.45rem;
+        font-weight: 700;
+        background: linear-gradient(90deg, #ffaa00, #fff200, #ffcc00);
+        background-size: 400%;
+        color: #0f0800;
+        border: none;
+        border-radius: 60px;
+        cursor: pointer;
+        box-shadow: 0 10px 40px rgba(255, 170, 0, 0.6);
+        transition: all 0.4s;
+        animation: btnFlow 6s infinite alternate;
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
     }
 
-    @keyframes btnPulse {
-        0%   { background-position:0% 50%; }
-        100% { background-position:300% 50%; }
+    .nav-btn:hover {
+        transform: translateY(-6px) scale(1.08);
+        box-shadow: 0 25px 70px rgba(255, 170, 0, 0.85);
+    }
+
+    @keyframes btnFlow {
+        0%   { background-position: 0% 50%; }
+        100% { background-position: 400% 50%; }
     }
 
     footer {
-        text-align:center;
-        padding:80px 0 120px;
-        color:#ffcc6699;
-        font-size:1.1rem;
+        text-align: center;
+        padding: 100px 0 140px;
+        color: #ffdd8899;
+        font-size: 1.15rem;
     }
 
-    @media (max-width:900px) {
-        .glow-text { font-size:5rem; }
+    @media (max-width: 900px) {
+        .glow-text { font-size: 5.5rem; }
+        .nav-buttons { flex-direction: column; gap: 2rem; }
     }
 </style>
 </head>
@@ -192,8 +228,8 @@
 <div class="container">
 
     <header>
-        <h1 class="glow-text">FEATURES</h1>
-        <div class="subtitle">What Our Scripts Can Do</div>
+        <h1 class="glow-text">XENA HUB</h1>
+        <div class="subtitle">SCRIPT FEATURES • FREE AND KEYLESS</div>
     </header>
 
     <section class="features-section">
@@ -236,15 +272,13 @@
         </ul>
     </section>
 
-    <a href="index.html" class="back-btn">← BACK TO MAIN PAGE</a>
+    <div class="nav-buttons">
+        <a href="index.html" class="nav-btn">← BACK TO MAIN PAGE</a>
+        <a href="https://discord.gg/qp7bjUTvk5" target="_blank" class="nav-btn">JOIN DISCORD COMMUNITY</a>
+    </div>
 
     <footer>
-        <p>© 2025–2026 XENA HUB • Free Roblox Scripts</p>
-        <p style="margin:2.5rem 0;">
-            <a href="https://discord.gg/qp7bjUTvk5" target="_blank" class="back-btn" style="padding:1.1rem 4rem; font-size:1.3rem;">
-                JOIN DISCORD
-            </a>
-        </p>
+        <p>© 2026 XENA HUB • Free & Keyless Roblox Scripts</p>
     </footer>
 
 </div>
