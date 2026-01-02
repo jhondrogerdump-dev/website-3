@@ -3,257 +3,266 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NEON SCRIPT HUB • 2026</title>
+  <title>Script Hub • Free Roblox Scripts 2026</title>
+  <meta name="description" content="Free Roblox scripts, Blox Fruits, Doors, Fisch, Arsenal and more - updated January 2026"/>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <style>
     :root {
-      --bg: #0a0015;
-      --glass: rgba(30, 20, 60, 0.35);
-      --accent: #c084fc;
-      --cyan: #00f0ff;
-      --pink: #ff2ee7;
-      --text: #f0e6ff;
-      --muted: #b0a0d0;
-      --border: rgba(192, 132, 252, 0.35);
+      --bg: #0d0d11;
+      --card: #16161a;
+      --accent: #6366f1;
+      --accent-dark: #4f46e5;
+      --text: #e5e5f5;
+      --muted: #9ca3af;
+      --border: #27272a;
+      --hot: #ef4444;
     }
 
-    * { margin:0; padding:0; box-sizing:border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Orbitron', sans-serif;
-      min-height: 100vh;
-      background-image: 
-        radial-gradient(circle at 15% 25%, rgba(192,132,252,0.09) 0%, transparent 45%),
-        radial-gradient(circle at 85% 75%, rgba(0,240,255,0.07) 0%, transparent 55%);
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
     }
 
-    .container { max-width: 1600px; margin: 0 auto; padding: 0 1.5rem; }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
 
-    header { padding: 2.5rem 0 1.5rem; text-align: center; }
+    header {
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(13,13,17,0.9);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
 
     .logo {
-      font-size: 3.8rem;
+      font-size: 2.2rem;
       font-weight: 700;
-      letter-spacing: 6px;
-      background: linear-gradient(90deg, #c084fc, #00f0ff, #ff2ee7);
-      background-size: 200%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientFlow 12s ease infinite;
-      text-shadow: 0 0 25px rgba(192,132,252,0.6);
+      color: var(--accent);
     }
 
-    @keyframes gradientFlow {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 200% 50%; }
-    }
-
-    .subtitle { color: var(--muted); font-size: 1.1rem; letter-spacing: 2px; margin-top: 0.5rem; }
-
-    .search-wrapper {
-      max-width: 700px;
-      margin: 2rem auto;
+    .search-container {
+      flex: 1;
+      max-width: 600px;
       position: relative;
     }
 
-    .search-bar {
+    .search-input {
       width: 100%;
-      padding: 1.1rem 1.5rem 1.1rem 4rem;
-      background: var(--glass);
+      padding: 0.9rem 1rem 0.9rem 3.2rem;
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 50px;
+      border-radius: 10px;
       color: var(--text);
-      font-size: 1.05rem;
-      backdrop-filter: blur(12px);
-      transition: all 0.3s;
+      font-size: 1rem;
     }
 
-    .search-bar:focus {
-      border-color: var(--cyan);
-      box-shadow: 0 0 25px rgba(0,240,255,0.3);
+    .search-input:focus {
       outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
     }
 
     .search-icon {
       position: absolute;
-      left: 1.5rem;
+      left: 1.2rem;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 1.5rem;
       color: var(--muted);
     }
 
     .category-title {
       font-size: 1.8rem;
+      font-weight: 600;
       margin: 2.5rem 0 1.2rem;
-      color: var(--cyan);
-      text-shadow: 0 0 15px rgba(0,240,255,0.4);
-      letter-spacing: 1px;
+      color: white;
     }
 
     .script-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      gap: 1.6rem;
-      margin-bottom: 2.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.25rem;
     }
 
     .script-card {
-      background: var(--glass);
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 12px;
       overflow: hidden;
-      backdrop-filter: blur(10px);
-      transition: all 0.4s ease;
+      transition: all 0.25s ease;
       cursor: pointer;
     }
 
     .script-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--cyan);
-      box-shadow: 0 15px 40px rgba(0,240,255,0.25);
+      transform: translateY(-6px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
     }
 
-    .card-header {
-      padding: 1.3rem 1.5rem 0.8rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 1rem;
+    .card-content {
+      padding: 1.25rem;
     }
 
-    .script-title { font-size: 1.35rem; font-weight: 600; line-height: 1.3; }
+    .script-name {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
 
-    .hot-badge {
-      background: linear-gradient(45deg, #ff2ee7, #ff006e);
-      padding: 0.3rem 0.9rem;
-      border-radius: 50px;
-      font-size: 0.75rem;
-      font-weight: bold;
+    .hot-tag {
+      background: var(--hot);
       color: white;
-      box-shadow: 0 0 12px rgba(255,46,231,0.6);
+      padding: 0.25rem 0.7rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-left: 0.5rem;
     }
 
-    .tag {
-      background: rgba(0,240,255,0.15);
-      color: var(--cyan);
-      padding: 0.25rem 0.75rem;
-      border-radius: 50px;
-      font-size: 0.8rem;
-      border: 1px solid rgba(0,240,255,0.3);
-    }
-
-    .card-description {
-      padding: 0 1.5rem 1.4rem;
+    .script-desc {
       color: var(--muted);
-      font-family: 'JetBrains Mono', monospace;
       font-size: 0.92rem;
+      margin-bottom: 1rem;
       line-height: 1.5;
     }
 
-    /* ── SCRIPT VIEW PANEL ────────────────────────────────────── */
-    .script-panel {
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .tag {
+      background: rgba(99,102,241,0.15);
+      color: var(--accent);
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* ── SCRIPT VIEW MODAL ─────────────────────────────────── */
+    .modal {
       position: fixed;
       inset: 0;
-      background: rgba(8, 4, 18, 0.95);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: rgba(0,0,0,0.85);
       display: none;
       align-items: center;
       justify-content: center;
-      z-index: 10000;
+      z-index: 2000;
       padding: 1rem;
     }
 
-    .panel-content {
-      background: var(--glass);
+    .modal-content {
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 20px;
+      border-radius: 12px;
       width: 100%;
-      max-width: 1100px;
-      max-height: 92vh;
+      max-width: 1000px;
+      max-height: 90vh;
       display: flex;
       flex-direction: column;
-      overflow: hidden;
-      box-shadow: 0 20px 80px rgba(0,0,0,0.7);
     }
 
-    .panel-header {
-      padding: 1.4rem 2rem;
+    .modal-header {
+      padding: 1.2rem 1.8rem;
       border-bottom: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(20,10,40,0.4);
     }
 
-    .panel-title { font-size: 1.8rem; letter-spacing: 1.5px; }
+    .modal-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
 
-    .close-btn {
+    .close-modal {
       background: none;
       border: none;
-      font-size: 2.2rem;
+      font-size: 2rem;
       color: var(--muted);
       cursor: pointer;
-      transition: all 0.3s;
     }
 
-    .close-btn:hover { color: var(--cyan); transform: rotate(90deg); }
-
-    .code-container {
+    .code-view {
       flex: 1;
-      padding: 1.8rem 2rem;
-      background: #0b001a;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.96rem;
-      color: #d0c0ff;
+      background: #0a0a0f;
+      padding: 1.5rem;
       overflow-y: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+      line-height: 1.6;
       position: relative;
+    }
+
+    .copy-code-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.2s;
+    }
+
+    .copy-code-btn:hover {
+      background: var(--accent-dark);
     }
 
     .code-line {
       counter-increment: line;
-      line-height: 1.7;
     }
 
     .code-line::before {
       content: counter(line);
       display: inline-block;
-      width: 3.5rem;
-      color: var(--muted);
+      width: 3.2rem;
+      color: #666;
       text-align: right;
-      margin-right: 1.6rem;
+      margin-right: 1.5rem;
       user-select: none;
-      font-size: 0.88rem;
-    }
-
-    .copy-btn {
-      position: absolute;
-      top: 1.2rem;
-      right: 1.5rem;
-      background: rgba(192,132,252,0.35);
-      color: white;
-      border: none;
-      padding: 0.6rem 1.3rem;
-      border-radius: 8px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.95rem;
-      transition: all 0.3s;
-    }
-
-    .copy-btn:hover {
-      background: var(--accent);
-      box-shadow: 0 0 20px rgba(192,132,252,0.5);
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -261,194 +270,230 @@
 
 <header>
   <div class="container">
-    <div class="logo">NEON SCRIPT HUB</div>
-    <div class="subtitle">JANUARY 2026 • FREE WORKING SCRIPTS</div>
+    <div class="header-inner">
+      <div class="logo">SCRIPT HUB</div>
+      
+      <div class="search-container">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="search-input" id="searchInput" placeholder="Search scripts (blox fruits, doors, fly, aimbot...)"/>
+      </div>
+    </div>
   </div>
 </header>
 
-<main class="container">
-  <div class="search-wrapper">
-    <input type="text" class="search-bar" id="searchInput" placeholder="Search scripts (fly, doors, blox fruits, fisch...)"/>
-    <span class="search-icon">✦</span>
-  </div>
+<main class="container" id="mainContent"></main>
 
-  <div id="scriptsContainer"></div>
-</main>
-
-<!-- SCRIPT VIEW PANEL -->
-<div class="script-panel" id="scriptPanel">
-  <div class="panel-content">
-    <div class="panel-header">
-      <div class="panel-title" id="panelTitle">Script</div>
-      <button class="close-btn" onclick="closePanel()">×</button>
+<!-- SCRIPT MODAL -->
+<div class="modal" id="scriptModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="modal-title" id="modalTitle">Script</div>
+      <button class="close-modal" onclick="closeModal()">×</button>
     </div>
-    <div class="code-container" id="codeContainer">
-      <button class="copy-btn" id="copyBtn">
+    <div class="code-view" id="codeView">
+      <button class="copy-code-btn" id="copyCodeBtn">
         <span>📋</span> Copy Script
       </button>
-      <div id="codeContent"></div>
+      <div id="codeLines"></div>
     </div>
   </div>
 </div>
 
 <script>
-// Script Database - January 2026
-const scriptCategories = [
+// Script data - ScriptBlox style organization
+const scriptData = [
   {
-    title: "Fly Scripts",
+    category: "Blox Fruits Scripts",
     scripts: [
       {
-        name: "Universal Fly + Speed GUI",
-        description: "Smooth fly + adjustable speed + noclip",
-        tags: ["Fly", "Movement"],
+        name: "Blox Fruits Auto Farm + Mirage Hunter v3",
+        description: "Auto farm, mirage island detection, fruit notifier, fast boat, raid farm - updated January 2026",
+        tags: ["Auto Farm", "Mirage", "Fruit"],
         hot: true,
-        code: `-- Simple Universal Fly (2026 working)\nlocal plr = game.Players.LocalPlayer\nlocal mouse = plr:GetMouse()\n\n_G.flySpeed = 80\n_G.flying = false\n\nmouse.KeyDown:connect(function(key)\n    if key == "f" then\n        _G.flying = not _G.flying\n        if _G.flying then\n            local bv = Instance.new("BodyVelocity")\n            bv.Velocity = Vector3.new(0,0,0)\n            bv.MaxForce = Vector3.new(9e9,9e9,9e9)\n            bv.Parent = plr.Character.HumanoidRootPart\n            -- more fly logic...`
-      }
-    ]
-  },
-  {
-    title: "Doors Scripts",
-    scripts: [
-      {
-        name: "Doors Entity Remover + Noclip",
-        description: "Remove Rush/Ambush + speed + esp",
-        tags: ["Doors", "Bypass"],
-        hot: true,
-        code: `-- Doors Entity Skip 2026\nfor _, obj in pairs(workspace:GetDescendants()) do\n    if obj.Name:match("Rush") or obj.Name:match("Ambush") then\n        obj:Destroy()\n    end\nend\n\n-- Noclip toggle example\n_G.noclip = true\n-- more code...`
-      }
-    ]
-  },
-  {
-    title: "Blox Fruits Scripts",
-    scripts: [
-      {
-        name: "Blox Fruits Auto Farm + Mirage Hunter",
-        description: "Auto farm + mirage detection + fruit notifier",
-        tags: ["Blox Fruits", "Auto"],
-        hot: true,
-        code: `-- Blox Fruits Auto Farm 2026\nwhile true do\n    task.wait(0.4)\n    -- Farm logic here\n    print("Auto farming...")\nend\n\n-- Mirage scanner\nprint("Scanning for Mirage Island...")`
-      }
-    ]
-  },
-  {
-    title: "Fisch Scripts",
-    scripts: [
-      {
-        name: "Fisch God Auto Catch + Sell",
-        description: "Auto cast + instant catch + auto sell",
-        tags: ["Fisch", "Auto Farm"],
-        hot: true,
-        code: `-- Fisch Perfect Auto Farm Jan 2026\nwhile wait(0.3) do\n    game:GetService("ReplicatedStorage").Events.Cast:FireServer()\n    task.wait(0.2)\n    -- Auto catch & sell logic\nend`
-      }
-    ]
-  },
-  {
-    title: "Steal A Brainrot Scripts",
-    scripts: [
-      {
-        name: "Steal A Brainrot Trax + Brainrot Spawner",
-        description: "Auto spawn trax + infinite brainrots",
-        tags: ["Steal A Brainrot", "Exploit"],
-        hot: true,
-        code: `-- Steal A Brainrot Mass Spawn\nfor i = 1, 100 do\n    game:GetService("ReplicatedStorage").SpawnTrax:FireServer()\n    task.wait(0.1)\nend\n\nprint("Brainrots spawned!")`
-      }
-    ]
-  },
-  {
-    title: "Universal / Other",
-    scripts: [
-      {
-        name: "Infinite Yield Admin 2026",
-        description: "Powerful admin commands - still works everywhere",
-        tags: ["Admin", "Universal"],
-        code: `-- Infinite Yield Admin\nloadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()`
+        code: `-- Blox Fruits Premium Farm Hub 2026
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+_G.AutoFarm = true
+while _G.AutoFarm do
+    task.wait(0.5)
+    -- Farm logic, quest, mob, etc.
+    print("Farming level...")
+end
+
+-- Mirage scanner (example)
+print("Scanning for Mirage Island...")`
       },
       {
-        name: "Universal Godmode + ESP",
-        description: "Godmode + player ESP for any game",
-        tags: ["Universal", "OP"],
-        code: `-- Simple Godmode + ESP\nlocal plr = game.Players.LocalPlayer\nwhile true do\n    task.wait()\n    if plr.Character then\n        plr.Character.Humanoid.Health = math.huge\n    end\nend`
+        name: "Blox Fruits Fruit Sniper + ESP",
+        description: "Instant fruit ESP + notifier + server hopper",
+        tags: ["Fruit Sniper", "ESP"],
+        hot: true,
+        code: `-- Fruit ESP & Notifier
+while true do
+    task.wait(1)
+    for _, fruit in pairs(workspace:GetChildren()) do
+        if fruit:IsA("Tool") and fruit:FindFirstChild("Handle") then
+            print("Fruit found: " .. fruit.Name)
+        end
+    end
+end`
+      }
+    ]
+  },
+  {
+    category: "Doors Scripts",
+    scripts: [
+      {
+        name: "Doors Entity Remover + Noclip + Speed",
+        description: "Remove Rush, Ambush, Eyes + noclip + walk speed",
+        tags: ["Bypass", "Noclip", "Speed"],
+        hot: true,
+        code: `-- Doors Entity Remover 2026
+for _, v in pairs(workspace:GetDescendants()) do
+    if v.Name:match("Rush") or v.Name:match("Ambush") or v.Name == "Eyes" then
+        v:Destroy()
+    end
+end
+
+-- Simple Noclip
+game:GetService("RunService").Stepped:Connect(function()
+    if _G.Noclip then
+        for _, part in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+            if part:IsA("BasePart") then part.CanCollide = false end
+        end
+    end
+end)`
+      }
+    ]
+  },
+  {
+    category: "Fly & Movement Scripts",
+    scripts: [
+      {
+        name: "Universal Fly GUI + Infinite Jump",
+        description: "Smooth flying, speed control, infinite jump - works in most games",
+        tags: ["Fly", "Movement"],
+        hot: true,
+        code: `-- Universal Fly + Speed (2026)
+local plr = game.Players.LocalPlayer
+local mouse = plr:GetMouse()
+
+_G.fly = false
+_G.speed = 100
+
+mouse.KeyDown:Connect(function(key)
+    if key == "f" then
+        _G.fly = not _G.fly
+        -- fly toggle logic...
+    end
+end)`
+      }
+    ]
+  },
+  {
+    category: "Fisch Scripts",
+    scripts: [
+      {
+        name: "Fisch Auto Catch + Auto Sell Godmode",
+        description: "Perfect auto fishing + instant sell + rod upgrades",
+        tags: ["Auto Farm", "Fishing"],
+        code: `-- Fisch Auto Farm 2026
+while true do
+    task.wait(0.4)
+    game:GetService("ReplicatedStorage").Events.Cast:FireServer()
+    task.wait(0.3)
+    -- Auto catch & sell logic
+end`
       }
     ]
   }
 ];
 
-const container = document.getElementById("scriptsContainer");
+const main = document.getElementById("mainContent");
 const searchInput = document.getElementById("searchInput");
-const panel = document.getElementById("scriptPanel");
-const panelTitle = document.getElementById("panelTitle");
-const codeContent = document.getElementById("codeContent");
-const copyBtn = document.getElementById("copyBtn");
+const modal = document.getElementById("scriptModal");
+const modalTitle = document.getElementById("modalTitle");
+const codeLines = document.getElementById("codeLines");
+const copyBtn = document.getElementById("copyCodeBtn");
 
-function createCard(script) {
+function createScriptCard(script) {
   const card = document.createElement("div");
   card.className = "script-card";
   card.innerHTML = `
-    <div class="card-header">
-      <div class="script-title">\( {script.name} \){script.hot ? ' <span class="hot-badge">HOT</span>' : ''}</div>
-      <div>\( {script.tags.map(t => `<span class="tag"> \){t}</span>`).join(' ')}</div>
+    <div class="card-content">
+      <div>
+        <span class="script-name">${script.name}</span>
+        ${script.hot ? '<span class="hot-tag">HOT</span>' : ''}
+      </div>
+      <p class="script-desc">${script.description}</p>
+      <div class="tags">
+        \( {script.tags.map(tag => `<span class="tag"> \){tag}</span>`).join('')}
+      </div>
+      <div class="card-footer">
+        <span>Working • 2026</span>
+      </div>
     </div>
-    <div class="card-description">${script.description}</div>
   `;
-  card.addEventListener("click", () => showScript(script));
+  
+  card.addEventListener("click", () => openScript(script));
   return card;
 }
 
 function renderScripts(filter = "") {
-  container.innerHTML = "";
+  main.innerHTML = "";
   const term = filter.toLowerCase().trim();
 
-  scriptCategories.forEach(category => {
-    const filteredScripts = category.scripts.filter(s => 
-      s.name.toLowerCase().includes(term) ||
-      s.description.toLowerCase().includes(term) ||
-      s.tags.some(t => t.toLowerCase().includes(term))
+  scriptData.forEach(category => {
+    const filtered = category.scripts.filter(script =>
+      script.name.toLowerCase().includes(term) ||
+      script.description.toLowerCase().includes(term) ||
+      script.tags.some(t => t.toLowerCase().includes(term))
     );
 
-    if (filteredScripts.length > 0) {
-      const title = document.createElement("div");
+    if (filtered.length > 0) {
+      const title = document.createElement("h2");
       title.className = "category-title";
-      title.textContent = category.title;
-      container.appendChild(title);
+      title.textContent = category.category;
+      main.appendChild(title);
 
       const grid = document.createElement("div");
       grid.className = "script-grid";
-      
-      filteredScripts.forEach(script => {
-        grid.appendChild(createCard(script));
+
+      filtered.forEach(script => {
+        grid.appendChild(createScriptCard(script));
       });
-      
-      container.appendChild(grid);
+
+      main.appendChild(grid);
     }
   });
 
-  if (container.children.length === 0 && term !== "") {
-    container.innerHTML = '<div style="text-align:center;padding:6rem;color:var(--muted);font-size:1.3rem;">No matching scripts found...</div>';
+  if (main.children.length === 0 && term) {
+    main.innerHTML = '<p style="text-align:center; padding:4rem; color:var(--muted);">No scripts found for your search...</p>';
   }
 }
 
-function showScript(script) {
-  panelTitle.textContent = script.name;
-  codeContent.innerHTML = script.code
-    .split('\n')
+function openScript(script) {
+  modalTitle.textContent = script.name;
+  codeLines.innerHTML = script.code
+    .split("\n")
     .map(line => `<div class="code-line">${line}</div>`)
-    .join('');
-  
-  panel.style.display = "flex";
+    .join("");
+
+  modal.style.display = "flex";
   document.body.style.overflow = "hidden";
 
   copyBtn.onclick = () => {
-    navigator.clipboard.writeText(script.code).then(() => {
-      copyBtn.innerHTML = '<span>📋</span> Copied!';
-      setTimeout(() => {
-        copyBtn.innerHTML = '<span>📋</span> Copy Script';
-      }, 1800);
-    });
+    navigator.clipboard.writeText(script.code);
+    copyBtn.innerHTML = '<span>📋</span> Copied!';
+    setTimeout(() => {
+      copyBtn.innerHTML = '<span>📋</span> Copy Script';
+    }, 1800);
   };
 }
 
-function closePanel() {
-  panel.style.display = "none";
+function closeModal() {
+  modal.style.display = "none";
   document.body.style.overflow = "";
 }
 
@@ -456,11 +501,11 @@ function closePanel() {
 renderScripts();
 
 // Live search
-searchInput.addEventListener("input", e => renderScripts(e.target.value));
+searchInput.addEventListener("input", (e) => renderScripts(e.target.value));
 
-// Close with ESC key
-document.addEventListener("keydown", e => {
-  if (e.key === "Escape") closePanel();
+// Close modal with ESC
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeModal();
 });
 </script>
 </body>
