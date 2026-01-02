@@ -1,227 +1,294 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Xena Hub</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Roblox Scripts Hub • 2025-2026</title>
+    <style>
+        :root {
+            --bg: #0f0f1a;
+            --dark: #0a0a12;
+            --primary: #7b2cbf;
+            --primary-dark: #5a1e9b;
+            --accent: #00ffea;
+            --text: #e0e0ff;
+            --text-muted: #a0a0cc;
+            --card: #16162a;
+        }
 
-<style>
-* { font-family: 'Orbitron', sans-serif; font-weight: 900; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-  margin: 0;
-  height: 100vh;
-  background-color: #0a0505;
-  background-image:
-    linear-gradient(rgba(255,120,0,0.15) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,120,0,0.15) 1px, transparent 1px);
-  background-size: 40px 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  color: white;
-}
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            background-image: 
+                radial-gradient(circle at 25% 15%, rgba(123,44,191,0.12) 0%, transparent 25%),
+                radial-gradient(circle at 75% 85%, rgba(0,255,234,0.08) 0%, transparent 35%);
+            background-attachment: fixed;
+            line-height: 1.6;
+        }
 
-canvas { position: absolute; inset: 0; z-index: 0; }
-.container { text-align: center; z-index: 2; }
+        header {
+            background: linear-gradient(to bottom, rgba(10,10,18,0.95), rgba(10,10,18,0.85));
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(123,44,191,0.15);
+        }
 
-.logo {
-  width: 200px;
-  border-radius: 25px;
-  box-shadow: 0 0 40px rgba(255,80,0,.9);
-}
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
-h1 {
-  font-size: 44px;
-  color: #ff4500;
-  text-shadow: 0 0 15px #ff0000, 0 0 35px #ff6a00;
-  letter-spacing: 4px;
-}
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #9d4edd, #00ffea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
 
-/* BUTTONS */
-.btn, .panel-btn, .discord-btn {
-  padding: 14px 26px;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: transform .15s ease, box-shadow .15s ease;
-}
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 2.2rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
 
-.btn:active, .panel-btn:active, .discord-btn:active {
-  transform: scale(.92);
-  box-shadow: 0 0 45px rgba(255,80,0,.9);
-}
+        .nav-links a:hover {
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(0,255,234,0.4);
+        }
 
-.btn {
-  border: 2px solid #ff6a00;
-  background: transparent;
-  color: white;
-}
+        main {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 5%;
+        }
 
-.btn.primary {
-  background: linear-gradient(45deg, #ff0000, #ff6a00);
-  color: black;
-  border: none;
-}
+        h1, h2, h3 {
+            margin-bottom: 1rem;
+        }
 
-.discord-btn {
-  margin-left: 12px;
-  border: 2px solid #ff6a00;
-  background: transparent;
-  color: white;
-}
+        h1 {
+            font-size: 3.2rem;
+            background: linear-gradient(90deg, #c77dff, #00ffea, #ff6bcb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 6s linear infinite;
+        }
 
-/* ===== SQUARE PANELS ===== */
-.panel {
-  display: none;
-  position: absolute;
-  width: 320px;
-  height: 320px; /* ← square */
-  padding: 18px;
-  border-radius: 22px;
-  background: linear-gradient(180deg, #1a0707, #0b0505);
-  box-shadow: 0 0 50px rgba(255,80,0,.9);
-  z-index: 2;
-  animation: slideIn .6s ease;
+        @keyframes shine {
+            to { background-position: 200%; }
+        }
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+        .intro-card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin: 2.5rem 0;
+            border: 1px solid rgba(123,44,191,0.25);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
 
-@keyframes slideIn {
-  from { opacity:0; transform: translateY(40px); }
-  to { opacity:1; transform: translateY(0); }
-}
+        .warning {
+            background: rgba(255, 71, 87, 0.15);
+            border-left: 5px solid #ff4757;
+            padding: 1.2rem 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
 
-.panel-header {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
+        .script-card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 1.8rem;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(0,255,234,0.12);
+            transition: all 0.3s ease;
+        }
 
-.panel img {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-}
+        .script-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 35px rgba(0,255,234,0.12);
+        }
 
-.title { color: #ff6a00; }
-.beta { font-size: 12px; color: red; }
+        .script-title {
+            color: var(--accent);
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+        }
 
-.status { font-size: 13px; }
-.status.online { color: #00ff6a; }
-.status.updating { color: #ffaa00; }
+        pre {
+            background: #0a0a14;
+            padding: 1.4rem;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-size: 0.95rem;
+            border: 1px solid rgba(123,44,191,0.2);
+        }
 
-/* PANEL BUTTON ROW */
-.panel-buttons {
-  display: flex;
-  gap: 10px;
-  margin-top: auto;
-}
+        code {
+            font-family: 'Consolas', 'Courier New', monospace;
+        }
 
-.panel-buttons .panel-btn { flex: 1; }
+        .copy-btn {
+            background: rgba(123,44,191,0.25);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 0.8rem;
+            transition: all 0.2s;
+        }
 
-.copy {
-  background: linear-gradient(45deg, #ff0000, #ff6a00);
-  color: black;
-  border: none;
-}
+        .copy-btn:hover {
+            background: rgba(123,44,191,0.45);
+        }
 
-.log-btn {
-  background: transparent;
-  border: 2px solid #ff6a00;
-  color: white;
-}
+        footer {
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(123,44,191,0.15);
+            margin-top: 5rem;
+        }
 
-/* MODERATION BOX */
-.changelog {
-  width: 360px;
-  padding: 18px;
-  margin-top: 25px;
-  border-radius: 25px;
-  background: linear-gradient(180deg, #ff6a00, #ff0000);
-  color: black;
-}
-
-/* POPUP */
-.popup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 320px;
-  background: linear-gradient(180deg, #1a0707, #0b0505);
-  border-radius: 20px;
-  box-shadow: 0 0 50px rgba(255,80,0,.9);
-  padding: 20px;
-  z-index: 999;
-}
-
-/* NOTIFICATION */
-#notify {
-  position: fixed;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(45deg, #ff0000, #ff6a00);
-  color: black;
-  padding: 14px 26px;
-  border-radius: 30px;
-  display: none;
-  z-index: 999;
-}
-</style>
+        @media (max-width: 768px) {
+            h1 { font-size: 2.4rem; }
+            nav { flex-direction: column; gap: 1rem; }
+            .nav-links a { margin: 0 1rem; }
+        }
+    </style>
 </head>
-
 <body>
-<canvas id="particles"></canvas>
-<div id="notify">Script copied!</div>
 
-<div class="container" id="home">
-  <img src="standard (10).gif" class="logo">
-  <h1>XENA HUB</h1>
-  <button class="btn primary" onclick="openPanels()">CONTINUE</button>
-</div>
+<header>
+    <nav>
+        <div class="logo">Roblox<span style="color:#00ffea">Scripts</span></div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#scripts">Scripts</a>
+            <a href="#rules">Rules</a>
+            <a href="#tools">Tools</a>
+        </div>
+    </nav>
+</header>
 
-<div class="panel" id="fireworks" style="top:80px;">
-  <div class="panel-header">
-    <img src="Screenshot_20251220_145217_com.roblox.client_edit_107002055564400.jpg">
-    <div>
-      <div class="title">Fireworks Playground</div>
-      <div class="beta">Beta</div>
-      <div class="status online">Online</div>
+<main>
+
+    <h1>Roblox Scripts Collection<br><small>2025-2026 Edition</small></h1>
+
+    <div class="intro-card">
+        <h2>Welcome to the Script Hub!</h2>
+        <p>
+            Collection of interesting, funny & sometimes useful Roblox scripts.<br>
+            <strong>Mostly for learning purposes & private servers.</strong>
+        </p>
+
+        <div class="warning">
+            <strong>⚠️  Important 2025-2026 reality check:</strong><br><br>
+            Using scripts in public games → almost always → <strong>instant or very fast ban</strong><br>
+            Byfron (Hyperion) + new detection systems are very strong in 2025-2026<br>
+            <strong>Safest places:</strong> your own place • private servers • friends-only games
+        </div>
     </div>
-  </div>
 
-  <div class="panel-buttons">
-    <button class="panel-btn copy">COPY SCRIPT</button>
-    <button class="panel-btn log-btn">CHANGELOG</button>
-  </div>
-</div>
+    <section id="scripts">
 
-<div class="panel" id="piggy" style="top:300px;">
-  <div class="panel-header">
-    <img src="Screenshot_20251220_145207_com.roblox.client_edit_107032225822728.jpg">
-    <div>
-      <div class="title">Piggy Script</div>
-      <div class="status updating">Updating</div>
-    </div>
-  </div>
+        <h2>Popular & Funny Scripts</h2>
 
-  <div class="panel-buttons">
-    <button class="panel-btn copy">COPY SCRIPT</button>
-    <button class="panel-btn log-btn">CHANGELOG</button>
-  </div>
-</div>
+        <div class="script-card">
+            <div class="script-title">Infinite Jump (toggle)</div>
+            <pre><code>-- Press J to toggle infinite jump
+local InfiniteJumpEnabled = false
 
-<script>
-function openPanels(){
-  document.getElementById("home").style.display="none";
-  document.getElementById("fireworks").style.display="flex";
-  document.getElementById("piggy").style.display="flex";
-}
-</script>
+game:GetService("UserInputService").JumpRequest:Connect(function()
+    if InfiniteJumpEnabled then
+        game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):ChangeState("Jumping")
+    end
+end)
+
+game:GetService("UserInputService").InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.J then
+        InfiniteJumpEnabled = not InfiniteJumpEnabled
+        print("Infinite Jump: " .. (InfiniteJumpEnabled and "ON" or "OFF"))
+    end
+end)</code></pre>
+            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent)">Copy</button>
+        </div>
+
+        <div class="script-card">
+            <div class="script-title">Fling Everything (R6/R15)</div>
+            <pre><code>local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+for _, player in ipairs(Players:GetPlayers()) do
+    if player ~= LocalPlayer and player.Character then
+        local hrp = player.Character:FindFirstChild("HumanoidRootPart")
+        if hrp then
+            local bodyVelocity = Instance.new("BodyVelocity")
+            bodyVelocity.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+            bodyVelocity.Velocity = Vector3.new(math.random(-500,500), 200, math.random(-500,500))
+            bodyVelocity.Parent = hrp
+            game.Debris:AddItem(bodyVelocity, 0.6)
+        end
+    end
+end
+
+print("FLINGED EVERYONE (30% chance they get kicked lol)")</code></pre>
+            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent)">Copy</button>
+        </div>
+
+        <div class="script-card">
+            <div class="script-title">Simple ESP (2025 version - Boxes only)</div>
+            <pre><code>local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+for _, player in ipairs(Players:GetPlayers()) do
+    if player ~= Players.LocalPlayer then
+        local esp = Instance.new("BoxHandleAdornment")
+        esp.Size = Vector3.new(4,6,4)
+        esp.Transparency = 0.65
+        esp.Color3 = Color3.fromRGB(255,80,80)
+        esp.AlwaysOnTop = true
+        esp.Adornee = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+        esp.Parent = player.Character
+        
+        player.CharacterAdded:Connect(function(char)
+            esp.Adornee = char:WaitForChild("HumanoidRootPart", 5)
+        end)
+    end
+end
+
+print("Simple Red Box ESP loaded")</code></pre>
+            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent)">Copy</button>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>For educational purposes only • Use responsibly • Most public games will ban you in 2025-2026</p>
+    <p style="margin-top:1rem; opacity:0.6;">Made with ♡ by someone who still remembers when FE was new</p>
+</footer>
 
 </body>
 </html>
