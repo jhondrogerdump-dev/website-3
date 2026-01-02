@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Script Hub • Free Roblox Scripts 2026</title>
-  <meta name="description" content="Free Roblox scripts, Blox Fruits, Doors, Fisch, Arsenal and more - updated January 2026"/>
+  <title>Script Hub • Roblox Scripts 2026</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,21 +11,17 @@
   
   <style>
     :root {
-      --bg: #0d0d11;
-      --card: #16161a;
+      --bg: #0a0a0f;
+      --card: #14141a;
       --accent: #6366f1;
       --accent-dark: #4f46e5;
       --text: #e5e5f5;
-      --muted: #9ca3af;
-      --border: #27272a;
-      --hot: #ef4444;
+      --muted: #a0a0c0;
+      --border: #22222a;
+      --hot: #f43f5e;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
 
     body {
       background: var(--bg);
@@ -35,20 +30,16 @@
       line-height: 1.6;
     }
 
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 1.5rem; }
 
     header {
-      padding: 2rem 0;
-      border-bottom: 1px solid var(--border);
+      padding: 1.8rem 0;
       position: sticky;
       top: 0;
-      background: rgba(13,13,17,0.9);
+      background: rgba(10,10,15,0.92);
       backdrop-filter: blur(10px);
       z-index: 100;
+      border-bottom: 1px solid var(--border);
     }
 
     .header-inner {
@@ -60,14 +51,14 @@
     }
 
     .logo {
-      font-size: 2.2rem;
+      font-size: 2.1rem;
       font-weight: 700;
       color: var(--accent);
     }
 
-    .search-container {
+    .search-box {
       flex: 1;
-      max-width: 600px;
+      max-width: 620px;
       position: relative;
     }
 
@@ -84,7 +75,7 @@
     .search-input:focus {
       outline: none;
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+      box-shadow: 0 0 0 3px rgba(99,102,241,0.2);
     }
 
     .search-icon {
@@ -95,10 +86,10 @@
       color: var(--muted);
     }
 
-    .category-title {
+    .main-title {
       font-size: 1.8rem;
       font-weight: 600;
-      margin: 2.5rem 0 1.2rem;
+      margin: 2rem 0 1.2rem;
       color: white;
     }
 
@@ -120,10 +111,10 @@
     .script-card:hover {
       transform: translateY(-6px);
       border-color: var(--accent);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+      box-shadow: 0 12px 30px rgba(99,102,241,0.15);
     }
 
-    .card-content {
+    .card-inner {
       padding: 1.25rem;
     }
 
@@ -133,22 +124,20 @@
       margin-bottom: 0.5rem;
     }
 
-    .hot-tag {
+    .hot-badge {
       background: var(--hot);
       color: white;
-      padding: 0.25rem 0.7rem;
+      padding: 0.2rem 0.7rem;
       border-radius: 6px;
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       font-weight: 600;
-      display: inline-block;
-      margin-left: 0.5rem;
+      margin-left: 0.6rem;
     }
 
-    .script-desc {
+    .description {
       color: var(--muted);
       font-size: 0.92rem;
       margin-bottom: 1rem;
-      line-height: 1.5;
     }
 
     .tags {
@@ -161,24 +150,16 @@
     .tag {
       background: rgba(99,102,241,0.15);
       color: var(--accent);
-      padding: 0.3rem 0.7rem;
+      padding: 0.25rem 0.7rem;
       border-radius: 6px;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
     }
 
-    .card-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    /* ── SCRIPT VIEW MODAL ─────────────────────────────────── */
+    /* Modal */
     .modal {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.85);
+      background: rgba(0,0,0,0.88);
       display: none;
       align-items: center;
       justify-content: center;
@@ -186,7 +167,7 @@
       padding: 1rem;
     }
 
-    .modal-content {
+    .modal-box {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 12px;
@@ -205,31 +186,27 @@
       align-items: center;
     }
 
-    .modal-title {
-      font-size: 1.6rem;
-      font-weight: 600;
-    }
+    .modal-title { font-size: 1.6rem; font-weight: 600; }
 
-    .close-modal {
+    .close-btn {
       background: none;
       border: none;
-      font-size: 2rem;
+      font-size: 2.2rem;
       color: var(--muted);
       cursor: pointer;
     }
 
-    .code-view {
+    .code-container {
       flex: 1;
       background: #0a0a0f;
       padding: 1.5rem;
       overflow-y: auto;
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.95rem;
-      line-height: 1.6;
       position: relative;
     }
 
-    .copy-code-btn {
+    .copy-button {
       position: absolute;
       top: 1rem;
       right: 1rem;
@@ -239,16 +216,12 @@
       padding: 0.6rem 1.2rem;
       border-radius: 8px;
       cursor: pointer;
-      font-weight: 500;
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      transition: background 0.2s;
     }
 
-    .copy-code-btn:hover {
-      background: var(--accent-dark);
-    }
+    .copy-button:hover { background: var(--accent-dark); }
 
     .code-line {
       counter-increment: line;
@@ -258,11 +231,10 @@
       content: counter(line);
       display: inline-block;
       width: 3.2rem;
-      color: #666;
+      color: #555;
       text-align: right;
-      margin-right: 1.5rem;
+      margin-right: 1.4rem;
       user-select: none;
-      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -272,213 +244,132 @@
   <div class="container">
     <div class="header-inner">
       <div class="logo">SCRIPT HUB</div>
-      
-      <div class="search-container">
+      <div class="search-box">
         <span class="search-icon">🔍</span>
-        <input type="text" class="search-input" id="searchInput" placeholder="Search scripts (blox fruits, doors, fly, aimbot...)"/>
+        <input type="text" class="search-input" id="searchInput" placeholder="Search game or script (blox fruits, doors, fisch, fly...)"/>
       </div>
     </div>
   </div>
 </header>
 
-<main class="container" id="mainContent"></main>
+<main class="container">
+  <h2 class="main-title" id="resultTitle">All Popular Scripts</h2>
+  <div class="script-grid" id="scriptGrid"></div>
+</main>
 
-<!-- SCRIPT MODAL -->
+<!-- SCRIPT PREVIEW MODAL -->
 <div class="modal" id="scriptModal">
-  <div class="modal-content">
+  <div class="modal-box">
     <div class="modal-header">
       <div class="modal-title" id="modalTitle">Script</div>
-      <button class="close-modal" onclick="closeModal()">×</button>
+      <button class="close-btn" onclick="closeModal()">×</button>
     </div>
-    <div class="code-view" id="codeView">
-      <button class="copy-code-btn" id="copyCodeBtn">
+    <div class="code-container" id="codeContainer">
+      <button class="copy-button" id="copyBtn">
         <span>📋</span> Copy Script
       </button>
-      <div id="codeLines"></div>
+      <div id="codeContent"></div>
     </div>
   </div>
 </div>
 
 <script>
-// Script data - ScriptBlox style organization
-const scriptData = [
-  {
-    category: "Blox Fruits Scripts",
-    scripts: [
-      {
-        name: "Blox Fruits Auto Farm + Mirage Hunter v3",
-        description: "Auto farm, mirage island detection, fruit notifier, fast boat, raid farm - updated January 2026",
-        tags: ["Auto Farm", "Mirage", "Fruit"],
-        hot: true,
-        code: `-- Blox Fruits Premium Farm Hub 2026
-local Players = game:GetService("Players")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
+// Script database - real search friendly
+const scripts = [
+  { game: "Blox Fruits", name: "Auto Farm + Mirage Hunter v3.2", description: "Auto farm, mirage detection, fruit notifier, raid, fast boat", tags: ["Auto", "Mirage", "Fruit"], hot: true,
+    code: `-- Blox Fruits Premium Farm 2026\nwhile true do\n  task.wait(0.4)\n  -- Auto farm logic here\n  print("Farming...")\nend\n\n-- Mirage scanner\nprint("Looking for Mirage...")` },
 
-_G.AutoFarm = true
-while _G.AutoFarm do
-    task.wait(0.5)
-    -- Farm logic, quest, mob, etc.
-    print("Farming level...")
-end
+  { game: "Blox Fruits", name: "Fruit Sniper + ESP", description: "Instant fruit ESP + server hopper + notifier", tags: ["Fruit", "ESP", "Sniper"], hot: true,
+    code: `-- Fruit ESP & Notifier\nfor _, item in pairs(workspace:GetChildren()) do\n  if item:IsA("Tool") then\n    print("Found fruit: " .. item.Name)\n  end\nend` },
 
--- Mirage scanner (example)
-print("Scanning for Mirage Island...")`
-      },
-      {
-        name: "Blox Fruits Fruit Sniper + ESP",
-        description: "Instant fruit ESP + notifier + server hopper",
-        tags: ["Fruit Sniper", "ESP"],
-        hot: true,
-        code: `-- Fruit ESP & Notifier
-while true do
-    task.wait(1)
-    for _, fruit in pairs(workspace:GetChildren()) do
-        if fruit:IsA("Tool") and fruit:FindFirstChild("Handle") then
-            print("Fruit found: " .. fruit.Name)
-        end
-    end
-end`
-      }
-    ]
-  },
-  {
-    category: "Doors Scripts",
-    scripts: [
-      {
-        name: "Doors Entity Remover + Noclip + Speed",
-        description: "Remove Rush, Ambush, Eyes + noclip + walk speed",
-        tags: ["Bypass", "Noclip", "Speed"],
-        hot: true,
-        code: `-- Doors Entity Remover 2026
-for _, v in pairs(workspace:GetDescendants()) do
-    if v.Name:match("Rush") or v.Name:match("Ambush") or v.Name == "Eyes" then
-        v:Destroy()
-    end
-end
+  { game: "Doors", name: "Entity Remover + Noclip", description: "Remove Rush/Ambush/Eyes + noclip + speed boost", tags: ["Bypass", "Noclip"], hot: true,
+    code: `-- Doors Entity Bypass\nfor _, v in pairs(workspace:GetDescendants()) do\n  if v.Name:match("Rush") or v.Name == "Eyes" then v:Destroy() end\nend` },
 
--- Simple Noclip
-game:GetService("RunService").Stepped:Connect(function()
-    if _G.Noclip then
-        for _, part in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-            if part:IsA("BasePart") then part.CanCollide = false end
-        end
-    end
-end)`
-      }
-    ]
-  },
-  {
-    category: "Fly & Movement Scripts",
-    scripts: [
-      {
-        name: "Universal Fly GUI + Infinite Jump",
-        description: "Smooth flying, speed control, infinite jump - works in most games",
-        tags: ["Fly", "Movement"],
-        hot: true,
-        code: `-- Universal Fly + Speed (2026)
-local plr = game.Players.LocalPlayer
-local mouse = plr:GetMouse()
+  { game: "Fly / Movement", name: "Universal Fly + Speed GUI", description: "Smooth fly, speed control, infinite jump", tags: ["Fly", "Movement"], hot: true,
+    code: `-- Universal Fly GUI\n_G.flySpeed = 120\n_G.flying = false\n\n-- Press F to toggle fly\n-- implementation...` },
 
-_G.fly = false
-_G.speed = 100
+  { game: "Fisch", name: "Fisch God Auto Catch + Sell", description: "Perfect auto fishing + instant sell + rod upgrades", tags: ["Auto Farm", "Fishing"], hot: true,
+    code: `-- Fisch Auto Farm 2026\nwhile wait(0.35) do\n  game:GetService("ReplicatedStorage").Events.Cast:FireServer()\n  -- Auto sell logic\nend` },
 
-mouse.KeyDown:Connect(function(key)
-    if key == "f" then
-        _G.fly = not _G.fly
-        -- fly toggle logic...
-    end
-end)`
-      }
-    ]
-  },
-  {
-    category: "Fisch Scripts",
-    scripts: [
-      {
-        name: "Fisch Auto Catch + Auto Sell Godmode",
-        description: "Perfect auto fishing + instant sell + rod upgrades",
-        tags: ["Auto Farm", "Fishing"],
-        code: `-- Fisch Auto Farm 2026
-while true do
-    task.wait(0.4)
-    game:GetService("ReplicatedStorage").Events.Cast:FireServer()
-    task.wait(0.3)
-    -- Auto catch & sell logic
-end`
-      }
-    ]
-  }
+  { game: "Steal A Brainrot", name: "Trax + Brainrot Mass Spawner", description: "Infinite trax spawn + brainrot farm", tags: ["Spawner", "Exploit"], hot: true,
+    code: `-- Steal A Brainrot Mass Spawn\nfor i = 1, 100 do\n  game:GetService("ReplicatedStorage").SpawnTrax:FireServer()\n  task.wait(0.08)\nend` },
+
+  { game: "Universal", name: "Infinite Yield Admin", description: "Powerful admin commands - works in most games", tags: ["Admin"], 
+    code: `-- Infinite Yield Admin 2026\nloadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()` }
 ];
 
-const main = document.getElementById("mainContent");
+const grid = document.getElementById("scriptGrid");
 const searchInput = document.getElementById("searchInput");
+const resultTitle = document.getElementById("resultTitle");
 const modal = document.getElementById("scriptModal");
 const modalTitle = document.getElementById("modalTitle");
-const codeLines = document.getElementById("codeLines");
-const copyBtn = document.getElementById("copyCodeBtn");
+const codeContent = document.getElementById("codeContent");
+const copyBtn = document.getElementById("copyBtn");
 
-function createScriptCard(script) {
+function createCard(script) {
   const card = document.createElement("div");
   card.className = "script-card";
   card.innerHTML = `
-    <div class="card-content">
+    <div class="card-inner">
       <div>
         <span class="script-name">${script.name}</span>
-        ${script.hot ? '<span class="hot-tag">HOT</span>' : ''}
+        ${script.hot ? '<span class="hot-badge">HOT</span>' : ''}
       </div>
-      <p class="script-desc">${script.description}</p>
+      <p class="description">${script.description}</p>
       <div class="tags">
-        \( {script.tags.map(tag => `<span class="tag"> \){tag}</span>`).join('')}
-      </div>
-      <div class="card-footer">
-        <span>Working • 2026</span>
+        \( {script.tags.map(t => `<span class="tag"> \){t}</span>`).join('')}
       </div>
     </div>
   `;
-  
-  card.addEventListener("click", () => openScript(script));
+  card.onclick = () => showScript(script);
   return card;
 }
 
-function renderScripts(filter = "") {
-  main.innerHTML = "";
+function renderResults(filter = "") {
+  grid.innerHTML = "";
   const term = filter.toLowerCase().trim();
 
-  scriptData.forEach(category => {
-    const filtered = category.scripts.filter(script =>
-      script.name.toLowerCase().includes(term) ||
-      script.description.toLowerCase().includes(term) ||
-      script.tags.some(t => t.toLowerCase().includes(term))
+  let filtered = scripts;
+
+  if (term) {
+    filtered = scripts.filter(s => 
+      s.game.toLowerCase().includes(term) ||
+      s.name.toLowerCase().includes(term) ||
+      s.description.toLowerCase().includes(term) ||
+      s.tags.some(t => t.toLowerCase().includes(term))
     );
 
-    if (filtered.length > 0) {
-      const title = document.createElement("h2");
-      title.className = "category-title";
-      title.textContent = category.category;
-      main.appendChild(title);
-
-      const grid = document.createElement("div");
-      grid.className = "script-grid";
-
-      filtered.forEach(script => {
-        grid.appendChild(createScriptCard(script));
-      });
-
-      main.appendChild(grid);
+    // Try to show nice title based on what user searched
+    const mainGame = filtered[0]?.game;
+    if (mainGame && filtered.every(s => s.game === mainGame)) {
+      resultTitle.textContent = `${mainGame} Scripts`;
+    } else if (term.includes("fly") || term.includes("speed")) {
+      resultTitle.textContent = "Fly & Movement Scripts";
+    } else if (term.includes("brainrot")) {
+      resultTitle.textContent = "Steal A Brainrot Scripts";
+    } else {
+      resultTitle.textContent = "Search Results";
     }
-  });
-
-  if (main.children.length === 0 && term) {
-    main.innerHTML = '<p style="text-align:center; padding:4rem; color:var(--muted);">No scripts found for your search...</p>';
+  } else {
+    resultTitle.textContent = "Popular Scripts Right Now";
   }
+
+  if (filtered.length === 0 && term) {
+    grid.innerHTML = '<p style="grid-column: 1 / -1; text-align:center; padding:6rem; color:var(--muted);">No scripts found for this search...</p>';
+    return;
+  }
+
+  filtered.forEach(script => {
+    grid.appendChild(createCard(script));
+  });
 }
 
-function openScript(script) {
+function showScript(script) {
   modalTitle.textContent = script.name;
-  codeLines.innerHTML = script.code
-    .split("\n")
+  codeContent.innerHTML = script.code
+    .split('\n')
     .map(line => `<div class="code-line">${line}</div>`)
-    .join("");
+    .join('');
 
   modal.style.display = "flex";
   document.body.style.overflow = "hidden";
@@ -486,9 +377,7 @@ function openScript(script) {
   copyBtn.onclick = () => {
     navigator.clipboard.writeText(script.code);
     copyBtn.innerHTML = '<span>📋</span> Copied!';
-    setTimeout(() => {
-      copyBtn.innerHTML = '<span>📋</span> Copy Script';
-    }, 1800);
+    setTimeout(() => copyBtn.innerHTML = '<span>📋</span> Copy Script', 1800);
   };
 }
 
@@ -497,11 +386,11 @@ function closeModal() {
   document.body.style.overflow = "";
 }
 
-// Initial render
-renderScripts();
+// Initial load - show all
+renderResults();
 
 // Live search
-searchInput.addEventListener("input", (e) => renderScripts(e.target.value));
+searchInput.addEventListener("input", (e) => renderResults(e.target.value));
 
 // Close modal with ESC
 document.addEventListener("keydown", (e) => {
