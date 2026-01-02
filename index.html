@@ -17,7 +17,7 @@
       --cyan: #00f0ff;
       --pink: #ff2ee7;
       --text: #f0e6ff;
-      --text-muted: #b0a0d0;
+      --muted: #b0a0d0;
       --border: rgba(192, 132, 252, 0.35);
     }
 
@@ -33,200 +33,186 @@
         radial-gradient(circle at 85% 75%, rgba(0,240,255,0.07) 0%, transparent 55%);
     }
 
-    .container { max-width: 1600px; margin: 0 auto; padding: 0 2rem; }
+    .container { max-width: 1600px; margin: 0 auto; padding: 0 1.5rem; }
 
     header { padding: 2.5rem 0 1.5rem; text-align: center; }
 
     .logo {
-      font-size: 4rem;
+      font-size: 3.8rem;
       font-weight: 700;
-      letter-spacing: 8px;
-      background: linear-gradient(90deg, #c084fc, #00f0ff, #ff2ee7, #c084fc);
-      background-size: 300%;
+      letter-spacing: 6px;
+      background: linear-gradient(90deg, #c084fc, #00f0ff, #ff2ee7);
+      background-size: 200%;
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: gradientFlow 15s ease infinite;
-      text-shadow: 0 0 30px rgba(192,132,252,0.7);
+      animation: gradientFlow 12s ease infinite;
+      text-shadow: 0 0 25px rgba(192,132,252,0.6);
     }
 
     @keyframes gradientFlow {
       0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
     }
 
-    .subtitle {
-      margin-top: 0.8rem;
-      color: var(--text-muted);
-      font-size: 1.15rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
+    .subtitle { color: var(--muted); font-size: 1.1rem; letter-spacing: 2px; margin-top: 0.5rem; }
 
     .search-wrapper {
-      max-width: 680px;
-      margin: 2.5rem auto;
+      max-width: 700px;
+      margin: 2rem auto;
       position: relative;
     }
 
     .search-bar {
       width: 100%;
-      padding: 1.2rem 1.6rem 1.2rem 4.2rem;
+      padding: 1.1rem 1.5rem 1.1rem 4rem;
       background: var(--glass);
       border: 1px solid var(--border);
-      border-radius: 60px;
+      border-radius: 50px;
       color: var(--text);
-      font-size: 1.1rem;
-      font-family: 'JetBrains Mono', monospace;
-      backdrop-filter: blur(14px);
-      transition: all 0.35s ease;
+      font-size: 1.05rem;
+      backdrop-filter: blur(12px);
+      transition: all 0.3s;
     }
 
     .search-bar:focus {
-      outline: none;
       border-color: var(--cyan);
-      box-shadow: 0 0 30px rgba(0,240,255,0.4);
+      box-shadow: 0 0 25px rgba(0,240,255,0.3);
+      outline: none;
     }
 
     .search-icon {
       position: absolute;
-      left: 1.6rem;
+      left: 1.5rem;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 1.6rem;
-      color: var(--text-muted);
-      pointer-events: none;
-      transition: all 0.3s;
+      font-size: 1.5rem;
+      color: var(--muted);
     }
 
-    .search-bar:focus + .search-icon {
+    .category-title {
+      font-size: 1.8rem;
+      margin: 2.5rem 0 1.2rem;
       color: var(--cyan);
-      text-shadow: 0 0 10px var(--cyan);
+      text-shadow: 0 0 15px rgba(0,240,255,0.4);
+      letter-spacing: 1px;
     }
-
-    main { padding: 2rem 0 6rem; }
 
     .script-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 1.6rem;
+      margin-bottom: 2.5rem;
     }
 
     .script-card {
       background: var(--glass);
       border: 1px solid var(--border);
-      border-radius: 18px;
+      border-radius: 16px;
       overflow: hidden;
-      backdrop-filter: blur(12px);
-      transition: all 0.45s cubic-bezier(0.19, 1, 0.22, 1);
+      backdrop-filter: blur(10px);
+      transition: all 0.4s ease;
       cursor: pointer;
-      position: relative;
-      box-shadow: 0 10px 35px rgba(0,0,0,0.45);
     }
 
     .script-card:hover {
-      transform: translateY(-14px) scale(1.035);
+      transform: translateY(-8px);
       border-color: var(--cyan);
-      box-shadow: 0 25px 60px rgba(0,240,255,0.3);
+      box-shadow: 0 15px 40px rgba(0,240,255,0.25);
     }
 
     .card-header {
-      padding: 1.6rem 1.8rem 1rem;
+      padding: 1.3rem 1.5rem 0.8rem;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       gap: 1rem;
     }
 
-    .script-title { font-size: 1.5rem; font-weight: 600; letter-spacing: 1.2px; }
+    .script-title { font-size: 1.35rem; font-weight: 600; line-height: 1.3; }
 
     .hot-badge {
       background: linear-gradient(45deg, #ff2ee7, #ff006e);
-      color: white;
-      padding: 0.4rem 1rem;
+      padding: 0.3rem 0.9rem;
       border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      box-shadow: 0 0 18px rgba(255,46,231,0.7);
+      font-size: 0.75rem;
+      font-weight: bold;
+      color: white;
+      box-shadow: 0 0 12px rgba(255,46,231,0.6);
     }
 
     .tag {
-      background: rgba(0,240,255,0.18);
+      background: rgba(0,240,255,0.15);
       color: var(--cyan);
-      padding: 0.35rem 0.9rem;
+      padding: 0.25rem 0.75rem;
       border-radius: 50px;
-      font-size: 0.85rem;
-      border: 1px solid rgba(0,240,255,0.35);
+      font-size: 0.8rem;
+      border: 1px solid rgba(0,240,255,0.3);
     }
 
     .card-description {
-      padding: 0 1.8rem 1.6rem;
-      color: var(--text-muted);
+      padding: 0 1.5rem 1.4rem;
+      color: var(--muted);
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.96rem;
-      line-height: 1.55;
+      font-size: 0.92rem;
+      line-height: 1.5;
     }
 
-    /* ── FIXED SCRIPT PANEL ───────────────────────────────── */
+    /* ── SCRIPT VIEW PANEL ────────────────────────────────────── */
     .script-panel {
       position: fixed;
       inset: 0;
-      background: rgba(8, 4, 18, 0.96);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px); /* Safari fix */
+      background: rgba(8, 4, 18, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       display: none;
       align-items: center;
       justify-content: center;
-      z-index: 9999;                    /* ↑↑↑ Much higher z-index */
-      padding: 1.5rem;
+      z-index: 10000;
+      padding: 1rem;
     }
 
     .panel-content {
       background: var(--glass);
       border: 1px solid var(--border);
-      border-radius: 22px;
+      border-radius: 20px;
       width: 100%;
-      max-width: 1150px;
-      max-height: 94vh;
-      overflow: hidden;
-      box-shadow: 0 25px 90px rgba(0,0,0,0.75);
+      max-width: 1100px;
+      max-height: 92vh;
       display: flex;
       flex-direction: column;
-      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.7);
     }
 
     .panel-header {
-      padding: 1.5rem 2.2rem;
+      padding: 1.4rem 2rem;
       border-bottom: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(20, 10, 40, 0.4);
+      background: rgba(20,10,40,0.4);
     }
 
-    .panel-title { font-size: 1.9rem; letter-spacing: 2.5px; }
+    .panel-title { font-size: 1.8rem; letter-spacing: 1.5px; }
 
     .close-btn {
       background: none;
       border: none;
-      color: var(--text-muted);
-      font-size: 2.4rem;
+      font-size: 2.2rem;
+      color: var(--muted);
       cursor: pointer;
       transition: all 0.3s;
     }
 
-    .close-btn:hover { 
-      color: var(--cyan); 
-      transform: rotate(90deg); 
-    }
+    .close-btn:hover { color: var(--cyan); transform: rotate(90deg); }
 
     .code-container {
       flex: 1;
-      padding: 2rem;
-      background: #0b001c;
+      padding: 1.8rem 2rem;
+      background: #0b001a;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       color: #d0c0ff;
       overflow-y: auto;
       position: relative;
@@ -234,41 +220,40 @@
 
     .code-line {
       counter-increment: line;
-      line-height: 1.65;
+      line-height: 1.7;
     }
 
     .code-line::before {
       content: counter(line);
       display: inline-block;
-      width: 3.8rem;
-      color: var(--text-muted);
+      width: 3.5rem;
+      color: var(--muted);
       text-align: right;
-      margin-right: 1.8rem;
+      margin-right: 1.6rem;
       user-select: none;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
 
-    .copy-code-btn {
+    .copy-btn {
       position: absolute;
-      top: 1.4rem;
-      right: 1.8rem;
+      top: 1.2rem;
+      right: 1.5rem;
       background: rgba(192,132,252,0.35);
       color: white;
       border: none;
-      padding: 0.7rem 1.4rem;
-      border-radius: 10px;
+      padding: 0.6rem 1.3rem;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 0.95rem;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
+      font-size: 0.95rem;
       transition: all 0.3s;
     }
 
-    .copy-code-btn:hover {
+    .copy-btn:hover {
       background: var(--accent);
-      box-shadow: 0 0 25px rgba(192,132,252,0.6);
-      transform: translateY(-2px);
+      box-shadow: 0 0 20px rgba(192,132,252,0.5);
     }
   </style>
 </head>
@@ -277,20 +262,20 @@
 <header>
   <div class="container">
     <div class="logo">NEON SCRIPT HUB</div>
-    <div class="subtitle">JANUARY 2026 • FREE • WORKING</div>
+    <div class="subtitle">JANUARY 2026 • FREE WORKING SCRIPTS</div>
   </div>
 </header>
 
 <main class="container">
   <div class="search-wrapper">
-    <input type="text" class="search-bar" id="searchInput" placeholder="Search fly, aimbot, autofarm, doors..."/>
+    <input type="text" class="search-bar" id="searchInput" placeholder="Search scripts (fly, doors, blox fruits, fisch...)"/>
     <span class="search-icon">✦</span>
   </div>
 
-  <div class="script-grid" id="scriptGrid"></div>
+  <div id="scriptsContainer"></div>
 </main>
 
-<!-- FIXED SCRIPT PANEL -->
+<!-- SCRIPT VIEW PANEL -->
 <div class="script-panel" id="scriptPanel">
   <div class="panel-content">
     <div class="panel-header">
@@ -298,7 +283,7 @@
       <button class="close-btn" onclick="closePanel()">×</button>
     </div>
     <div class="code-container" id="codeContainer">
-      <button class="copy-code-btn" id="copyCodeBtn">
+      <button class="copy-btn" id="copyBtn">
         <span>📋</span> Copy Script
       </button>
       <div id="codeContent"></div>
@@ -307,87 +292,165 @@
 </div>
 
 <script>
-// Scripts data (shortened for example - you can keep your full list)
-const scripts = [
+// Script Database - January 2026
+const scriptCategories = [
   {
-    title: "Universal Godmode Hub v4",
-    description: "Godmode + fly + speed • Still working 2026",
-    tags: ["Universal", "OP"],
-    hot: true,
-    code: `-- Godmode example\nlocal plr = game.Players.LocalPlayer\nwhile true do\n  task.wait()\n  if plr.Character then\n    plr.Character.Humanoid.Health = math.huge\n  end\nend`
+    title: "Fly Scripts",
+    scripts: [
+      {
+        name: "Universal Fly + Speed GUI",
+        description: "Smooth fly + adjustable speed + noclip",
+        tags: ["Fly", "Movement"],
+        hot: true,
+        code: `-- Simple Universal Fly (2026 working)\nlocal plr = game.Players.LocalPlayer\nlocal mouse = plr:GetMouse()\n\n_G.flySpeed = 80\n_G.flying = false\n\nmouse.KeyDown:connect(function(key)\n    if key == "f" then\n        _G.flying = not _G.flying\n        if _G.flying then\n            local bv = Instance.new("BodyVelocity")\n            bv.Velocity = Vector3.new(0,0,0)\n            bv.MaxForce = Vector3.new(9e9,9e9,9e9)\n            bv.Parent = plr.Character.HumanoidRootPart\n            -- more fly logic...`
+      }
+    ]
   },
   {
-    title: "Blox Fruits Auto Farm + Mirage",
-    description: "Auto farm + mirage hunter • Updated Jan 2026",
-    tags: ["Blox Fruits", "Auto"],
-    hot: true,
-    code: `-- Auto farm loop\nwhile true do\n  task.wait(0.5)\n  print("Farming...")\nend`
+    title: "Doors Scripts",
+    scripts: [
+      {
+        name: "Doors Entity Remover + Noclip",
+        description: "Remove Rush/Ambush + speed + esp",
+        tags: ["Doors", "Bypass"],
+        hot: true,
+        code: `-- Doors Entity Skip 2026\nfor _, obj in pairs(workspace:GetDescendants()) do\n    if obj.Name:match("Rush") or obj.Name:match("Ambush") then\n        obj:Destroy()\n    end\nend\n\n-- Noclip toggle example\n_G.noclip = true\n-- more code...`
+      }
+    ]
   },
-  // ... add your other scripts here ...
+  {
+    title: "Blox Fruits Scripts",
+    scripts: [
+      {
+        name: "Blox Fruits Auto Farm + Mirage Hunter",
+        description: "Auto farm + mirage detection + fruit notifier",
+        tags: ["Blox Fruits", "Auto"],
+        hot: true,
+        code: `-- Blox Fruits Auto Farm 2026\nwhile true do\n    task.wait(0.4)\n    -- Farm logic here\n    print("Auto farming...")\nend\n\n-- Mirage scanner\nprint("Scanning for Mirage Island...")`
+      }
+    ]
+  },
+  {
+    title: "Fisch Scripts",
+    scripts: [
+      {
+        name: "Fisch God Auto Catch + Sell",
+        description: "Auto cast + instant catch + auto sell",
+        tags: ["Fisch", "Auto Farm"],
+        hot: true,
+        code: `-- Fisch Perfect Auto Farm Jan 2026\nwhile wait(0.3) do\n    game:GetService("ReplicatedStorage").Events.Cast:FireServer()\n    task.wait(0.2)\n    -- Auto catch & sell logic\nend`
+      }
+    ]
+  },
+  {
+    title: "Steal A Brainrot Scripts",
+    scripts: [
+      {
+        name: "Steal A Brainrot Trax + Brainrot Spawner",
+        description: "Auto spawn trax + infinite brainrots",
+        tags: ["Steal A Brainrot", "Exploit"],
+        hot: true,
+        code: `-- Steal A Brainrot Mass Spawn\nfor i = 1, 100 do\n    game:GetService("ReplicatedStorage").SpawnTrax:FireServer()\n    task.wait(0.1)\nend\n\nprint("Brainrots spawned!")`
+      }
+    ]
+  },
+  {
+    title: "Universal / Other",
+    scripts: [
+      {
+        name: "Infinite Yield Admin 2026",
+        description: "Powerful admin commands - still works everywhere",
+        tags: ["Admin", "Universal"],
+        code: `-- Infinite Yield Admin\nloadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()`
+      },
+      {
+        name: "Universal Godmode + ESP",
+        description: "Godmode + player ESP for any game",
+        tags: ["Universal", "OP"],
+        code: `-- Simple Godmode + ESP\nlocal plr = game.Players.LocalPlayer\nwhile true do\n    task.wait()\n    if plr.Character then\n        plr.Character.Humanoid.Health = math.huge\n    end\nend`
+      }
+    ]
+  }
 ];
 
-const grid = document.getElementById("scriptGrid");
+const container = document.getElementById("scriptsContainer");
 const searchInput = document.getElementById("searchInput");
 const panel = document.getElementById("scriptPanel");
 const panelTitle = document.getElementById("panelTitle");
 const codeContent = document.getElementById("codeContent");
-const copyCodeBtn = document.getElementById("copyCodeBtn");
+const copyBtn = document.getElementById("copyBtn");
 
 function createCard(script) {
   const card = document.createElement("div");
   card.className = "script-card";
   card.innerHTML = `
     <div class="card-header">
-      <div class="script-title">\( {script.title} \){script.hot ? ' <span class="hot-badge">HOT</span>' : ''}</div>
+      <div class="script-title">\( {script.name} \){script.hot ? ' <span class="hot-badge">HOT</span>' : ''}</div>
       <div>\( {script.tags.map(t => `<span class="tag"> \){t}</span>`).join(' ')}</div>
     </div>
     <div class="card-description">${script.description}</div>
   `;
-  card.addEventListener('click', () => openPanel(script));
+  card.addEventListener("click", () => showScript(script));
   return card;
 }
 
 function renderScripts(filter = "") {
-  grid.innerHTML = "";
+  container.innerHTML = "";
   const term = filter.toLowerCase().trim();
 
-  const filtered = scripts.filter(s => 
-    s.title.toLowerCase().includes(term) ||
-    s.description.toLowerCase().includes(term) ||
-    s.tags.some(t => t.toLowerCase().includes(term))
-  );
+  scriptCategories.forEach(category => {
+    const filteredScripts = category.scripts.filter(s => 
+      s.name.toLowerCase().includes(term) ||
+      s.description.toLowerCase().includes(term) ||
+      s.tags.some(t => t.toLowerCase().includes(term))
+    );
 
-  if (filtered.length === 0 && term !== "") {
-    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:8rem;color:var(--text-muted);">No scripts found...</div>';
-    return;
+    if (filteredScripts.length > 0) {
+      const title = document.createElement("div");
+      title.className = "category-title";
+      title.textContent = category.title;
+      container.appendChild(title);
+
+      const grid = document.createElement("div");
+      grid.className = "script-grid";
+      
+      filteredScripts.forEach(script => {
+        grid.appendChild(createCard(script));
+      });
+      
+      container.appendChild(grid);
+    }
+  });
+
+  if (container.children.length === 0 && term !== "") {
+    container.innerHTML = '<div style="text-align:center;padding:6rem;color:var(--muted);font-size:1.3rem;">No matching scripts found...</div>';
   }
-
-  filtered.forEach(script => grid.appendChild(createCard(script)));
 }
 
-function openPanel(script) {
-  panelTitle.textContent = script.title;
+function showScript(script) {
+  panelTitle.textContent = script.name;
   codeContent.innerHTML = script.code
     .split('\n')
     .map(line => `<div class="code-line">${line}</div>`)
     .join('');
   
-  panel.style.display = "flex";           // Most important line
-  document.body.style.overflow = "hidden"; // Prevent page scroll behind panel
+  panel.style.display = "flex";
+  document.body.style.overflow = "hidden";
+
+  copyBtn.onclick = () => {
+    navigator.clipboard.writeText(script.code).then(() => {
+      copyBtn.innerHTML = '<span>📋</span> Copied!';
+      setTimeout(() => {
+        copyBtn.innerHTML = '<span>📋</span> Copy Script';
+      }, 1800);
+    });
+  };
 }
 
 function closePanel() {
   panel.style.display = "none";
-  document.body.style.overflow = "";       // Restore scroll
+  document.body.style.overflow = "";
 }
-
-copyCodeBtn.onclick = () => {
-  const code = codeContent.textContent;
-  navigator.clipboard.writeText(code).then(() => {
-    copyCodeBtn.innerHTML = '<span>📋</span> Copied!';
-    setTimeout(() => copyCodeBtn.innerHTML = '<span>📋</span> Copy Script', 1800);
-  });
-};
 
 // Initial render
 renderScripts();
@@ -395,10 +458,10 @@ renderScripts();
 // Live search
 searchInput.addEventListener("input", e => renderScripts(e.target.value));
 
-// Close with ESC
+// Close with ESC key
 document.addEventListener("keydown", e => {
   if (e.key === "Escape") closePanel();
 });
 </script>
 </body>
-</html> 
+</html>
