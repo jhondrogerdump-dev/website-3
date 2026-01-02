@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>XENA HUB - Ultimate Script Hub</title>
+    <title>XENA HUB - Premium Scripts</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -16,171 +16,138 @@
         }
 
         body {
-            background: #0d001a;
-            color: #e0d0ff;
+            background: #1a0f00;
+            color: #fff3d1;
             font-family: 'Roboto Mono', monospace;
             background-image: 
-                radial-gradient(circle at 20% 30%, rgba(120, 40, 255, 0.12) 0%, transparent 25%),
-                radial-gradient(circle at 80% 70%, rgba(180, 60, 255, 0.09) 0%, transparent 30%);
+                radial-gradient(circle at 20% 30%, rgba(255, 200, 40, 0.18) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(255, 180, 0, 0.14) 0%, transparent 30%);
             background-attachment: fixed;
             line-height: 1.6;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         header {
-            padding: 60px 0 80px;
+            padding: 80px 0 100px;
             text-align: center;
-            position: relative;
         }
 
         .glow-text {
             font-family: 'Orbitron', sans-serif;
-            font-size: clamp(3.5rem, 8vw, 9rem);
+            font-size: clamp(4rem, 10vw, 10rem);
             font-weight: 900;
-            background: linear-gradient(90deg, #a78bfa, #c084fc, #e879f9, #a78bfa);
+            background: linear-gradient(90deg, #ffcc00, #ffaa00, #ff8800, #ffcc00);
             background-size: 200% auto;
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 40px rgba(168, 85, 247, 0.7);
+            text-shadow: 0 0 50px rgba(255, 170, 0, 0.9);
             animation: glow 4s ease-in-out infinite alternate;
         }
 
         @keyframes glow {
-            from { text-shadow: 0 0 20px rgba(168, 85, 247, 0.5); }
-            to   { text-shadow: 0 0 80px rgba(168, 85, 247, 0.9), 0 0 120px rgba(168, 85, 247, 0.4); }
+            from { text-shadow: 0 0 25px rgba(255, 180, 0, 0.7); }
+            to   { text-shadow: 0 0 90px rgba(255, 140, 0, 1), 0 0 140px rgba(255, 160, 0, 0.6); }
         }
 
         .subtitle {
-            margin-top: 1rem;
-            font-size: 1.5rem;
-            color: #b19cd9;
-            letter-spacing: 2px;
+            margin-top: 1.2rem;
+            font-size: 1.6rem;
+            color: #ffd966;
+            letter-spacing: 3px;
             text-transform: uppercase;
-        }
-
-        .status-bar {
-            background: rgba(30, 10, 60, 0.6);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(168, 85, 247, 0.3);
-            border-radius: 12px;
-            padding: 1rem 2rem;
-            margin: 2rem auto;
-            max-width: 700px;
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-        }
-
-        .status-item {
-            text-align: center;
-        }
-
-        .status-number {
-            font-size: 2.1rem;
-            font-weight: bold;
-            color: #d8b4fe;
-        }
-
-        .status-label {
-            font-size: 0.9rem;
-            color: #a78bfa88;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .scripts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 1.8rem;
-            padding: 40px 0;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2rem;
+            padding: 40px 0 80px;
         }
 
         .script-card {
-            background: rgba(25, 15, 50, 0.45);
-            border: 1px solid rgba(168, 85, 247, 0.25);
-            border-radius: 16px;
+            background: rgba(40, 25, 0, 0.55);
+            border: 1px solid rgba(255, 170, 0, 0.45);
+            border-radius: 18px;
             overflow: hidden;
-            transition: all 0.35s ease;
-            backdrop-filter: blur(6px);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(8px);
             position: relative;
         }
 
         .script-card:hover {
-            transform: translateY(-12px);
-            border-color: #c084fc;
-            box-shadow: 0 25px 60px rgba(126, 34, 206, 0.35);
+            transform: translateY(-15px) scale(1.03);
+            border-color: #ffaa00;
+            box-shadow: 0 30px 70px rgba(255, 140, 0, 0.55);
         }
 
         .card-header {
-            background: linear-gradient(135deg, #4c1d95, #6d28d9);
-            padding: 1.4rem 1.8rem;
-            font-weight: bold;
-            font-size: 1.35rem;
-            border-bottom: 2px solid #a78bfa55;
+            background: linear-gradient(135deg, #b38f00, #e6b800);
+            padding: 1.6rem 2rem;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+            text-align: center;
+            color: #1a0f00;
+            border-bottom: 3px solid #ffcc0066;
         }
 
         .card-body {
-            padding: 1.6rem;
+            padding: 2.5rem 2rem;
+            text-align: center;
         }
 
-        .features {
-            list-style: none;
-            margin: 1rem 0;
-        }
-
-        .features li {
-            margin: 0.8rem 0;
-            padding-left: 1.8rem;
-            position: relative;
-        }
-
-        .features li::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #c084fc;
-        }
-
-        .btn {
-            display: inline-block;
-            background: linear-gradient(90deg, #7c3aed, #a855f7);
-            color: white;
-            padding: 0.9rem 2rem;
+        .execute-btn {
+            background: linear-gradient(90deg, #ffaa00, #ffcc00, #ff8800);
+            background-size: 200% auto;
+            color: #1a0f00;
+            padding: 1.1rem 3rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 1.2rem;
-            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            display: inline-block;
+            transition: all 0.4s ease;
             border: none;
             cursor: pointer;
+            box-shadow: 0 8px 25px rgba(255, 140, 0, 0.5);
+            animation: buttonPulse 3s infinite alternate;
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(126, 34, 206, 0.5);
+        .execute-btn:hover {
+            transform: translateY(-5px) scale(1.06);
+            box-shadow: 0 20px 40px rgba(255, 140, 0, 0.7);
+        }
+
+        @keyframes buttonPulse {
+            from { background-position: 0% 50%; }
+            to   { background-position: 200% 50%; }
         }
 
         footer {
             text-align: center;
-            padding: 60px 0 100px;
-            color: #6b7280;
-            font-size: 0.95rem;
+            padding: 80px 0 120px;
+            color: #ffd966;
+            font-size: 1.1rem;
         }
 
         .discord-btn {
-            background: linear-gradient(90deg, #5865F2, #7289DA);
+            background: linear-gradient(90deg, #ffaa00, #ffcc00, #ff8800);
+            background-size: 200% auto;
+            animation: buttonPulse 4s infinite alternate;
+            padding: 1rem 3.5rem;
+            font-size: 1.3rem;
+            color: #1a0f00;
         }
 
         @media (max-width: 768px) {
-            .glow-text { font-size: 4.5rem; }
-            .status-bar { flex-direction: column; }
+            .glow-text { font-size: 5rem; }
+            .scripts-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -190,88 +157,87 @@
 
     <header>
         <h1 class="glow-text">XENA HUB</h1>
-        <div class="subtitle">Your #1 Source For Premium Scripts</div>
-        
-        <div class="status-bar">
-            <div class="status-item">
-                <div class="status-number">120+</div>
-                <div class="status-label">Scripts</div>
-            </div>
-            <div class="status-item">
-                <div class="status-number">45K+</div>
-                <div class="status-label">Downloads</div>
-            </div>
-            <div class="status-item">
-                <div class="status-number">v3.9</div>
-                <div class="status-label">Latest Update</div>
-            </div>
-        </div>
+        <div class="subtitle">Premium Roblox Scripts • 2026 Edition</div>
     </header>
 
     <section class="scripts-grid">
-        
+
+        <!-- Piggy Script -->
         <div class="script-card">
-            <div class="card-header">Universal Blox Fruits</div>
+            <div class="card-header">PIGGY</div>
             <div class="card-body">
-                <ul class="features">
-                    <li>Auto Farm • Mirage • Raid</li>
-                    <li>Fastest Fruit Finder 2025</li>
-                    <li>Working Boat + Mirage ESP</li>
-                    <li>Full GUI • Keyless option</li>
-                </ul>
-                <a href="#" class="btn">Get Script →</a>
+                <p style="margin-bottom: 2rem; color: #ffe680; font-size: 1.1rem;">
+                    Full Auto Farm, ESP, Items, Escape & more
+                </p>
+                <button 
+                    class="execute-btn"
+                    onclick="copyToClipboard('loadstring(game:HttpGet(\"https://raw.githubusercontent.com/jhondrogerdump-dev/Xenahub/refs/heads/main/Xena%20hub%20piggy\"))()')"
+                >
+                    Copy & Execute
+                </button>
             </div>
         </div>
 
+        <!-- Taxi Boss Script -->
         <div class="script-card">
-            <div class="card-header">Arsenal Godmode + Aimbot</div>
+            <div class="card-header">TAXI BOSS</div>
             <div class="card-body">
-                <ul class="features">
-                    <li>Silent Aim • Wallbang</li>
-                    <li>ESP Boxes + Tracers</li>
-                    <li>Custom Crosshair + Hitbox</li>
-                    <li>Undetectable Jan 2026</li>
-                </ul>
-                <a href="#" class="btn">Get Script →</a>
+                <p style="margin-bottom: 2rem; color: #ffe680; font-size: 1.1rem;">
+                    Auto Drive • Money Farm • Speed • Teleport
+                </p>
+                <button 
+                    class="execute-btn"
+                    onclick="copyToClipboard('loadstring(game:HttpGet(\"https://api.junkie-development.de/api/v1/luascripts/public/8f736d47a5c4b8460edb7ef075ddf8d5d4922d6c28f1e0042f078302f3fff3b1/download\"))()')"
+                >
+                    Copy & Execute
+                </button>
             </div>
         </div>
 
+        <!-- Fireworks Playground Beta -->
         <div class="script-card">
-            <div class="card-header">Da Hood Premium</div>
+            <div class="card-header">FIREWORKS PLAYGROUND BETA</div>
             <div class="card-body">
-                <ul class="features">
-                    <li>Auto Stomp • Farm Cash</li>
-                    <li>Godmode + Anti-Lock</li>
-                    <li>Best Aimbot + Prediction</li>
-                    <li>Customizable UI</li>
-                </ul>
-                <a href="#" class="btn">Get Script →</a>
-            </div>
-        </div>
-
-        <div class="script-card">
-            <div class="card-header">Pet Simulator 99</div>
-            <div class="card-body">
-                <ul class="features">
-                    <li>Auto Farm • Huge Pets</li>
-                    <li>Teleport • Speed Farm</li>
-                    <li>Auto Sell • Auto Hatch</li>
-                    <li>Working after last wipe</li>
-                </ul>
-                <a href="#" class="btn">Get Script →</a>
+                <p style="margin-bottom: 2rem; color: #ffe680; font-size: 1.1rem;">
+                    Auto Farm • Best Explosions • GUI • Beta Features
+                </p>
+                <button 
+                    class="execute-btn"
+                    onclick="copyToClipboard('loadstring(game:HttpGet(\"https://raw.githubusercontent.com/jhondrogerdump-dev/Xenahub/refs/heads/main/Xena%20hub%20fireworks%20playground%20Beta\"))()')"
+                >
+                    Copy & Execute
+                </button>
             </div>
         </div>
 
     </section>
 
     <footer>
-        <p>© 2025-2026 XENA HUB • All Rights Reserved</p>
-        <p style="margin-top: 1rem;">
-            <a href="#" class="btn discord-btn" style="padding: 0.8rem 2.5rem;">Join Discord Community</a>
+        <p>© 2025-2026 XENA HUB • All scripts for educational purposes only</p>
+        <p style="margin: 2rem 0;">
+            <a 
+                href="https://discord.gg/qp7bjUTvk5" 
+                target="_blank" 
+                class="execute-btn discord-btn"
+                style="text-decoration: none;"
+            >
+                JOIN DISCORD COMMUNITY
+            </a>
         </p>
     </footer>
 
 </div>
 
+<script>
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        alert("Script copied to clipboard!\n\nPaste it into your Roblox exploit executor!");
+    }).catch(err => {
+        alert("Failed to copy automatically.\n\nPlease manually copy:\n\n" + text);
+        prompt("Copy this script:", text);
+    });
+}
+</script>
+
 </body>
-</html> 
+</html>
