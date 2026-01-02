@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>XENA HUB • Free Scripts</title>
+<title>XENA HUB • Features & Upcoming</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
@@ -36,7 +36,7 @@
 
     .glow-text {
         font-family:'Orbitron', sans-serif;
-        font-size:clamp(5rem,11vw,11rem);
+        font-size:clamp(4.5rem,10vw,10rem);
         font-weight:900;
         background:linear-gradient(90deg, #ffd700, #ffaa00, #ff8800, #ffd700);
         background-size:300% auto;
@@ -61,127 +61,98 @@
         font-weight:300;
     }
 
-    .scripts-grid {
-        display:grid;
-        grid-template-columns:repeat(auto-fit, minmax(380px, 1fr));
-        gap:2.5rem;
+    .features-section {
         padding:40px 0 80px;
     }
 
-    .panel {
+    .feature-card {
         background:rgba(35,20,0,0.7);
         border:2px solid rgba(255,180,0,0.4);
         border-radius:18px;
         overflow:hidden;
         backdrop-filter:blur(10px);
-        transition:all 0.45s ease;
+        margin-bottom:2.5rem;
         box-shadow:0 10px 35px rgba(0,0,0,0.65);
-        position:relative;
+        transition:all 0.45s ease;
     }
 
-    .panel:hover {
-        transform:translateY(-15px);
+    .feature-card:hover {
+        transform:translateY(-12px);
         border-color:#ffd700;
         box-shadow:0 25px 70px rgba(255,140,0,0.55);
     }
 
-    .panel-header {
+    .feature-header {
         background:linear-gradient(135deg, #b38f00, #e6b800);
-        padding:1.7rem;
+        padding:1.6rem;
         font-family:'Orbitron', sans-serif;
         font-weight:800;
-        font-size:1.8rem;
+        font-size:1.9rem;
         text-align:center;
         color:#0f0800;
         text-shadow:0 1px 3px rgba(0,0,0,0.5);
         border-bottom:3px solid #ffcc0088;
     }
 
-    .panel-body {
-        padding:2.6rem 2rem;
-        text-align:center;
-    }
-
-    .desc {
-        font-size:1.18rem;
+    .feature-list {
+        padding:2.2rem 2.5rem;
+        font-size:1.15rem;
         color:#ffe680;
-        margin-bottom:2.2rem;
-        opacity:0.92;
+        line-height:1.8;
     }
 
-    .exec-btn {
-        background:linear-gradient(90deg, #ffaa00, #ffd700, #ffcc00);
-        background-size:300%;
-        color:#0f0800;
-        padding:1.15rem 3.4rem;
-        border:none;
-        border-radius:50px;
-        font-size:1.25rem;
-        font-weight:700;
-        cursor:pointer;
-        transition:all 0.4s;
-        box-shadow:0 8px 25px rgba(255,170,0,0.55);
-        animation:btnPulse 4s infinite alternate;
-        margin:0.6rem;
+    .feature-list li {
+        margin:1rem 0;
+        position:relative;
+        padding-left:2rem;
     }
 
-    .exec-btn:hover {
-        transform:translateY(-5px) scale(1.08);
-        box-shadow:0 20px 50px rgba(255,140,0,0.7);
+    .feature-list li::before {
+        content:"・";
+        position:absolute;
+        left:0;
+        color:#ffd700;
+        font-size:1.6rem;
+        line-height:1;
     }
 
-    @keyframes btnPulse {
-        0%   { background-position:0% 50%; }
-        100% { background-position:300% 50%; }
-    }
-
-    .faq-section {
+    .upcoming-section {
         max-width:900px;
         margin:0 auto 100px;
-        padding:40px 20px;
-        background:rgba(35,20,0,0.5);
-        border:2px solid rgba(255,180,0,0.3);
+        padding:40px;
+        background:rgba(35,20,0,0.6);
+        border:2px solid rgba(255,180,0,0.35);
         border-radius:18px;
         backdrop-filter:blur(10px);
     }
 
-    .faq-title {
+    .upcoming-title {
         font-family:'Orbitron', sans-serif;
-        font-size:2.2rem;
+        font-size:2.4rem;
         text-align:center;
-        margin-bottom:2rem;
+        margin-bottom:1.8rem;
         color:#ffd700;
         text-shadow:0 0 20px #ffaa00aa;
     }
 
-    .faq-item {
-        margin:1.8rem 0;
-        padding:1.2rem;
-        background:rgba(50,30,0,0.4);
-        border-left:4px solid #ffaa00;
-        border-radius:8px;
-    }
-
-    .faq-q {
-        font-weight:700;
-        font-size:1.3rem;
+    .upcoming-list {
+        font-size:1.4rem;
+        text-align:center;
         color:#ffcc66;
-        margin-bottom:0.6rem;
     }
 
-    .faq-a {
-        font-size:1.1rem;
-        color:#ffe680;
-        opacity:0.92;
+    .upcoming-list li {
+        margin:1.2rem 0;
+        font-weight:300;
     }
 
-    .next-page-btn {
+    .back-btn {
         display:block;
-        margin:80px auto 0;
-        padding:1.4rem 5rem;
-        font-size:1.5rem;
+        margin:60px auto;
+        padding:1.3rem 4.5rem;
+        font-size:1.4rem;
         font-weight:700;
-        background:linear-gradient(90deg, #ff8800, #ffaa00, #ffd700);
+        background:linear-gradient(90deg, #ffaa00, #ffd700, #ffcc00);
         background-size:300%;
         color:#0f0800;
         border:none;
@@ -190,11 +161,18 @@
         box-shadow:0 10px 35px rgba(255,140,0,0.6);
         transition:all 0.4s;
         animation:btnPulse 5s infinite alternate;
+        text-decoration:none;
+        text-align:center;
     }
 
-    .next-page-btn:hover {
-        transform:scale(1.1);
+    .back-btn:hover {
+        transform:scale(1.08);
         box-shadow:0 20px 60px rgba(255,140,0,0.8);
+    }
+
+    @keyframes btnPulse {
+        0%   { background-position:0% 50%; }
+        100% { background-position:300% 50%; }
     }
 
     footer {
@@ -205,9 +183,7 @@
     }
 
     @media (max-width:900px) {
-        .glow-text { font-size:5.8rem; }
-        .scripts-grid { grid-template-columns:1fr; }
-        .next-page-btn { font-size:1.3rem; padding:1.2rem 4rem; }
+        .glow-text { font-size:5rem; }
     }
 </style>
 </head>
@@ -216,85 +192,62 @@
 <div class="container">
 
     <header>
-        <h1 class="glow-text">XENA HUB</h1>
-        <div class="subtitle">FREE SCRIPTS</div>
+        <h1 class="glow-text">FEATURES</h1>
+        <div class="subtitle">What Our Scripts Can Do</div>
     </header>
 
-    <section class="scripts-grid">
+    <section class="features-section">
 
-        <div class="panel">
-            <div class="panel-header">PIGGY</div>
-            <div class="panel-body">
-                <p class="desc">Auto Farm • ESP • Items • Escape • Full Features</p>
-                <button class="exec-btn" onclick="copy('loadstring(game:HttpGet(\'https://raw.githubusercontent.com/jhondrogerdump-dev/Xenahub/refs/heads/main/Xena%20hub%20piggy\'))()')">
-                    Copy & Execute
-                </button>
-            </div>
+        <div class="feature-card">
+            <div class="feature-header">FIREWORKS PLAYGROUND BETA</div>
+            <ul class="feature-list">
+                <li>Auto collect chests</li>
+            </ul>
         </div>
 
-        <div class="panel">
-            <div class="panel-header">TAXI BOSS</div>
-            <div class="panel-body">
-                <p class="desc">Auto Drive • Money Farm • Speed • Teleport</p>
-                <button class="exec-btn" onclick="copy('loadstring(game:HttpGet(\'https://api.junkie-development.de/api/v1/luascripts/public/8f736d47a5c4b8460edb7ef075ddf8d5d4922d6c28f1e0042f078302f3fff3b1/download\'))()')">
-                    Copy & Execute
-                </button>
-            </div>
+        <div class="feature-card">
+            <div class="feature-header">PIGGY</div>
+            <ul class="feature-list">
+                <li>Tools GUI for Book 1</li>
+                <li>Tools GUI for both books</li>
+                <li>Auto collect pages</li>
+                <li>Spam door close and open</li>
+            </ul>
         </div>
 
-        <div class="panel">
-            <div class="panel-header">FIREWORKS BETA</div>
-            <div class="panel-body">
-                <p class="desc">Auto Farm • Explosions • GUI • Beta Features</p>
-                <button class="exec-btn" onclick="copy('loadstring(game:HttpGet(\'https://raw.githubusercontent.com/jhondrogerdump-dev/Xenahub/refs/heads/main/Xena%20hub%20fireworks%20playground%20Beta\'))()')">
-                    Copy & Execute
-                </button>
-            </div>
+        <div class="feature-card">
+            <div class="feature-header">TAXI BOSS</div>
+            <ul class="feature-list">
+                <li>Auto farm money</li>
+                <li>Auto upgrade office</li>
+                <li>Auto collect parts</li>
+                <li>Auto trophies</li>
+                <li>Auto medals</li>
+            </ul>
         </div>
 
     </section>
 
-    <section class="faq-section">
-        <h2 class="faq-title">F.A.Q</h2>
-
-        <div class="faq-item">
-            <div class="faq-q">Q: Is the script free?</div>
-            <div class="faq-a">A: Yes, completely free & keyless.</div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-q">Q: Is the script keyless?</div>
-            <div class="faq-a">A: Yes, completely keyless – no key system at all!</div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-q">Q: When will staff applications open?</div>
-            <div class="faq-a">A: Staff applications will open when we hit 50 members in the Discord!</div>
-        </div>
+    <section class="upcoming-section">
+        <h2 class="upcoming-title">UPCOMING SCRIPTS</h2>
+        <ul class="upcoming-list">
+            <li>THE FORGE</li>
+            <li>FISH IT</li>
+        </ul>
     </section>
 
-    <button class="next-page-btn" onclick="window.location.href='page2.html';">
-        → GO TO NEXT PAGE
-    </button>
+    <a href="index.html" class="back-btn">← BACK TO MAIN PAGE</a>
 
     <footer>
         <p>© 2025–2026 XENA HUB • Free Roblox Scripts</p>
         <p style="margin:2.5rem 0;">
-            <a href="https://discord.gg/qp7bjUTvk5" target="_blank" class="exec-btn" style="text-decoration:none;">
+            <a href="https://discord.gg/qp7bjUTvk5" target="_blank" class="back-btn" style="padding:1.1rem 4rem; font-size:1.3rem;">
                 JOIN DISCORD
             </a>
         </p>
     </footer>
 
 </div>
-
-<script>
-function copy(text) {
-    navigator.clipboard.writeText(text)
-        .then(() => alert("Script copied! Paste it in your executor 🔥"))
-        .catch(() => prompt("Copy manually:", text));
-}
-</script>
 
 </body>
 </html>
