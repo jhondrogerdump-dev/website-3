@@ -1,287 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>XENA HUB • Script Features</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Script Hub • Free Scripts & Tools</title>
+  <meta name="description" content="Free Roblox scripts, executors hub, GUI scripts, admin scripts and more"/>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<style>
+  <style>
+    :root {
+      --bg: #0f0f11;
+      --bg-card: #16161a;
+      --accent: #7c3aed;
+      --accent-dark: #5c2ea6;
+      --text: #e1e1ea;
+      --text-muted: #9ca3af;
+      --border: #27272a;
+    }
+
     * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-        background: #0f0800;
-        color: #ffe680;
-        font-family: 'Roboto Mono', monospace;
-        min-height: 100vh;
-        background-image:
-            radial-gradient(circle at 10% 15%, rgba(255,220,60,0.22) 0%, transparent 35%),
-            radial-gradient(circle at 90% 80%, rgba(255,170,0,0.20) 0%, transparent 40%);
-        background-attachment: fixed;
-        overflow-x: hidden;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.5;
     }
 
     .container {
-        max-width: 1300px;
-        margin: 0 auto;
-        padding: 0 25px;
-        position: relative;
-        z-index: 1;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
 
     header {
-        padding: 120px 0 70px;
-        text-align: center;
-        position: relative;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: rgba(15,15,17,0.85);
+      backdrop-filter: blur(10px);
+      z-index: 100;
     }
 
-    .glow-text {
-        font-family: 'Orbitron', sans-serif;
-        font-size: clamp(4.8rem, 10vw, 11rem);
-        font-weight: 900;
-        background: linear-gradient(90deg, #fff200, #ffcc00, #ff9900, #fff200);
-        background-size: 400% auto;
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-shadow: 
-            0 0 30px #ffcc0088,
-            0 0 60px #ff9900aa,
-            0 0 100px #ff7700;
-        animation: neonPulse 7s ease-in-out infinite;
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
-    @keyframes neonPulse {
-        0%, 100% { background-position: 0% 50%; text-shadow: 0 0 30px #ffcc0088, 0 0 60px #ff9900aa; }
-        50%      { background-position: 400% 50%; text-shadow: 0 0 50px #ffcc00cc, 0 0 90px #ff9900ff; }
+    .logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 1.75rem;
+      background: linear-gradient(90deg, #a78bfa, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .search-bar {
+      flex: 1;
+      max-width: 500px;
+      position: relative;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 2.8rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .search-bar input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(124,58,237,0.15);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    main {
+      padding: 2.5rem 0;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
     }
 
     .subtitle {
-        margin-top: 1.2rem;
-        font-size: 1.9rem;
-        color: #ffdd88;
-        letter-spacing: 5px;
-        text-transform: uppercase;
-        font-weight: 300;
-        text-shadow: 0 0 15px rgba(255, 200, 0, 0.6);
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
     }
 
-    .features-section {
-        padding: 40px 0 100px;
+    .script-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.25rem;
     }
 
-    .feature-card {
-        background: rgba(40, 22, 0, 0.72);
-        border: 2px solid rgba(255, 190, 0, 0.45);
-        border-radius: 22px;
-        overflow: hidden;
-        backdrop-filter: blur(12px);
-        margin-bottom: 3rem;
-        box-shadow: 0 12px 40px rgba(0,0,0,0.7);
-        transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        position: relative;
+    .script-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: all 0.18s ease;
+      position: relative;
     }
 
-    .feature-card::before {
-        content: '';
-        position: absolute;
-        inset: -2px;
-        background: linear-gradient(45deg, transparent, rgba(255, 200, 0, 0.4), transparent);
-        border-radius: 24px;
-        opacity: 0;
-        transition: opacity 0.6s;
-        pointer-events: none;
+    .script-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
     }
 
-    .feature-card:hover {
-        transform: translateY(-16px) scale(1.02);
-        border-color: #fff200;
-        box-shadow: 0 30px 80px rgba(255, 170, 0, 0.55);
+    .card-header {
+      padding: 1.25rem 1.25rem 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
     }
 
-    .feature-card:hover::before {
-        opacity: 1;
+    .script-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.3;
     }
 
-    .feature-header {
-        background: linear-gradient(135deg, #c2a300, #ffcc00, #ffb300);
-        padding: 1.8rem;
-        font-family: 'Orbitron', sans-serif;
-        font-weight: 900;
-        font-size: 2rem;
-        text-align: center;
-        color: #0f0800;
-        text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-        border-bottom: 4px solid rgba(255, 255, 255, 0.2);
+    .tag {
+      background: rgba(124,58,237,0.15);
+      color: #c084fc;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      white-space: nowrap;
     }
 
-    .feature-list {
-        padding: 2.6rem 3rem;
-        font-size: 1.22rem;
-        color: #fff0c2;
-        line-height: 2;
-        text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    .card-description {
+      padding: 0 1.25rem 1.25rem;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.45;
     }
 
-    .feature-list li {
-        margin: 1.2rem 0;
-        position: relative;
-        padding-left: 2.2rem;
+    .card-footer {
+      padding: 0.9rem 1.25rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
     }
 
-    .feature-list li::before {
-        content: "✦";
-        position: absolute;
-        left: 0;
-        color: #fff200;
-        font-size: 1.4rem;
+    .copy-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.55rem 1.1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.15s;
     }
 
-    .upcoming-section {
-        max-width: 900px;
-        margin: 0 auto 120px;
-        padding: 50px;
-        background: rgba(40, 22, 0, 0.65);
-        border: 2px solid rgba(255, 190, 0, 0.4);
-        border-radius: 22px;
-        backdrop-filter: blur(12px);
-        box-shadow: 0 15px 50px rgba(0,0,0,0.7);
+    .copy-btn:hover {
+      background: var(--accent-dark);
     }
 
-    .upcoming-title {
-        font-family: 'Orbitron', sans-serif;
-        font-size: 2.6rem;
-        text-align: center;
-        margin-bottom: 2rem;
-        background: linear-gradient(90deg, #fff200, #ffcc00);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        text-shadow: 0 0 25px rgba(255, 200, 0, 0.7);
+    .copy-btn.copied {
+      background: #10b981;
     }
 
-    .upcoming-list li {
-        font-size: 1.5rem;
-        text-align: center;
-        margin: 1.5rem 0;
-        color: #ffdd88;
-        font-weight: 300;
+    .hidden {
+      display: none !important;
     }
 
-    .nav-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 3rem;
-        flex-wrap: wrap;
-        margin: 60px 0 100px;
+    @media (max-width: 768px) {
+      .script-grid { grid-template-columns: 1fr; }
+      .search-bar { max-width: 100%; }
     }
-
-    .nav-btn {
-        padding: 1.4rem 5rem;
-        font-size: 1.45rem;
-        font-weight: 700;
-        background: linear-gradient(90deg, #ffaa00, #fff200, #ffcc00);
-        background-size: 400%;
-        color: #0f0800;
-        border: none;
-        border-radius: 60px;
-        cursor: pointer;
-        box-shadow: 0 10px 40px rgba(255, 170, 0, 0.6);
-        transition: all 0.4s;
-        animation: btnFlow 6s infinite alternate;
-        text-decoration: none;
-        display: inline-block;
-        text-align: center;
-    }
-
-    .nav-btn:hover {
-        transform: translateY(-6px) scale(1.08);
-        box-shadow: 0 25px 70px rgba(255, 170, 0, 0.85);
-    }
-
-    @keyframes btnFlow {
-        0%   { background-position: 0% 50%; }
-        100% { background-position: 400% 50%; }
-    }
-
-    footer {
-        text-align: center;
-        padding: 100px 0 140px;
-        color: #ffdd8899;
-        font-size: 1.15rem;
-    }
-
-    @media (max-width: 900px) {
-        .glow-text { font-size: 5.5rem; }
-        .nav-buttons { flex-direction: column; gap: 2rem; }
-    }
-</style>
+  </style>
 </head>
 <body>
 
-<div class="container">
-
-    <header>
-        <h1 class="glow-text">XENA HUB</h1>
-        <div class="subtitle">SCRIPT FEATURES • FREE AND KEYLESS</div>
-    </header>
-
-    <section class="features-section">
-
-        <div class="feature-card">
-            <div class="feature-header">FIREWORKS PLAYGROUND BETA</div>
-            <ul class="feature-list">
-                <li>Auto collect chests</li>
-            </ul>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-header">PIGGY</div>
-            <ul class="feature-list">
-                <li>Tools GUI for Book 1</li>
-                <li>Tools GUI for both books</li>
-                <li>Auto collect pages</li>
-                <li>Spam door close and open</li>
-            </ul>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-header">TAXI BOSS</div>
-            <ul class="feature-list">
-                <li>Auto farm money</li>
-                <li>Auto upgrade office</li>
-                <li>Auto collect parts</li>
-                <li>Auto trophies</li>
-                <li>Auto medals</li>
-            </ul>
-        </div>
-
-    </section>
-
-    <section class="upcoming-section">
-        <h2 class="upcoming-title">UPCOMING SCRIPTS</h2>
-        <ul class="upcoming-list">
-            <li>THE FORGE</li>
-            <li>FISH IT</li>
-        </ul>
-    </section>
-
-    <div class="nav-buttons">
-        <a href="index.html" class="nav-btn">← BACK TO MAIN PAGE</a>
-        <a href="https://discord.gg/qp7bjUTvk5" target="_blank" class="nav-btn">JOIN DISCORD COMMUNITY</a>
+<header>
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">SCRIPT<span style="color:#c084fc">HUB</span></div>
+      
+      <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search scripts (fly, aimbot, gui, hub...)"/>
+      </div>
     </div>
+  </div>
+</header>
 
-    <footer>
-        <p>© 2026 XENA HUB • Free & Keyless Roblox Scripts</p>
-    </footer>
+<main class="container">
+  <h1>Popular Scripts Right Now</h1>
+  <p class="subtitle">Latest working free scripts • Updated January 2026</p>
 
-</div>
+  <div class="script-grid" id="scriptGrid">
+    <!-- Scripts will be inserted here by JS -->
+  </div>
+</main>
 
+<script>
+// You can later move this data to external JSON file / backend
+const scripts = [
+  {
+    title: "Universal Admin Panel v3",
+    description: "Powerful admin commands, moderation tools, server stats, player list + dark UI",
+    tags: ["Admin", "Universal"],
+    date: "2 days ago",
+    hot: true
+  },
+  {
+    title: "Infinity Yield Admin",
+    description: "The legendary admin script - still one of the strongest free options in 2026",
+    tags: ["Admin", "OP"],
+    date: "1 week ago"
+  },
+  {
+    title: "Fly + ESP GUI 2026",
+    description: "Smooth flying, ESP, fullbright, speed hack, no-clip - updated for latest anti-cheats",
+    tags: ["Fly", "ESP", "Visuals"],
+    date: "Yesterday",
+    hot: true
+  },
+  {
+    title: "Arsenal Silent Aim + ESP",
+    description: "Very strong silent aim, box ESP, tracer, health bars - works in 2026",
+    tags: ["FPS", "Arsenal", "Aimbot"],
+    date: "3 days ago"
+  },
+  {
+    title: "Blox Fruits Auto Farm Hub",
+    description: "Auto farm, auto raid, fruit notifier, fast teleport - very stable",
+    tags: ["Blox Fruits", "Auto Farm"],
+    date: "Today",
+    hot: true
+  },
+  {
+    title: "Doors Entity Remover + Speed",
+    description: "Remove entities, walk speed, noclip - still working after latest update",
+    tags: ["Doors", "Exploit"],
+    date: "4 days ago"
+  }
+];
+
+const grid = document.getElementById("scriptGrid");
+const searchInput = document.getElementById("searchInput");
+
+function createCard(script) {
+  const card = document.createElement("div");
+  card.className = "script-card";
+  card.innerHTML = `
+    <div class="card-header">
+      <div class="script-title">\( {script.title} \){script.hot ? ' <span style="color:#f87171;font-size:0.9rem;">HOT</span>' : ''}</div>
+      <div>\( {script.tags.map(t => `<span class="tag"> \){t}</span>`).join(' ')}</div>
+    </div>
+    <div class="card-description">${script.description}</div>
+    <div class="card-footer">
+      <span>${script.date}</span>
+      <button class="copy-btn">Copy Script</button>
+    </div>
+  `;
+
+  card.querySelector(".copy-btn").onclick = () => {
+    const btn = card.querySelector(".copy-btn");
+    btn.textContent = "Copied!";
+    btn.classList.add("copied");
+    setTimeout(() => {
+      btn.textContent = "Copy Script";
+      btn.classList.remove("copied");
+    }, 2000);
+
+    // In real version you would copy actual script code here
+    navigator.clipboard.writeText(`-- Paste real ${script.title} script here --`);
+  };
+
+  return card;
+}
+
+function renderScripts(filter = "") {
+  grid.innerHTML = "";
+  const term = filter.toLowerCase();
+
+  scripts
+    .filter(s => 
+      s.title.toLowerCase().includes(term) ||
+      s.description.toLowerCase().includes(term) ||
+      s.tags.some(t => t.toLowerCase().includes(term))
+    )
+    .forEach(script => {
+      grid.appendChild(createCard(script));
+    });
+
+  if (grid.children.length === 0) {
+    grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--text-muted);">No scripts found for your search...</p>';
+  }
+}
+
+// Initial render
+renderScripts();
+
+// Live search
+searchInput.addEventListener("input", e => {
+  renderScripts(e.target.value);
+});
+</script>
 </body>
 </html>
