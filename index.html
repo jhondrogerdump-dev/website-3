@@ -16,11 +16,7 @@
             --card: #16162a;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin:0; padding:0; box-sizing:border-box; }
 
         body {
             font-family: 'Segoe UI', system-ui, sans-serif;
@@ -57,7 +53,6 @@
             background: linear-gradient(90deg, #9d4edd, #00ffea);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
         }
 
         .nav-links a {
@@ -73,14 +68,34 @@
             text-shadow: 0 0 10px rgba(0,255,234,0.4);
         }
 
-        main {
+        .search-container {
             max-width: 1200px;
-            margin: 3rem auto;
+            margin: 2.5rem auto;
             padding: 0 5%;
+            position: relative;
         }
 
-        h1, h2, h3 {
-            margin-bottom: 1rem;
+        .search-bar {
+            width: 100%;
+            padding: 1rem 1.4rem;
+            font-size: 1.1rem;
+            background: var(--card);
+            border: 2px solid rgba(0,255,234,0.2);
+            border-radius: 12px;
+            color: var(--text);
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .search-bar:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(0,255,234,0.15);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 5%;
         }
 
         h1 {
@@ -88,92 +103,95 @@
             background: linear-gradient(90deg, #c77dff, #00ffea, #ff6bcb);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-size: 200% auto;
-            animation: shine 6s linear infinite;
-        }
-
-        @keyframes shine {
-            to { background-position: 200%; }
+            text-align: center;
+            margin-bottom: 0.8rem;
         }
 
         .intro-card {
             background: var(--card);
             border-radius: 16px;
-            padding: 2.5rem;
-            margin: 2.5rem 0;
+            padding: 2rem;
+            margin: 2rem 0;
             border: 1px solid rgba(123,44,191,0.25);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.35);
         }
 
         .warning {
             background: rgba(255, 71, 87, 0.15);
             border-left: 5px solid #ff4757;
-            padding: 1.2rem 1.5rem;
+            padding: 1.1rem 1.4rem;
             border-radius: 8px;
-            margin: 2rem 0;
+            margin: 1.8rem 0;
+        }
+
+        .scripts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 1.6rem;
+            margin-top: 2.5rem;
         }
 
         .script-card {
             background: var(--card);
             border-radius: 12px;
-            padding: 1.8rem;
-            margin: 1.5rem 0;
-            border: 1px solid rgba(0,255,234,0.12);
+            padding: 1.6rem;
+            border: 1px solid rgba(0,255,234,0.1);
             transition: all 0.3s ease;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .script-card.hidden {
+            display: none;
         }
 
         .script-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
             border-color: var(--accent);
-            box-shadow: 0 15px 35px rgba(0,255,234,0.12);
+            box-shadow: 0 12px 30px rgba(0,255,234,0.14);
         }
 
         .script-title {
             color: var(--accent);
-            margin-bottom: 0.8rem;
-            font-size: 1.4rem;
+            margin-bottom: 0.9rem;
+            font-size: 1.35rem;
         }
 
         pre {
             background: #0a0a14;
-            padding: 1.4rem;
-            border-radius: 10px;
+            padding: 1.2rem;
+            border-radius: 9px;
             overflow-x: auto;
-            font-size: 0.95rem;
-            border: 1px solid rgba(123,44,191,0.2);
-        }
-
-        code {
-            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.92rem;
+            border: 1px solid rgba(123,44,191,0.18);
         }
 
         .copy-btn {
-            background: rgba(123,44,191,0.25);
+            background: rgba(123,44,191,0.3);
             color: white;
             border: none;
-            padding: 0.5rem 1rem;
+            padding: 0.55rem 1.1rem;
             border-radius: 6px;
             cursor: pointer;
-            margin-top: 0.8rem;
-            transition: all 0.2s;
+            margin-top: 0.9rem;
+            transition: all 0.25s;
         }
 
-        .copy-btn:hover {
-            background: rgba(123,44,191,0.45);
-        }
+        .copy-btn:hover { background: rgba(123,44,191,0.5); }
 
         footer {
             text-align: center;
-            padding: 3rem 1rem 2rem;
+            padding: 4rem 1rem 2.5rem;
             color: var(--text-muted);
             border-top: 1px solid rgba(123,44,191,0.15);
-            margin-top: 5rem;
+            margin-top: 4rem;
         }
 
         @media (max-width: 768px) {
             h1 { font-size: 2.4rem; }
-            nav { flex-direction: column; gap: 1rem; }
-            .nav-links a { margin: 0 1rem; }
+            nav { flex-direction: column; gap: 1.2rem; }
+            .nav-links a { margin: 0 1.2rem; }
+            .scripts-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -183,40 +201,38 @@
     <nav>
         <div class="logo">Roblox<span style="color:#00ffea">Scripts</span></div>
         <div class="nav-links">
-            <a href="#home">Home</a>
+            <a href="#">Home</a>
             <a href="#scripts">Scripts</a>
-            <a href="#rules">Rules</a>
-            <a href="#tools">Tools</a>
+            <a href="#">Rules</a>
+            <a href="#">Tools</a>
         </div>
     </nav>
 </header>
 
+<div class="search-container">
+    <input type="text" id="searchInput" class="search-bar" placeholder="Search scripts... (redz, fling, esp, jump, fly...)">
+</div>
+
 <main>
 
-    <h1>Roblox Scripts Collection<br><small>2025-2026 Edition</small></h1>
+    <h1>Roblox Scripts Collection <small>2025-2026</small></h1>
 
     <div class="intro-card">
-        <h2>Welcome to the Script Hub!</h2>
-        <p>
-            Collection of interesting, funny & sometimes useful Roblox scripts.<br>
-            <strong>Mostly for learning purposes & private servers.</strong>
-        </p>
+        <h2>Script Hub</h2>
+        <p>Collection of funny, useful & learning-purpose Roblox scripts.<br><strong>Use mostly in private servers/friends places!</strong></p>
 
         <div class="warning">
-            <strong>⚠️  Important 2025-2026 reality check:</strong><br><br>
-            Using scripts in public games → almost always → <strong>instant or very fast ban</strong><br>
-            Byfron (Hyperion) + new detection systems are very strong in 2025-2026<br>
-            <strong>Safest places:</strong> your own place • private servers • friends-only games
+            <strong>⚠️ 2025-2026 Reality:</strong><br>
+            Public games → almost always instant/byfron ban<br>
+            <strong>Safe places:</strong> your own game • private servers • friends-only
         </div>
     </div>
 
-    <section id="scripts">
+    <section id="scripts" class="scripts-grid">
 
-        <h2>Popular & Funny Scripts</h2>
-
-        <div class="script-card">
-            <div class="script-title">Infinite Jump (toggle)</div>
-            <pre><code>-- Press J to toggle infinite jump
+        <div class="script-card" data-keywords="infinite jump jump fly high jump">
+            <div class="script-title">Infinite Jump (Toggle - J key)</div>
+            <pre><code>-- Press J to toggle
 local InfiniteJumpEnabled = false
 
 game:GetService("UserInputService").JumpRequest:Connect(function()
@@ -231,64 +247,80 @@ game:GetService("UserInputService").InputBegan:Connect(function(input)
         print("Infinite Jump: " .. (InfiniteJumpEnabled and "ON" or "OFF"))
     end
 end)</code></pre>
-            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent)">Copy</button>
+            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.previousElementSibling.textContent)">Copy</button>
         </div>
 
-        <div class="script-card">
-            <div class="script-title">Fling Everything (R6/R15)</div>
-            <pre><code>local Players = game:GetService("Players")
-local LocalPlayer = Players.LocalPlayer
-
-for _, player in ipairs(Players:GetPlayers()) do
-    if player ~= LocalPlayer and player.Character then
-        local hrp = player.Character:FindFirstChild("HumanoidRootPart")
+        <div class="script-card" data-keywords="fling flinger everything push yeet redz">
+            <div class="script-title">Fling Everyone (Funny)</div>
+            <pre><code>for _, plr in ipairs(game.Players:GetPlayers()) do
+    if plr ~= game.Players.LocalPlayer and plr.Character then
+        local hrp = plr.Character:FindFirstChild("HumanoidRootPart")
         if hrp then
-            local bodyVelocity = Instance.new("BodyVelocity")
-            bodyVelocity.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
-            bodyVelocity.Velocity = Vector3.new(math.random(-500,500), 200, math.random(-500,500))
-            bodyVelocity.Parent = hrp
-            game.Debris:AddItem(bodyVelocity, 0.6)
+            local bv = Instance.new("BodyVelocity", hrp)
+            bv.MaxForce = Vector3.new(1e9,1e9,1e9)
+            bv.Velocity = Vector3.new(math.random(-600,600), 300, math.random(-600,600))
+            game.Debris:AddItem(bv, 0.45)
         end
     end
 end
 
-print("FLINGED EVERYONE (30% chance they get kicked lol)")</code></pre>
-            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent)">Copy</button>
+print("Flinged everyone (they might get kicked lol)")</code></pre>
+            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.previousElementSibling.textContent)">Copy</button>
         </div>
 
-        <div class="script-card">
-            <div class="script-title">Simple ESP (2025 version - Boxes only)</div>
+        <div class="script-card" data-keywords="esp redz hub redzhub wallhack">
+            <div class="script-title">Simple Box ESP (Redz Style)</div>
             <pre><code>local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
 
 for _, player in ipairs(Players:GetPlayers()) do
-    if player ~= Players.LocalPlayer then
-        local esp = Instance.new("BoxHandleAdornment")
-        esp.Size = Vector3.new(4,6,4)
-        esp.Transparency = 0.65
-        esp.Color3 = Color3.fromRGB(255,80,80)
-        esp.AlwaysOnTop = true
-        esp.Adornee = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
-        esp.Parent = player.Character
+    if player ~= Players.LocalPlayer and player.Character then
+        local box = Instance.new("BoxHandleAdornment")
+        box.Size = Vector3.new(4.5, 6.2, 4.5)
+        box.Transparency = 0.6
+        box.Color3 = Color3.fromRGB(255, 60, 60)
+        box.AlwaysOnTop = true
+        box.Adornee = player.Character:FindFirstChild("HumanoidRootPart")
+        box.Parent = player.Character
         
         player.CharacterAdded:Connect(function(char)
-            esp.Adornee = char:WaitForChild("HumanoidRootPart", 5)
+            box.Adornee = char:WaitForChild("HumanoidRootPart", 8)
         end)
     end
 end
 
-print("Simple Red Box ESP loaded")</code></pre>
-            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.querySelector('code').textContent)">Copy</button>
+print("Redz-like Box ESP loaded")</code></pre>
+            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.previousElementSibling.textContent)">Copy</button>
         </div>
+
+        <!-- You can add more scripts here with data-keywords -->
 
     </section>
 
 </main>
 
 <footer>
-    <p>For educational purposes only • Use responsibly • Most public games will ban you in 2025-2026</p>
-    <p style="margin-top:1rem; opacity:0.6;">Made with ♡ by someone who still remembers when FE was new</p>
+    <p>For educational & private server use only • Most public games = ban in 2025-2026</p>
+    <p style="margin-top:1rem; opacity:0.6;">Stay safe & don't ruin the game for others ✌️</p>
 </footer>
+
+<script>
+    const searchInput = document.getElementById('searchInput');
+    const cards = document.querySelectorAll('.script-card');
+
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+
+        cards.forEach(card => {
+            const keywords = card.getAttribute('data-keywords') || '';
+            if (query === '') {
+                card.classList.remove('hidden');
+            } else {
+                const matches = keywords.toLowerCase().includes(query);
+                card.classList.toggle('hidden', !matches);
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
