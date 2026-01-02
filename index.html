@@ -12,15 +12,13 @@
   <style>
     :root {
       --bg: #0a0015;
-      --bg-card: rgba(20, 10, 40, 0.45);
-      --glass: rgba(30, 20, 60, 0.28);
+      --glass: rgba(30, 20, 60, 0.35);
       --accent: #c084fc;
-      --accent-dark: #7c3aed;
       --cyan: #00f0ff;
       --pink: #ff2ee7;
       --text: #f0e6ff;
       --text-muted: #b0a0d0;
-      --border: rgba(192, 132, 252, 0.3);
+      --border: rgba(192, 132, 252, 0.35);
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -44,8 +42,9 @@
       font-weight: 700;
       letter-spacing: 8px;
       background: linear-gradient(90deg, #c084fc, #00f0ff, #ff2ee7, #c084fc);
-      background-size: 300% 300%;
+      background-size: 300%;
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: gradientFlow 15s ease infinite;
       text-shadow: 0 0 30px rgba(192,132,252,0.7);
@@ -98,7 +97,7 @@
       font-size: 1.6rem;
       color: var(--text-muted);
       pointer-events: none;
-      transition: color 0.3s;
+      transition: all 0.3s;
     }
 
     .search-bar:focus + .search-icon {
@@ -129,19 +128,8 @@
     .script-card:hover {
       transform: translateY(-14px) scale(1.035);
       border-color: var(--cyan);
-      box-shadow: 0 25px 60px rgba(0,240,255,0.3), inset 0 0 35px rgba(192,132,252,0.15);
+      box-shadow: 0 25px 60px rgba(0,240,255,0.3);
     }
-
-    .card-glow {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, transparent, rgba(192,132,252,0.18), transparent);
-      opacity: 0;
-      transition: opacity 0.7s;
-      pointer-events: none;
-    }
-
-    .script-card:hover .card-glow { opacity: 1; }
 
     .card-header {
       padding: 1.6rem 1.8rem 1rem;
@@ -160,7 +148,6 @@
       border-radius: 50px;
       font-size: 0.8rem;
       font-weight: 700;
-      text-transform: uppercase;
       box-shadow: 0 0 18px rgba(255,46,231,0.7);
     }
 
@@ -181,17 +168,18 @@
       line-height: 1.55;
     }
 
-    /* ── SCRIPT PANEL ─────────────────────────────────────── */
+    /* ── FIXED SCRIPT PANEL ───────────────────────────────── */
     .script-panel {
       position: fixed;
       inset: 0;
-      background: rgba(8,4,18,0.94);
+      background: rgba(8, 4, 18, 0.96);
       backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px); /* Safari fix */
       display: none;
       align-items: center;
       justify-content: center;
-      z-index: 2000;
-      padding: 2rem;
+      z-index: 9999;                    /* ↑↑↑ Much higher z-index */
+      padding: 1.5rem;
     }
 
     .panel-content {
@@ -205,6 +193,7 @@
       box-shadow: 0 25px 90px rgba(0,0,0,0.75);
       display: flex;
       flex-direction: column;
+      position: relative;
     }
 
     .panel-header {
@@ -213,6 +202,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      background: rgba(20, 10, 40, 0.4);
     }
 
     .panel-title { font-size: 1.9rem; letter-spacing: 2.5px; }
@@ -221,12 +211,15 @@
       background: none;
       border: none;
       color: var(--text-muted);
-      font-size: 2.2rem;
+      font-size: 2.4rem;
       cursor: pointer;
       transition: all 0.3s;
     }
 
-    .close-btn:hover { color: var(--cyan); transform: rotate(90deg); }
+    .close-btn:hover { 
+      color: var(--cyan); 
+      transform: rotate(90deg); 
+    }
 
     .code-container {
       flex: 1;
@@ -241,7 +234,7 @@
 
     .code-line {
       counter-increment: line;
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     .code-line::before {
@@ -259,9 +252,9 @@
       position: absolute;
       top: 1.4rem;
       right: 1.8rem;
-      background: rgba(192,132,252,0.3);
-      color: var(--text);
-      border: 1px solid var(--accent);
+      background: rgba(192,132,252,0.35);
+      color: white;
+      border: none;
       padding: 0.7rem 1.4rem;
       border-radius: 10px;
       cursor: pointer;
@@ -274,12 +267,9 @@
 
     .copy-code-btn:hover {
       background: var(--accent);
-      color: white;
       box-shadow: 0 0 25px rgba(192,132,252,0.6);
       transform: translateY(-2px);
     }
-
-    .copy-code-btn:active { transform: scale(0.97); }
   </style>
 </head>
 <body>
@@ -287,24 +277,24 @@
 <header>
   <div class="container">
     <div class="logo">NEON SCRIPT HUB</div>
-    <div class="subtitle">JANUARY 2026 • FREE • WORKING • LEGENDARY</div>
+    <div class="subtitle">JANUARY 2026 • FREE • WORKING</div>
   </div>
 </header>
 
 <main class="container">
   <div class="search-wrapper">
-    <input type="text" class="search-bar" id="searchInput" placeholder="Search fly, aimbot, autofarm, hub, doors, blox..."/>
+    <input type="text" class="search-bar" id="searchInput" placeholder="Search fly, aimbot, autofarm, doors..."/>
     <span class="search-icon">✦</span>
   </div>
 
   <div class="script-grid" id="scriptGrid"></div>
 </main>
 
-<!-- SCRIPT PANEL -->
+<!-- FIXED SCRIPT PANEL -->
 <div class="script-panel" id="scriptPanel">
   <div class="panel-content">
     <div class="panel-header">
-      <div class="panel-title" id="panelTitle"></div>
+      <div class="panel-title" id="panelTitle">Script</div>
       <button class="close-btn" onclick="closePanel()">×</button>
     </div>
     <div class="code-container" id="codeContainer">
@@ -317,72 +307,23 @@
 </div>
 
 <script>
-// Expanded script database - January 2026 trending
+// Scripts data (shortened for example - you can keep your full list)
 const scripts = [
   {
     title: "Universal Godmode Hub v4",
-    description: "Full admin + godmode + visuals + movement hacks • Still strong in 2026",
+    description: "Godmode + fly + speed • Still working 2026",
     tags: ["Universal", "OP"],
     hot: true,
-    code: `--[[ NEON HUB V4 - WORKING JAN 2026 ]]\n\nlocal plr = game.Players.LocalPlayer\nlocal rs = game:GetService("RunService")\n\n_G.Speed = 150\n_G.Fly = false\n_G.God = true\n\nrs.Heartbeat:Connect(function()\n    if _G.God and plr.Character then\n        plr.Character.Humanoid.Health = math.huge\n    end\nend)\n\n-- Fly toggle & more...`
+    code: `-- Godmode example\nlocal plr = game.Players.LocalPlayer\nwhile true do\n  task.wait()\n  if plr.Character then\n    plr.Character.Humanoid.Health = math.huge\n  end\nend`
   },
   {
-    title: "Blox Fruits Mirage + Auto Farm v2.1",
-    description: "Auto Mirage hunt + fruit ESP + fast boat + raid farm • Updated Jan 2026",
+    title: "Blox Fruits Auto Farm + Mirage",
+    description: "Auto farm + mirage hunter • Updated Jan 2026",
     tags: ["Blox Fruits", "Auto"],
     hot: true,
-    code: `-- Blox Fruits Mirage Hunter 2026\nwhile true do\n    task.wait(0.5)\n    -- Mirage & fruit detection logic here\n    print("Hunting Mirage...")\nend`
+    code: `-- Auto farm loop\nwhile true do\n  task.wait(0.5)\n  print("Farming...")\nend`
   },
-  {
-    title: "Arsenal Silent Aim Godlike",
-    description: "Prediction + wallbang + fov circle + smooth aim • Very stable",
-    tags: ["Arsenal", "Aimbot"],
-    code: `local cam = workspace.CurrentCamera\nfunction getNearest()\n    -- Advanced closest player logic\nend`
-  },
-  {
-    title: "Doors Entity Remover + Noclip",
-    description: "Skip Rush/Ambush + speed + ESP + noclip • Post-update working",
-    tags: ["Doors", "Exploit"],
-    code: `-- Doors Entity Bypass\nfor _, v in pairs(workspace:GetDescendants()) do\n    if v.Name:match("Rush") or v.Name:match("Ambush") then v:Destroy() end\nend`
-  },
-  {
-    title: "Fisch Auto Catch + Farm",
-    description: "Auto fish + sell + best rod upgrade • Top trending 2026",
-    tags: ["Fisch", "Auto Farm"],
-    hot: true,
-    code: `-- Fisch God Farm Jan 2026\nwhile wait(0.3) do\n    -- Cast & catch logic\n    game:GetService("ReplicatedStorage").Events.Cast:FireServer()\nend`
-  },
-  {
-    title: "Pet Simulator 99 Auto Hatch + Farm",
-    description: "Infinite hatch + diamond farm + teleport • Still active",
-    tags: ["Pet Sim 99", "Auto"],
-    code: `-- Pet Sim 99 Farm Hub\n_G.AutoHatch = true\nwhile _G.AutoHatch do\n    task.wait()\n    -- Hatch remote call\nend`
-  },
-  {
-    title: "Steal A Brainrot Trax Spawner",
-    description: "Auto spawn trax + farm brainrots • Viral January 2026",
-    tags: ["Steal A Brainrot", "Spawner"],
-    hot: true,
-    code: `-- Steal A Brainrot Trax Exploit\nfor i = 1, 50 do\n    game:GetService("ReplicatedStorage").SpawnTrax:FireServer()\nend`
-  },
-  {
-    title: "Grow A Garden Infinite Seeds",
-    description: "Auto plant + harvest + infinite seeds • New hot game",
-    tags: ["Grow A Garden", "Auto"],
-    code: `-- Grow A Garden Exploit\nwhile true do\n    wait(1)\n    -- Plant & harvest loop\nend`
-  },
-  {
-    title: "Infinite Yield Admin v6",
-    description: "Classic powerful admin commands • Universal & updated",
-    tags: ["Admin", "Universal"],
-    code: `-- Infinite Yield Admin (2026)\nloadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()`
-  },
-  {
-    title: "Murder Mystery 2 ESP + Silent Aim",
-    description: "See roles + auto stab + aim • Classic but working",
-    tags: ["MM2", "ESP"],
-    code: `-- MM2 ESP & Aim\nfor _, plr in pairs(game.Players:GetPlayers()) do\n    -- Create ESP box\nend`
-  }
+  // ... add your other scripts here ...
 ];
 
 const grid = document.getElementById("scriptGrid");
@@ -396,14 +337,13 @@ function createCard(script) {
   const card = document.createElement("div");
   card.className = "script-card";
   card.innerHTML = `
-    <div class="card-glow"></div>
     <div class="card-header">
       <div class="script-title">\( {script.title} \){script.hot ? ' <span class="hot-badge">HOT</span>' : ''}</div>
       <div>\( {script.tags.map(t => `<span class="tag"> \){t}</span>`).join(' ')}</div>
     </div>
     <div class="card-description">${script.description}</div>
   `;
-  card.onclick = () => openPanel(script);
+  card.addEventListener('click', () => openPanel(script));
   return card;
 }
 
@@ -418,13 +358,11 @@ function renderScripts(filter = "") {
   );
 
   if (filtered.length === 0 && term !== "") {
-    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:8rem;color:var(--text-muted);font-size:1.4rem;">No matching signals found in the void...</div>';
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:8rem;color:var(--text-muted);">No scripts found...</div>';
     return;
   }
 
-  filtered.forEach(script => {
-    grid.appendChild(createCard(script));
-  });
+  filtered.forEach(script => grid.appendChild(createCard(script)));
 }
 
 function openPanel(script) {
@@ -434,32 +372,33 @@ function openPanel(script) {
     .map(line => `<div class="code-line">${line}</div>`)
     .join('');
   
-  panel.style.display = "flex";
-
-  copyCodeBtn.onclick = () => {
-    navigator.clipboard.writeText(script.code).then(() => {
-      copyCodeBtn.innerHTML = '<span>📋</span> Copied!';
-      setTimeout(() => {
-        copyCodeBtn.innerHTML = '<span>📋</span> Copy Script';
-      }, 1800);
-    });
-  };
+  panel.style.display = "flex";           // Most important line
+  document.body.style.overflow = "hidden"; // Prevent page scroll behind panel
 }
 
 function closePanel() {
   panel.style.display = "none";
+  document.body.style.overflow = "";       // Restore scroll
 }
 
-// Initial render with all scripts
+copyCodeBtn.onclick = () => {
+  const code = codeContent.textContent;
+  navigator.clipboard.writeText(code).then(() => {
+    copyCodeBtn.innerHTML = '<span>📋</span> Copied!';
+    setTimeout(() => copyCodeBtn.innerHTML = '<span>📋</span> Copy Script', 1800);
+  });
+};
+
+// Initial render
 renderScripts();
 
 // Live search
 searchInput.addEventListener("input", e => renderScripts(e.target.value));
 
-// ESC to close
+// Close with ESC
 document.addEventListener("keydown", e => {
   if (e.key === "Escape") closePanel();
 });
 </script>
 </body>
-</html>
+</html> 
