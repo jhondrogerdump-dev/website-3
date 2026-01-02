@@ -210,27 +210,58 @@
 </header>
 
 <div class="search-container">
-    <input type="text" id="searchInput" class="search-bar" placeholder="Search scripts... (redz, fling, esp, jump, fly...)">
+    <input type="text" id="searchInput" class="search-bar" placeholder="Search scripts... (brainrot, steal, blox fruits, auto farm, piggy, esp, redz...)">
 </div>
 
 <main>
 
-    <h1>Roblox Scripts Collection <small>2025-2026</small></h1>
+    <h1>Roblox Scripts Collection <small>January 2026 Edition</small></h1>
 
     <div class="intro-card">
-        <h2>Script Hub</h2>
-        <p>Collection of funny, useful & learning-purpose Roblox scripts.<br><strong>Use mostly in private servers/friends places!</strong></p>
+        <h2>Trending 2025-2026 Scripts Hub</h2>
+        <p>Steal a Brainrot • Blox Fruits • Piggy • Funny universal tools<br><strong>Private servers / learning only — public = ban speedrun</strong></p>
 
         <div class="warning">
-            <strong>⚠️ 2025-2026 Reality:</strong><br>
-            Public games → almost always instant/byfron ban<br>
-            <strong>Safe places:</strong> your own game • private servers • friends-only
+            <strong>⚠️ 2026 Reality Check:</strong><br>
+            Hyperion + AI detection = extremely strong<br>
+            Public games → almost instant ban (even loadstring)<br>
+            <strong>Safest:</strong> your places • private servers • alts only
         </div>
     </div>
 
     <section id="scripts" class="scripts-grid">
 
-        <div class="script-card" data-keywords="infinite jump jump fly high jump">
+        <div class="script-card" data-keywords="steal a brainrot steal brainrot auto steal auto lock base dupe inf money">
+            <div class="script-title">Steal a Brainrot - Chilli Hub (Auto Steal + Dupe)</div>
+            <pre><code>loadstring(game:HttpGet("https://pastefy.app/3P0o3D66/raw", true))()</code></pre>
+            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.textContent)">Copy</button>
+        </div>
+
+        <div class="script-card" data-keywords="steal a brainrot steal brainrot lunarhub auto farm esp">
+            <div class="script-title">Steal a Brainrot - Lunar Hub (2026 Popular)</div>
+            <pre><code>loadstring(game:HttpGet("https://raw.githubusercontent.com/VOXHOB/steal-a-brainrot/refs/heads/main/lunarhub.lua"))()</code></pre>
+            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.textContent)">Copy</button>
+        </div>
+
+        <div class="script-card" data-keywords="blox fruits bloxfruits auto farm mastery sea event redz hub">
+            <div class="script-title">Blox Fruits - REDz Hub (Auto Farm + Events 2026)</div>
+            <pre><code>loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruits/main/REDzHub.lua"))()</code></pre>
+            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.textContent)">Copy</button>
+        </div>
+
+        <div class="script-card" data-keywords="blox fruits bloxfruits auto farm quantumonyx fruit sniper">
+            <div class="script-title">Blox Fruits - QuantumOnyx (Auto Farm + Fruit Sniper)</div>
+            <pre><code>loadstring(game:HttpGet("https://raw.githubusercontent.com/flazhy/QuantumOnyx/refs/heads/main/QuantumOnyx.lua"))()</code></pre>
+            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.textContent)">Copy</button>
+        </div>
+
+        <div class="script-card" data-keywords="piggy escape esp teleport god mode auto items">
+            <div class="script-title">Piggy - GUI Exploit (ESP + Teleport + God Mode)</div>
+            <pre><code>loadstring(game:HttpGet("https://raw.githubusercontent.com/BaconBABA/script/refs/heads/main/piggy.lua"))()</code></pre>
+            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.textContent)">Copy</button>
+        </div>
+
+        <div class="script-card" data-keywords="infinite jump jump fly high jump universal">
             <div class="script-title">Infinite Jump (Toggle - J key)</div>
             <pre><code>-- Press J to toggle
 local InfiniteJumpEnabled = false
@@ -247,11 +278,11 @@ game:GetService("UserInputService").InputBegan:Connect(function(input)
         print("Infinite Jump: " .. (InfiniteJumpEnabled and "ON" or "OFF"))
     end
 end)</code></pre>
-            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.previousElementSibling.textContent)">Copy</button>
+            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.textContent)">Copy</button>
         </div>
 
-        <div class="script-card" data-keywords="fling flinger everything push yeet redz">
-            <div class="script-title">Fling Everyone (Funny)</div>
+        <div class="script-card" data-keywords="fling flinger everything push yeet">
+            <div class="script-title">Fling Everyone (Funny Universal)</div>
             <pre><code>for _, plr in ipairs(game.Players:GetPlayers()) do
     if plr ~= game.Players.LocalPlayer and plr.Character then
         local hrp = plr.Character:FindFirstChild("HumanoidRootPart")
@@ -265,11 +296,11 @@ end)</code></pre>
 end
 
 print("Flinged everyone (they might get kicked lol)")</code></pre>
-            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.previousElementSibling.textContent)">Copy</button>
+            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.textContent)">Copy</button>
         </div>
 
-        <div class="script-card" data-keywords="esp redz hub redzhub wallhack">
-            <div class="script-title">Simple Box ESP (Redz Style)</div>
+        <div class="script-card" data-keywords="esp redz hub redzhub wallhack simple box">
+            <div class="script-title">Simple Box ESP (Redz Style - Universal)</div>
             <pre><code>local Players = game:GetService("Players")
 
 for _, player in ipairs(Players:GetPlayers()) do
@@ -289,18 +320,16 @@ for _, player in ipairs(Players:GetPlayers()) do
 end
 
 print("Redz-like Box ESP loaded")</code></pre>
-            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.previousElementSibling.textContent)">Copy</button>
+            <button class="copy-btn" onclick="navigator.clipboard.writeText(this.previousElementSibling.textContent)">Copy</button>
         </div>
-
-        <!-- You can add more scripts here with data-keywords -->
 
     </section>
 
 </main>
 
 <footer>
-    <p>For educational & private server use only • Most public games = ban in 2025-2026</p>
-    <p style="margin-top:1rem; opacity:0.6;">Stay safe & don't ruin the game for others ✌️</p>
+    <p>Educational & private server use only • 2026 public games = very fast ban</p>
+    <p style="margin-top:1rem; opacity:0.6;">Stay safe, use alts, don't ruin public lobbies ✌️</p>
 </footer>
 
 <script>
@@ -323,4 +352,4 @@ print("Redz-like Box ESP loaded")</code></pre>
 </script>
 
 </body>
-</html>
+</html> 
