@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xena Hub - Roblox Scripts</title>
-    <meta name="description" content="Xena Hub - Free powerful Roblox scripts with instant loader.">
+    <title>XENA HUB - Roblox Scripts</title>
+    <meta name="description" content="XENA HUB - Free undetected Roblox scripts">
     
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
@@ -15,23 +14,15 @@
             --primary-dark: #9333ea;
             --dark: #0f172a;
             --light: #f8fafc;
-            --gray: #64748b;
-            --code-bg: #1e1b4b;
-            --accent: #ec4899;
-            --glow: rgba(168, 85, 247, 0.6);
+            --glow: rgba(168, 85, 247, 0.7);
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Inter', sans-serif;
             background: var(--light);
             color: var(--dark);
-            line-height: 1.6;
             overflow-x: hidden;
         }
         
@@ -40,22 +31,20 @@
             top: 0;
             width: 100%;
             padding: 1.5rem 5%;
-            display: flex;
-            justify-content: center;
             background: rgba(255,255,255,0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
+            text-align: center;
         }
         
         .logo {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             font-weight: 700;
             color: var(--primary);
-            text-shadow: 0 0 10px var(--glow);
+            text-shadow: 0 0 15px var(--glow);
         }
         
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #ec4899 100%);
@@ -70,47 +59,44 @@
         
         .hero h1 {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 5.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 20px rgba(0,0,0,0.5);
+            font-size: 6rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 30px rgba(0,0,0,0.6);
         }
         
         .hero p {
-            font-size: 1.8rem;
-            margin-bottom: 4rem;
-            opacity: 0.95;
+            font-size: 2rem;
+            margin-bottom: 5rem;
         }
         
         .buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 2rem;
+            gap: 2.5rem;
             justify-content: center;
         }
         
         .btn {
-            padding: 1.5rem 4rem;
+            padding: 1.8rem 5rem;
             background: white;
             color: var(--primary-dark);
-            border-radius: 50px;
-            text-decoration: none;
+            border-radius: 60px;
             font-weight: 700;
-            font-size: 1.4rem;
-            transition: all 0.4s;
-            min-width: 300px;
+            font-size: 1.6rem;
             cursor: pointer;
             border: none;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            transition: all 0.4s;
         }
         
         .btn:hover {
-            transform: translateY(-12px) scale(1.05);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            transform: translateY(-15px) scale(1.08);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.6);
         }
         
         .btn-secondary {
             background: transparent;
-            border: 4px solid white;
+            border: 5px solid white;
             color: white;
         }
         
@@ -119,92 +105,71 @@
             color: var(--primary-dark);
         }
         
-        /* Loader UI */
+        /* LOADER UI - FULL FOCUS */
         #loader-ui {
             display: none;
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.97);
+            background: rgba(0,0,0,0.98);
             z-index: 9999;
             align-items: center;
             justify-content: center;
             padding: 2rem;
-            backdrop-filter: blur(8px);
         }
         
-        .ui-box {
+        .ui-main {
             background: linear-gradient(145deg, #1a1638, #2d1b69);
-            border: 4px solid var(--primary);
-            border-radius: 30px;
+            border: 6px solid var(--primary);
+            border-radius: 40px;
             width: 100%;
-            max-width: 900px;
-            padding: 4rem;
-            box-shadow: 0 0 80px var(--glow), inset 0 0 40px rgba(168,85,247,0.2);
+            max-width: 1000px;
+            padding: 5rem;
+            box-shadow: 0 0 100px var(--glow);
             color: white;
+            text-align: center;
             position: relative;
-            animation: glowPulse 3s infinite alternate;
         }
         
-        @keyframes glowPulse {
-            from { box-shadow: 0 0 80px var(--glow), inset 0 0 40px rgba(168,85,247,0.2); }
-            to { box-shadow: 0 0 100px var(--glow), inset 0 0 60px rgba(168,85,247,0.3); }
-        }
-        
-        .ui-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .ui-header h2 {
+        .ui-main h2 {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 3.5rem;
+            font-size: 4.5rem;
+            margin-bottom: 4rem;
             color: var(--primary);
-            text-shadow: 0 0 20px var(--primary);
+            text-shadow: 0 0 30px var(--primary);
+            text-transform: uppercase;
         }
         
-        .script-card {
-            background: rgba(0,0,0,0.5);
-            border-radius: 20px;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            border: 2px solid rgba(168,85,247,0.4);
-            transition: all 0.3s;
+        .script-section {
+            margin-bottom: 4rem;
         }
         
-        .script-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
-        }
-        
-        .script-card h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #e9d5ff;
-            text-align: center;
-        }
-        
-        .code-display {
-            background: #000;
-            padding: 2rem;
-            border-radius: 15px;
+        .script-section h3 {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 1.3rem;
-            overflow-x: auto;
-            white-space: pre;
-            border: 2px solid #333;
-            margin-bottom: 1.5rem;
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            color: #e9d5ff;
+            text-transform: uppercase;
+        }
+        
+        .code {
+            background: #000;
+            padding: 2.5rem;
+            border-radius: 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.6rem;
+            margin-bottom: 2rem;
             color: #c4b5fd;
+            border: 3px solid #333;
+            word-break: break-all;
         }
         
         .copy-btn {
-            display: block;
-            width: 100%;
-            padding: 1.2rem;
+            padding: 1.5rem 4rem;
             background: var(--primary);
             color: white;
             border: none;
-            border-radius: 50px;
-            font-size: 1.3rem;
+            border-radius: 60px;
+            font-size: 1.6rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
@@ -212,7 +177,7 @@
         
         .copy-btn:hover {
             background: var(--primary-dark);
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
         
         .copy-btn.copied {
@@ -221,68 +186,35 @@
         
         .close-ui {
             position: absolute;
-            top: 2rem;
-            right: 2.5rem;
+            top: 2.5rem;
+            right: 3rem;
             background: none;
             border: none;
-            font-size: 3rem;
-            color: #fff;
-            cursor: pointer;
-            opacity: 0.8;
-            transition: all 0.3s;
-        }
-        
-        .close-ui:hover {
-            opacity: 1;
-            transform: rotate(90deg);
-        }
-        
-        /* Supported Games */
-        #supported-games {
-            padding: 10rem 5%;
-            text-align: center;
-            background: white;
-        }
-        
-        #supported-games h2 {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 3.5rem;
-            margin-bottom: 4rem;
-        }
-        
-        footer {
-            background: var(--dark);
+            font-size: 4rem;
             color: white;
-            text-align: center;
-            padding: 5rem;
-            font-size: 1.2rem;
-        }
-        
-        footer a {
-            color: var(--primary);
-            text-decoration: none;
+            cursor: pointer;
         }
         
         @media (max-width: 768px) {
-            .hero h1 { font-size: 3.8rem; }
-            .hero p { font-size: 1.4rem; }
-            .buttons { flex-direction: column; }
-            .btn { width: 90%; font-size: 1.2rem; }
-            .ui-header h2 { font-size: 2.8rem; }
-            .script-card h3 { font-size: 1.6rem; }
-            .code-display { font-size: 1rem; }
+            .hero h1 { font-size: 4rem; }
+            .hero p { font-size: 1.5rem; }
+            .btn { padding: 1.5rem 3rem; font-size: 1.3rem; }
+            .ui-main h2 { font-size: 3rem; }
+            .script-section h3 { font-size: 2rem; }
+            .code { font-size: 1.2rem; padding: 1.5rem; }
+            .copy-btn { padding: 1.2rem 3rem; font-size: 1.3rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">Xena Hub</div>
+        <div class="logo">XENA HUB</div>
     </nav>
 
     <section class="hero">
         <h1>XENA HUB</h1>
-        <p>Free • Undetected • Powerful Roblox Scripts</p>
+        <p>Free • Undetected • Insane Scripts</p>
         <div class="buttons">
             <button id="loader-btn" class="btn">Xena Hub Loader</button>
             <button id="games-btn" class="btn btn-secondary">Supported Games</button>
@@ -290,56 +222,60 @@
         </div>
     </section>
 
-    <!-- XENA HUB LOADER UI -->
+    <!-- THE UI YOU WANTED BRO -->
     <div id="loader-ui">
-        <div class="ui-box">
+        <div class="ui-main">
             <button class="close-ui" id="close-ui">×</button>
             
-            <div class="ui-header">
-                <h2>XENA HUB LOADER</h2>
-            </div>
+            <h2>SCRIPTS</h2>
             
-            <div class="script-card">
+            <div class="script-section">
                 <h3>XENA HUB DIESEL N STEEL</h3>
-                <div class="code-display">loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/1552970c67caf8690f5ef9b22a2925cc54ba6760d8e0b165fcd5cee7f71beeb7/download"))()</div>
-                <button class="copy-btn" data-script='loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/1552970c67caf8690f5ef9b22a2925cc54ba6760d8e0b165fcd5cee7f71beeb7/download"))()'>Copy Script</button>
+                <div class="code">loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/1552970c67caf8690f5ef9b22a2925cc54ba6760d8e0b165fcd5cee7f71beeb7/download"))()</div>
+                <button class="copy-btn" data-script='loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/1552970c67caf8690f5ef9b22a2925cc54ba6760d8e0b165fcd5cee7f71beeb7/download"))()'>COPY SCRIPT</button>
             </div>
             
-            <div class="script-card">
+            <div class="script-section">
                 <h3>XENA HUB TAXI BOSS</h3>
-                <div class="code-display">loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/8f736d47a5c4b8460edb7ef075ddf8d5d4922d6c28f1e0042f078302f3fff3b1/download"))()</div>
-                <button class="copy-btn" data-script='loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/8f736d47a5c4b8460edb7ef075ddf8d5d4922d6c28f1e0042f078302f3fff3b1/download"))()'>Copy Script</button>
+                <div class="code">loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/8f736d47a5c4b8460edb7ef075ddf8d5d4922d6c28f1e0042f078302f3fff3b1/download"))()</div>
+                <button class="copy-btn" data-script='loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/8f736d47a5c4b8460edb7ef075ddf8d5d4922d6c28f1e0042f078302f3fff3b1/download"))()'>COPY SCRIPT</button>
             </div>
         </div>
     </div>
-
-    <section id="supported-games">
-        <h2>Supported Games</h2>
-        <p style="font-size:1.5rem; color:var(--gray); max-width:800px; margin:0 auto 4rem;">
-            More scripts dropping soon — stay updated in Discord!
-        </p>
-    </section>
-
-    <footer>
-        <p>© 2026 Xena Hub • Made for the community | <a href="https://discord.gg/JguCsgRP7k" target="_blank">Join Discord</a></p>
-    </footer>
 
     <script>
         const loaderBtn = document.getElementById('loader-btn');
         const loaderUI = document.getElementById('loader-ui');
         const closeUI = document.getElementById('close-ui');
-        const gamesBtn = document.getElementById('games-btn');
-        const supportedSection = document.getElementById('supported-games');
 
-        // Open UI
         loaderBtn.addEventListener('click', () => {
             loaderUI.style.display = 'flex';
         });
 
-        // Close UI
         closeUI.addEventListener('click', () => {
             loaderUI.style.display = 'none';
         });
 
-        // Close when clicking outside
-        loaderUI.addEventListener('click', (e
+        loaderUI.addEventListener('click', (e) => {
+            if (e.target === loaderUI) {
+                loaderUI.style.display = 'none';
+            }
+        });
+
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const script = btn.getAttribute('data-script');
+                navigator.clipboard.writeText(script).then(() => {
+                    btn.textContent = 'COPIED!';
+                    btn.classList.add('copied');
+                    setTimeout(() => {
+                        btn.textContent = 'COPY SCRIPT';
+                        btn.classList.remove('copied');
+                    }, 2000);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
