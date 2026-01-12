@@ -2,134 +2,138 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Xena Hub — Script Library</title>
+<title>Xena Hub — Neon Yellow</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Orbitron', sans-serif;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Orbitron',sans-serif;
 }
 
-body {
-  background: radial-gradient(circle at top, #0a001a, #000);
-  color: #fff;
-  overflow-x: hidden;
+body{
+  background:radial-gradient(circle at top,#0a0a00,#000);
+  color:white;
+  overflow-x:hidden;
 }
 
-/* Neon background animation */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(120deg, #ff00ff, #00ffff, #ff00ff);
-  opacity: 0.08;
-  filter: blur(100px);
-  z-index: -1;
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:linear-gradient(120deg,#ffea00,#ffb300,#ffea00);
+  opacity:.12;
+  filter:blur(120px);
+  z-index:-1;
 }
 
-/* Header */
-header {
-  text-align: center;
-  padding: 50px 20px;
+header{
+  text-align:center;
+  padding:60px 20px 30px;
 }
 
-header h1 {
-  font-size: 60px;
-  color: #ff00ff;
-  text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+header h1{
+  font-size:65px;
+  color:#ffea00;
+  text-shadow:0 0 20px #ffea00,0 0 50px #ffb300;
+  letter-spacing:4px;
 }
 
-header p {
-  color: #00ffff;
-  letter-spacing: 3px;
-  margin-top: 10px;
+header p{
+  margin-top:10px;
+  color:#ffd000;
+  opacity:.9;
+  letter-spacing:3px;
 }
 
-/* Container */
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 30px;
+/* layout */
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:40px 20px;
 }
 
-/* Script Cards */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+.grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:40px;
 }
 
-.card {
-  background: rgba(10,10,30,0.8);
-  border-radius: 20px;
-  padding: 25px;
-  box-shadow: 0 0 25px #ff00ff44;
-  border: 1px solid #ff00ff55;
-  position: relative;
-  overflow: hidden;
+/* cards */
+.card{
+  background:rgba(15,15,0,.9);
+  border-radius:25px;
+  padding:35px;
+  position:relative;
+  border:1px solid #ffea0066;
+  box-shadow:0 0 35px #ffea0033;
+  overflow:hidden;
 }
 
-.card::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  background: linear-gradient(120deg, #ff00ff, #00ffff, #ff00ff);
-  z-index: -1;
-  filter: blur(15px);
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:linear-gradient(120deg,#ffea00,#ffb300,#ffea00);
+  filter:blur(25px);
+  z-index:-1;
 }
 
-.card h2 {
-  color: #ff00ff;
-  margin-bottom: 10px;
+.card h2{
+  color:#ffea00;
+  font-size:30px;
+  margin-bottom:10px;
+  text-shadow:0 0 10px #ffea00;
 }
 
-.card p {
-  font-size: 14px;
-  color: #aaa;
-  margin-bottom: 15px;
+.card p{
+  color:#ffe77a;
+  margin-bottom:20px;
+  opacity:.9;
 }
 
-/* Script box */
-textarea {
-  width: 100%;
-  height: 90px;
-  background: #000;
-  border: 1px solid #00ffff;
-  color: #00ffff;
-  border-radius: 10px;
-  padding: 10px;
-  resize: none;
+/* textarea */
+textarea{
+  width:100%;
+  height:110px;
+  background:#000;
+  color:#ffea00;
+  border:1px solid #ffea00;
+  border-radius:15px;
+  padding:15px;
+  resize:none;
+  box-shadow:inset 0 0 15px #ffea0040;
 }
 
-/* Buttons */
-button {
-  margin-top: 15px;
-  width: 100%;
-  padding: 12px;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(120deg, #ff00ff, #00ffff);
-  color: #000;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 0 15px #00ffff;
-  transition: 0.3s;
+/* buttons */
+button{
+  margin-top:20px;
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:15px;
+  background:linear-gradient(120deg,#ffea00,#ffb300);
+  color:black;
+  font-weight:bold;
+  letter-spacing:2px;
+  cursor:pointer;
+  box-shadow:0 0 25px #ffea00;
+  transition:.3s;
 }
 
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 30px #ff00ff;
+button:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 45px #ffb300;
 }
 
-/* Footer */
-footer {
-  text-align: center;
-  padding: 30px;
-  color: #00ffff;
-  opacity: 0.6;
+/* footer */
+footer{
+  text-align:center;
+  padding:30px;
+  color:#ffea00;
+  opacity:.6;
 }
 </style>
 </head>
@@ -138,49 +142,44 @@ footer {
 
 <header>
   <h1>XENA HUB</h1>
-  <p>NEON SCRIPT LIBRARY</p>
+  <p>NEON YELLOW SCRIPT VAULT</p>
 </header>
 
 <div class="container">
   <div class="grid">
 
+    <!-- Diesel & Steel -->
     <div class="card">
-      <h2>💎 Xena Auto Farm</h2>
-      <p>Best auto farm script for grinding</p>
-      <textarea readonly>loadstring(game:HttpGet("https://xenahub.com/autofarm.lua"))()</textarea>
-      <button onclick="copy(this)">Copy Script</button>
+      <h2>⚙ Diesel & Steel</h2>
+      <p>High powered automation & farming script</p>
+      <textarea readonly>loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/1552970c67caf8690f5ef9b22a2925cc54ba6760d8e0b165fcd5cee7f71beeb7/download"))()</textarea>
+      <button onclick="copy(this)">COPY SCRIPT</button>
     </div>
 
+    <!-- Taxi Boss -->
     <div class="card">
-      <h2>⚡ Xena PvP</h2>
-      <p>Aimbot, ESP, Hitbox & more</p>
-      <textarea readonly>loadstring(game:HttpGet("https://xenahub.com/pvp.lua"))()</textarea>
-      <button onclick="copy(this)">Copy Script</button>
-    </div>
-
-    <div class="card">
-      <h2>🔥 Xena Universal</h2>
-      <p>Works on most Roblox games</p>
-      <textarea readonly>loadstring(game:HttpGet("https://xenahub.com/universal.lua"))()</textarea>
-      <button onclick="copy(this)">Copy Script</button>
+      <h2>🚕 Taxi Boss</h2>
+      <p>Auto grind, farm & money features</p>
+      <textarea readonly>loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/8f736d47a5c4b8460edb7ef075ddf8d5d4922d6c28f1e0042f078302f3fff3b1/download"))()</textarea>
+      <button onclick="copy(this)">COPY SCRIPT</button>
     </div>
 
   </div>
 </div>
 
 <footer>
-  © 2026 Xena Hub • Neon Power
+  © 2026 Xena Hub • Neon Yellow Edition
 </footer>
 
 <script>
-function copy(btn) {
-  const textarea = btn.previousElementSibling;
-  textarea.select();
+function copy(btn){
+  const ta = btn.previousElementSibling;
+  ta.select();
   document.execCommand("copy");
-  btn.innerText = "Copied!";
-  setTimeout(() => btn.innerText = "Copy Script", 1500);
+  btn.innerText="COPIED!";
+  setTimeout(()=>btn.innerText="COPY SCRIPT",1500);
 }
 </script>
 
 </body>
-</html>
+</html> 
