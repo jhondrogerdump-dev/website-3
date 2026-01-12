@@ -1,281 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XENA HUB - Roblox Scripts</title>
-    <meta name="description" content="XENA HUB - Free undetected Roblox scripts">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary: #a855f7;
-            --primary-dark: #9333ea;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --glow: rgba(168, 85, 247, 0.7);
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--light);
-            color: var(--dark);
-            overflow-x: hidden;
-        }
-        
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.5rem 5%;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            text-align: center;
-        }
-        
-        .logo {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-shadow: 0 0 15px var(--glow);
-        }
-        
-        .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #ec4899 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 10rem 5% 6rem;
-        }
-        
-        .hero h1 {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 6rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 0 30px rgba(0,0,0,0.6);
-        }
-        
-        .hero p {
-            font-size: 2rem;
-            margin-bottom: 5rem;
-        }
-        
-        .buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2.5rem;
-            justify-content: center;
-        }
-        
-        .btn {
-            padding: 1.8rem 5rem;
-            background: white;
-            color: var(--primary-dark);
-            border-radius: 60px;
-            font-weight: 700;
-            font-size: 1.6rem;
-            cursor: pointer;
-            border: none;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-            transition: all 0.4s;
-        }
-        
-        .btn:hover {
-            transform: translateY(-15px) scale(1.08);
-            box-shadow: 0 40px 80px rgba(0,0,0,0.6);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            border: 5px solid white;
-            color: white;
-        }
-        
-        .btn-secondary:hover {
-            background: white;
-            color: var(--primary-dark);
-        }
-        
-        /* LOADER UI - FULL FOCUS */
-        #loader-ui {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.98);
-            z-index: 9999;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
-        
-        .ui-main {
-            background: linear-gradient(145deg, #1a1638, #2d1b69);
-            border: 6px solid var(--primary);
-            border-radius: 40px;
-            width: 100%;
-            max-width: 1000px;
-            padding: 5rem;
-            box-shadow: 0 0 100px var(--glow);
-            color: white;
-            text-align: center;
-            position: relative;
-        }
-        
-        .ui-main h2 {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 4.5rem;
-            margin-bottom: 4rem;
-            color: var(--primary);
-            text-shadow: 0 0 30px var(--primary);
-            text-transform: uppercase;
-        }
-        
-        .script-section {
-            margin-bottom: 4rem;
-        }
-        
-        .script-section h3 {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 2.8rem;
-            margin-bottom: 2rem;
-            color: #e9d5ff;
-            text-transform: uppercase;
-        }
-        
-        .code {
-            background: #000;
-            padding: 2.5rem;
-            border-radius: 20px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.6rem;
-            margin-bottom: 2rem;
-            color: #c4b5fd;
-            border: 3px solid #333;
-            word-break: break-all;
-        }
-        
-        .copy-btn {
-            padding: 1.5rem 4rem;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 60px;
-            font-size: 1.6rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .copy-btn:hover {
-            background: var(--primary-dark);
-            transform: scale(1.1);
-        }
-        
-        .copy-btn.copied {
-            background: #10b981;
-        }
-        
-        .close-ui {
-            position: absolute;
-            top: 2.5rem;
-            right: 3rem;
-            background: none;
-            border: none;
-            font-size: 4rem;
-            color: white;
-            cursor: pointer;
-        }
-        
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 4rem; }
-            .hero p { font-size: 1.5rem; }
-            .btn { padding: 1.5rem 3rem; font-size: 1.3rem; }
-            .ui-main h2 { font-size: 3rem; }
-            .script-section h3 { font-size: 2rem; }
-            .code { font-size: 1.2rem; padding: 1.5rem; }
-            .copy-btn { padding: 1.2rem 3rem; font-size: 1.3rem; }
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Xena Hub — Script Library</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Orbitron', sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #0a001a, #000);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Neon background animation */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(120deg, #ff00ff, #00ffff, #ff00ff);
+  opacity: 0.08;
+  filter: blur(100px);
+  z-index: -1;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+header h1 {
+  font-size: 60px;
+  color: #ff00ff;
+  text-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+}
+
+header p {
+  color: #00ffff;
+  letter-spacing: 3px;
+  margin-top: 10px;
+}
+
+/* Container */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px;
+}
+
+/* Script Cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: rgba(10,10,30,0.8);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 0 25px #ff00ff44;
+  border: 1px solid #ff00ff55;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(120deg, #ff00ff, #00ffff, #ff00ff);
+  z-index: -1;
+  filter: blur(15px);
+}
+
+.card h2 {
+  color: #ff00ff;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 15px;
+}
+
+/* Script box */
+textarea {
+  width: 100%;
+  height: 90px;
+  background: #000;
+  border: 1px solid #00ffff;
+  color: #00ffff;
+  border-radius: 10px;
+  padding: 10px;
+  resize: none;
+}
+
+/* Buttons */
+button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(120deg, #ff00ff, #00ffff);
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 15px #00ffff;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px #ff00ff;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #00ffff;
+  opacity: 0.6;
+}
+</style>
 </head>
+
 <body>
 
-    <nav>
-        <div class="logo">XENA HUB</div>
-    </nav>
+<header>
+  <h1>XENA HUB</h1>
+  <p>NEON SCRIPT LIBRARY</p>
+</header>
 
-    <section class="hero">
-        <h1>XENA HUB</h1>
-        <p>Free • Undetected • Insane Scripts</p>
-        <div class="buttons">
-            <button id="loader-btn" class="btn">Xena Hub Loader</button>
-            <button id="games-btn" class="btn btn-secondary">Supported Games</button>
-            <a href="https://discord.gg/JguCsgRP7k" target="_blank" class="btn">Join Discord</a>
-        </div>
-    </section>
+<div class="container">
+  <div class="grid">
 
-    <!-- THE UI YOU WANTED BRO -->
-    <div id="loader-ui">
-        <div class="ui-main">
-            <button class="close-ui" id="close-ui">×</button>
-            
-            <h2>SCRIPTS</h2>
-            
-            <div class="script-section">
-                <h3>XENA HUB DIESEL N STEEL</h3>
-                <div class="code">loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/1552970c67caf8690f5ef9b22a2925cc54ba6760d8e0b165fcd5cee7f71beeb7/download"))()</div>
-                <button class="copy-btn" data-script='loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/1552970c67caf8690f5ef9b22a2925cc54ba6760d8e0b165fcd5cee7f71beeb7/download"))()'>COPY SCRIPT</button>
-            </div>
-            
-            <div class="script-section">
-                <h3>XENA HUB TAXI BOSS</h3>
-                <div class="code">loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/8f736d47a5c4b8460edb7ef075ddf8d5d4922d6c28f1e0042f078302f3fff3b1/download"))()</div>
-                <button class="copy-btn" data-script='loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/8f736d47a5c4b8460edb7ef075ddf8d5d4922d6c28f1e0042f078302f3fff3b1/download"))()'>COPY SCRIPT</button>
-            </div>
-        </div>
+    <div class="card">
+      <h2>💎 Xena Auto Farm</h2>
+      <p>Best auto farm script for grinding</p>
+      <textarea readonly>loadstring(game:HttpGet("https://xenahub.com/autofarm.lua"))()</textarea>
+      <button onclick="copy(this)">Copy Script</button>
     </div>
 
-    <script>
-        const loaderBtn = document.getElementById('loader-btn');
-        const loaderUI = document.getElementById('loader-ui');
-        const closeUI = document.getElementById('close-ui');
+    <div class="card">
+      <h2>⚡ Xena PvP</h2>
+      <p>Aimbot, ESP, Hitbox & more</p>
+      <textarea readonly>loadstring(game:HttpGet("https://xenahub.com/pvp.lua"))()</textarea>
+      <button onclick="copy(this)">Copy Script</button>
+    </div>
 
-        loaderBtn.addEventListener('click', () => {
-            loaderUI.style.display = 'flex';
-        });
+    <div class="card">
+      <h2>🔥 Xena Universal</h2>
+      <p>Works on most Roblox games</p>
+      <textarea readonly>loadstring(game:HttpGet("https://xenahub.com/universal.lua"))()</textarea>
+      <button onclick="copy(this)">Copy Script</button>
+    </div>
 
-        closeUI.addEventListener('click', () => {
-            loaderUI.style.display = 'none';
-        });
+  </div>
+</div>
 
-        loaderUI.addEventListener('click', (e) => {
-            if (e.target === loaderUI) {
-                loaderUI.style.display = 'none';
-            }
-        });
+<footer>
+  © 2026 Xena Hub • Neon Power
+</footer>
 
-        document.querySelectorAll('.copy-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const script = btn.getAttribute('data-script');
-                navigator.clipboard.writeText(script).then(() => {
-                    btn.textContent = 'COPIED!';
-                    btn.classList.add('copied');
-                    setTimeout(() => {
-                        btn.textContent = 'COPY SCRIPT';
-                        btn.classList.remove('copied');
-                    }, 2000);
-                });
-            });
-        });
-    </script>
+<script>
+function copy(btn) {
+  const textarea = btn.previousElementSibling;
+  textarea.select();
+  document.execCommand("copy");
+  btn.innerText = "Copied!";
+  setTimeout(() => btn.innerText = "Copy Script", 1500);
+}
+</script>
 
 </body>
 </html>
