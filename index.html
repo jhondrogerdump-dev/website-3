@@ -128,6 +128,30 @@ button:hover{
   box-shadow:0 0 45px #ffb300;
 }
 
+/* discord button */
+.discord-btn{
+  margin-top:50px;
+  display:flex;
+  justify-content:center;
+}
+
+.discord-btn a{
+  padding:18px 50px;
+  border-radius:50px;
+  background:linear-gradient(120deg,#ffea00,#ffb300);
+  color:black;
+  text-decoration:none;
+  font-weight:bold;
+  letter-spacing:3px;
+  box-shadow:0 0 40px #ffea00;
+  transition:.3s;
+}
+
+.discord-btn a:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 70px #ffb300;
+}
+
 /* footer */
 footer{
   text-align:center;
@@ -162,6 +186,11 @@ footer{
       <p>Auto grind, farm & money features</p>
       <textarea readonly>loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/8f736d47a5c4b8460edb7ef075ddf8d5d4922d6c28f1e0042f078302f3fff3b1/download"))()</textarea>
       <button onclick="copy(this)">COPY SCRIPT</button>
+    </div>
+
+    <!-- Discord -->
+    <div class="discord-btn">
+      <a href="https://discord.gg/JguCsgRP7k" target="_blank">JOIN XENA HUB DISCORD</a>
     </div>
 
   </div>
