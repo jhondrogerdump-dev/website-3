@@ -1,148 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Xena Hub</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Romeo — Portfolio / Landing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!--                          ALL CSS IS HERE                     -->
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-body {
-    min-height: 100vh;
-    background:
-      radial-gradient(circle at top, rgba(255,255,0,0.15), transparent 40%),
-      url("https://i.imgur.com/8K4F5aB.png");
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    color: #fff;
-}
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #0f0f0f;
+      color: #e0e0e0;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
 
-/* NAVBAR */
-.navbar {
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-    padding: 15px;
-    flex-wrap: wrap;
-}
+    /* ─── Header / Nav ─── */
+    header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(15, 15, 15, 0.78);
+      border-bottom: 1px solid #222;
+      padding: 1rem 5vw;
+      transition: background 0.4s;
+    }
 
-.nav-btn {
-    padding: 10px 22px;
-    border-radius: 14px;
-    background: rgba(255,255,0,0.08);
-    border: 1px solid rgba(255,255,0,0.4);
-    color: #ffe600;
-    text-decoration: none;
-    font-weight: 500;
-    box-shadow: 0 0 12px rgba(255,255,0,0.2);
-    transition: 0.3s;
-}
+    header.scrolled {
+      background: rgba(15, 15, 15, 0.94);
+    }
 
-.nav-btn:hover {
-    background: rgba(255,255,0,0.25);
-    box-shadow: 0 0 25px rgba(255,255,0,0.8);
-    transform: translateY(-2px);
-}
+    nav {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-/* HERO */
-.hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 80vh;
-    padding: 30px;
-}
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: white;
+      text-decoration: none;
+    }
 
-.hero h1 {
-    font-size: 48px;
-    letter-spacing: 6px;
-    color: #fff;
-    text-shadow: 0 0 15px rgba(255,255,0,0.9);
-}
+    .logo span {
+      color: #a78bfa;
+    }
 
-.hero p {
-    max-width: 600px;
-    margin-top: 15px;
-    color: #ddd;
-    line-height: 1.7;
-    font-size: 16px;
-}
+    .nav-links {
+      display: flex;
+      gap: 2.8rem;
+      font-size: 0.97rem;
+      font-weight: 500;
+    }
 
-/* BUTTONS */
-.buttons {
-    margin-top: 30px;
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
+    .nav-links a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
 
-.hero-btn {
-    padding: 14px 28px;
-    border-radius: 18px;
-    background: rgba(255,255,0,0.1);
-    border: 1px solid rgba(255,255,0,0.6);
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    box-shadow: 0 0 18px rgba(255,255,0,0.3);
-    transition: 0.3s;
-}
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: white;
+    }
 
-.hero-btn:hover {
-    background: rgba(255,255,0,0.35);
-    box-shadow: 0 0 35px rgba(255,255,0,1);
-    transform: scale(1.05);
-}
+    /* ─── Hero ─── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 0 5vw;
+      background: linear-gradient(135deg, #0f0f0f 0%, #13111a 100%);
+    }
 
-/* GLASS CARD */
-.card {
-    background: rgba(0,0,0,0.5);
-    border: 1px solid rgba(255,255,0,0.4);
-    border-radius: 25px;
-    padding: 35px;
-    box-shadow: 0 0 30px rgba(255,255,0,0.15);
-}
-</style>
+    .hero-content {
+      max-width: 780px;
+    }
+
+    .hero-eyebrow {
+      color: #a78bfa;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+    }
+
+    h1 {
+      font-size: clamp(3.2rem, 8vw, 6.2rem);
+      font-weight: 700;
+      line-height: 0.92;
+      margin-bottom: 1.8rem;
+      background: linear-gradient(90deg, #e0e0e0, #c9a8f5, #a78bfa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-text {
+      font-size: 1.28rem;
+      color: #aaa;
+      margin-bottom: 2.5rem;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.95rem 2.2rem;
+      background: #7c3aed;
+      color: white;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.25s;
+      border: 1px solid #7c3aed;
+    }
+
+    .btn:hover {
+      background: #8b5cf6;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(124, 58, 237, 0.28);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #555;
+      color: #ddd;
+      margin-left: 1.2rem;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: #888;
+    }
+
+    /* ─── General sections ─── */
+    section {
+      padding: 14vh 5vw;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: clamp(2.6rem, 6vw, 4.2rem);
+      text-align: center;
+      margin-bottom: 5rem;
+      background: linear-gradient(90deg, #c4b5fd, #a78bfa, #c4b5fd);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .card {
+      background: #161616;
+      border: 1px solid #222;
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #7c3aed44;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #d1d5db;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      text-align: center;
+      padding: 5rem 1rem 3rem;
+      color: #666;
+      font-size: 0.92rem;
+      border-top: 1px solid #222;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 1.5rem;
+        font-size: 0.92rem;
+      }
+      h1 {
+        font-size: clamp(2.8rem, 10vw, 4.8rem);
+      }
+    }
+  </style>
+  <!-- ════════════════════════════════════════════════════════════ -->
+  <!--                      END OF CSS                              -->
+  <!-- ════════════════════════════════════════════════════════════ -->
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <a href="#" class="nav-btn">Home</a>
-    <a href="#" class="nav-btn">Supported</a>
-    <a href="#" class="nav-btn">Lua Script</a>
-    <a href="#" class="nav-btn">Terms</a>
-    <a href="#" class="nav-btn">Privacy</a>
-</div>
+  <header id="header">
+    <nav>
+      <a href="#" class="logo">Rome<span>o</span></a>
+      <div class="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-<!-- HERO -->
-<div class="hero">
-    <div class="card">
-        <h1>XENA HUB</h1>
-        <p>
-            Xena Hub is a powerful Roblox script hub built for exploiters who want clean UI,
-            fast execution, and premium-quality scripts.  
-            Join our growing community and become an OG user.
+  <main>
+    <section id="hero">
+      <div class="hero-content">
+        <div class="hero-eyebrow">Creative Developer / Designer</div>
+        <h1>Building beautiful,<br>fast experiences</h1>
+        <p class="hero-text">
+          I create digital products, brands and experiences that feel modern, intentional and human.
         </p>
-
-        <div class="buttons">
-            <a href="https://discord.gg/JguCsgRP7k" class="hero-btn">Join Discord</a>
-            <a href="#" class="hero-btn">View Supported Games</a>
+        <div>
+          <a href="#work" class="btn">View Projects</a>
+          <a href="#contact" class="btn btn-outline">Get in touch</a>
         </div>
-    </div>
-</div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Frontend focused</h3>
+          <p>Deep love for clean HTML/CSS, modern CSS (container queries, cascade layers, :has(), subgrid), React, TypeScript, motion design and performance.</p>
+        </div>
+        <div class="card">
+          <h3>Design-minded</h3>
+          <p>I care about typography, spacing systems, micro-interactions, color theory and how things actually feel when you use them.</p>
+        </div>
+        <div class="card">
+          <h3>Currently exploring</h3>
+          <p>AI-assisted design systems • WebGPU • scroll-driven animations • accessible 3D on the web • ultra-fast static-first sites</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <h2>Selected Work</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>E-commerce Replatform 2025</h3>
+          <p>Next.js 15 · App Router · React Server Components · Tailwind · Vercel · 40% faster LCP</p>
+        </div>
+        <div class="card">
+          <h3>Design System v3</h3>
+          <p>CSS-first tokens · container queries · dark mode · motion presets · zero-JS components</p>
+        </div>
+        <div class="card">
+          <h3>Personal Site (this one)</h3>
+          <p>Pure HTML + CSS · gradient text · glassmorphism · mobile-first · < 12 KB CSS</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Let's make something great</h2>
+      <div style="text-align:center; font-size:1.3rem; margin:3rem 0;">
+        <a href="mailto:hello@romeo.dev" style="color:#a78bfa; text-decoration:none;">
+          hello@romeo.dev
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Romeo — Made with pure HTML + CSS</p>
+  </footer>
+
+  <script>
+    // minimal header scroll effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 20);
+    });
+  </script>
 
 </body>
 </html>
