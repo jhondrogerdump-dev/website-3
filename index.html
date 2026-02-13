@@ -3,323 +3,382 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VØID X — Ultimate Roblox Script Hub</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
-
-  <!-- ALL CSS -->
+  <title>VØID X EXPLOITS</title>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
 
     body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background: #0a0a0a;
-      color: #d4d4ff;
-      line-height: 1.6;
+      background: #0d0015;
+      color: #e0ccff;
+      font-family: 'Segoe UI', system-ui, sans-serif;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    /* ─── Header / Nav ─── */
-    header {
+    #particles-js {
       position: fixed;
-      inset: 0 0 auto;
-      z-index: 100;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      background: rgba(10, 10, 20, 0.82);
-      border-bottom: 1px solid #2a1a4a;
-      padding: 1.1rem 5vw;
-      transition: background 0.4s;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
     }
 
-    header.scrolled {
-      background: rgba(10, 10, 20, 0.96);
-    }
-
-    nav {
-      max-width: 1400px;
+    .container {
+      position: relative;
+      z-index: 10;
+      padding: 40px 20px;
+      max-width: 1200px;
       margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      letter-spacing: -1px;
-      color: #c084fc;
-      text-decoration: none;
-      text-shadow: 0 0 15px rgba(192, 132, 252, 0.5);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      font-size: 1rem;
-      font-weight: 500;
-    }
-
-    .nav-links a {
-      color: #b0b0ff;
-      text-decoration: none;
-      transition: color 0.25s, text-shadow 0.25s;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: #e0d7ff;
-      text-shadow: 0 0 12px #a78bfa;
-    }
-
-    /* ─── Hero ─── */
-    #hero {
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 0 5vw;
-      background: linear-gradient(135deg, #0a0a0a 0%, #120f1f 100%);
-    }
-
-    .hero-content {
-      max-width: 820px;
-    }
-
-    .hero-eyebrow {
-      color: #c084fc;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-size: 1.1rem;
-      margin-bottom: 1.4rem;
-      text-shadow: 0 0 10px #c084fc66;
     }
 
     h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(3.8rem, 9vw, 7.2rem);
-      font-weight: 700;
-      line-height: 0.9;
-      margin-bottom: 1.6rem;
-      background: linear-gradient(90deg, #e0d7ff, #c084fc, #a78bfa, #c084fc);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 30px rgba(160, 100, 240, 0.6);
-    }
-
-    .hero-text {
-      font-size: 1.32rem;
-      color: #b0b0ff;
-      margin-bottom: 2.8rem;
-      max-width: 680px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 1rem 2.6rem;
-      background: linear-gradient(135deg, #7c3aed, #a78bfa);
-      color: white;
-      font-weight: 700;
-      text-decoration: none;
-      border-radius: 50px;
-      transition: all 0.3s;
-      border: none;
-      box-shadow: 0 0 20px rgba(124, 58, 237, 0.4);
-    }
-
-    .btn:hover {
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: 0 15px 40px rgba(124, 58, 237, 0.5);
-      background: linear-gradient(135deg, #8b5cf6, #c084fc);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 2px solid #7c3aed;
-      color: #d4d4ff;
-      margin-left: 1.5rem;
-    }
-
-    .btn-outline:hover {
-      background: rgba(124, 58, 237, 0.12);
-      border-color: #a78bfa;
-    }
-
-    /* ─── Sections ─── */
-    section {
-      padding: 16vh 5vw;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    h2 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(3rem, 7vw, 5rem);
       text-align: center;
-      margin-bottom: 5rem;
-      background: linear-gradient(90deg, #a78bfa, #c084fc, #a78bfa);
+      font-size: 3.8rem;
+      font-weight: 900;
+      letter-spacing: 7px;
+      margin-bottom: 40px;
+      background: linear-gradient(90deg, #c084fc, #a855f7, #d8b4fe, #c084fc);
       -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 25px rgba(168, 85, 247, 0.4);
+      -webkit-text-fill-color: transparent;
+      background-size: 200% auto;
+      animation: gradientFlow 6s linear infinite;
+      text-shadow: 0 0 35px rgba(168,85,247,0.8);
     }
 
-    .grid {
+    @keyframes gradientFlow {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    /* Navigation buttons */
+    .nav {
+      text-align: center;
+      margin-bottom: 60px;
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      flex-wrap: wrap;
+    }
+
+    .nav-btn {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(90deg, #7c3aed, #a855f7);
+      color: white;
+      border: none;
+      padding: 16px 45px;
+      font-size: 1.45rem;
+      font-weight: 700;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 30px rgba(168,85,247,0.6);
+      min-width: 240px;
+      z-index: 1;
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 45px rgba(168,85,247,0.8);
+      background: linear-gradient(90deg, #a855f7, #c084fc);
+    }
+
+    .nav-btn.active {
+      background: linear-gradient(90deg, #c084fc, #d8b4fe);
+      box-shadow: 0 14px 40px rgba(216,180,254,0.7);
+      transform: scale(1.06);
+    }
+
+    /* Ripple + glow on click */
+    .nav-btn::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.35);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: -1;
+      transition: all 0.7s ease-out;
+    }
+
+    .nav-btn:active::after {
+      width: 300px;
+      height: 300px;
+      opacity: 1;
+      transition: 0s;
+    }
+
+    .nav-btn:active {
+      transform: scale(0.94) translateY(-2px);
+      box-shadow: 0 6px 20px rgba(168,85,247,0.5);
+    }
+
+    /* Extra glow pulse on click */
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 8px 30px rgba(168,85,247,0.6); }
+      50% { box-shadow: 0 8px 50px rgba(168,85,247,1.0), 0 0 60px rgba(168,85,247,0.7); }
+      100% { box-shadow: 0 8px 30px rgba(168,85,247,0.6); }
+    }
+
+    .nav-btn:active {
+      animation: pulseGlow 0.6s ease-out;
+    }
+
+    /* Pages with fade + slide transition */
+    .page {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.5s ease, transform 0.6s ease;
+      pointer-events: none;
+    }
+
+    .page.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    /* Cards */
+    .panels {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 2.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 30px;
+      padding: 20px;
     }
 
     .card {
-      background: #12101f;
-      border: 1px solid #3a255a;
-      border-radius: 20px;
-      padding: 2.2rem;
-      transition: all 0.35s;
-      backdrop-filter: blur(6px);
+      background: rgba(30, 10, 60, 0.5);
+      border: 1px solid rgba(168, 85, 247, 0.45);
+      border-radius: 18px;
+      padding: 28px 24px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 35px rgba(0,0,0,0.6), inset 0 0 25px rgba(168,85,247,0.16);
+      transition: all 0.4s ease;
     }
 
     .card:hover {
       transform: translateY(-12px);
-      border-color: #a78bfa88;
-      box-shadow: 0 25px 60px rgba(124, 58, 237, 0.25);
+      border-color: #c084fc;
+      box-shadow: 0 25px 60px rgba(168,85,247,0.45), inset 0 0 35px rgba(168,85,247,0.25);
     }
 
-    .card h3 {
-      font-size: 1.7rem;
-      margin-bottom: 1.2rem;
-      color: #d4d4ff;
+    .card h2 {
+      font-size: 2.1rem;
+      margin-bottom: 16px;
+      color: #d8b4fe;
+      text-shadow: 0 0 18px rgba(216,180,254,0.75);
     }
 
-    /* ─── Footer ─── */
+    .status {
+      font-size: 1.15rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .status.online {
+      color: #34d399;
+      text-shadow: 0 0 14px rgba(52,211,153,0.8);
+    }
+
+    .script-code {
+      background: rgba(15, 5, 40, 0.8);
+      border: 1px solid #6b21a8;
+      border-radius: 12px;
+      padding: 18px;
+      font-family: 'Consolas', monospace;
+      font-size: 0.97rem;
+      color: #c4b5fd;
+      margin: 20px 0;
+      white-space: pre-wrap;
+      word-break: break-all;
+      box-shadow: inset 0 3px 12px rgba(0,0,0,0.7);
+    }
+
+    .btn {
+      background: linear-gradient(90deg, #7c3aed, #a855f7);
+      color: white;
+      border: none;
+      padding: 13px 34px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.35s;
+      box-shadow: 0 7px 22px rgba(168,85,247,0.55);
+      display: block;
+      margin: 22px auto 0;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(168,85,247,0.75);
+      background: linear-gradient(90deg, #a855f7, #c084fc);
+    }
+
+    .copy-btn {
+      width: 190px;
+    }
+
     footer {
       text-align: center;
-      padding: 6rem 1rem 4rem;
-      color: #777;
-      font-size: 0.95rem;
-      border-top: 1px solid #2a1a4a;
+      margin-top: 90px;
+      padding: 30px;
+      color: #a78bfa;
+      font-size: 1rem;
+      opacity: 0.9;
     }
 
     @media (max-width: 768px) {
-      .nav-links {
-        gap: 1.6rem;
-        font-size: 0.95rem;
-      }
-      h1 {
-        font-size: clamp(3rem, 11vw, 5.2rem);
-      }
-      .btn {
-        padding: 0.9rem 2.2rem;
-      }
+      h1 { font-size: 2.8rem; letter-spacing: 5px; }
+      .nav { gap: 20px; }
+      .nav-btn { padding: 14px 35px; font-size: 1.3rem; min-width: 200px; }
     }
   </style>
 </head>
-
 <body>
 
-  <header id="header">
-    <nav>
-      <a href="#" class="logo">VØID X</a>
-      <div class="nav-links">
-        <a href="#hero">Home</a>
-        <a href="#features">Features</a>
-        <a href="#games">Supported Games</a>
-        <a href="#get">Get Started</a>
-      </div>
-    </nav>
-  </header>
+  <div id="particles-js"></div>
 
-  <main>
+  <div class="container">
 
-    <section id="hero">
-      <div class="hero-content">
-        <div class="hero-eyebrow">Level 7 / Keyless Exploit Hub</div>
-        <h1>Enter the VØID</h1>
-        <p class="hero-text">
-          The most powerful, undetectable Roblox script hub of 2026. Execute any script, dominate any game — no keys, no limits, pure chaos.
-        </p>
-        <div>
-          <a href="#get" class="btn">Inject Now</a>
-          <a href="#features" class="btn btn-outline">Explore Features</a>
-        </div>
-      </div>
-    </section>
+    <h1>VØID X EXPLOITS</h1>
 
-    <section id="features">
-      <h2>Core Features</h2>
-      <div class="grid">
+    <div class="nav">
+      <button class="nav-btn active" data-page="scripts">Scripts</button>
+      <button class="nav-btn" data-page="executors">Executors</button>
+    </div>
+
+    <!-- SCRIPTS PAGE -->
+    <div id="scripts" class="page active">
+      <div class="panels">
         <div class="card">
-          <h3>Keyless & Fast Injection</h3>
-          <p>Zero wait. Instant attach with level 7 execution power. Supports LuaU, full bypass on latest Byfron updates.</p>
+          <h2>Diesel n Steel Script</h2>
+          <div class="status online">Status: Online</div>
+          <div class="script-code" id="script1">
+loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/1552970c67caf8690f5ef9b22a2925cc54ba6760d8e0b165fcd5cee7f71beeb7/download"))()
+          </div>
+          <button class="btn copy-btn" onclick="copyToClipboard('script1')">Copy Script</button>
         </div>
+
         <div class="card">
-          <h3>Built-in Script Hub</h3>
-          <p>100+ curated scripts — autofarms, aimbots, ESP, godmode, speed hacks, fly, noclip, and universal scripts. Auto-updating daily.</p>
-        </div>
-        <div class="card">
-          <h3>Undetectable & Stable</h3>
-          <p>Custom DLL injection, low memory footprint, anti-crash protection. Trusted by thousands — still ghosting in 2026.</p>
+          <h2>Taxi Boss Script</h2>
+          <div class="status online">Status: Online</div>
+          <div class="script-code" id="script2">
+loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/8f736d47a5c4b8460edb7ef075ddf8d5d4922d6c28f1e0042f078302f3fff3b1/download"))()
+          </div>
+          <button class="btn copy-btn" onclick="copyToClipboard('script2')">Copy Script</button>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section id="games">
-      <h2>Supported Games</h2>
-      <div class="grid">
+    <!-- EXECUTORS PAGE -->
+    <div id="executors" class="page">
+      <h2 class="section-title">Mobile Executors</h2>
+      <div class="panels">
         <div class="card">
-          <h3>Blox Fruits</h3>
-          <p>Auto farm, fruit ESP, raid farm, stat boosts, infinite money — full mastery.</p>
+          <h2>Delta Executor [Android]</h2>
+          <a href="https://deltaexploits.gg/delta-executor-android" target="_blank" class="btn">Open Link</a>
         </div>
+
         <div class="card">
-          <h3>Arsenal / Blade Ball</h3>
-          <p>Silent aim, wallbang, ESP, hitbox expander, rapid fire, god mode.</p>
-        </div>
-        <div class="card">
-          <h3>Universal / Any Game</h3>
-          <p>Infinite Yield, Dex Explorer, script loader, custom GUI builder — works everywhere.</p>
+          <h2>Fluxus Z Executor [Mobile / Android]</h2>
+          <a href="https://www.mediafire.com/file/nacmh2iymo3k8wx/FluxusZ+V3.9.4+ARM64.apk/file" target="_blank" class="btn">Open Link</a>
         </div>
       </div>
-    </section>
 
-    <section id="get">
-      <h2>Get VØID X</h2>
-      <div style="text-align:center; font-size:1.4rem; margin:4rem 0; color:#c084fc;">
-        <p>Join our Discord for latest download & updates</p>
-        <a href="https://discord.gg/yourvoidxinvite" style="color:#a78bfa; text-decoration:none; font-weight:700;">
-          discord.gg/VØIDX
-        </a>
-        <p style="margin-top:2rem; font-size:1.1rem; color:#888;">
-          (Use at your own risk — Roblox TOS applies)
-        </p>
+      <h2 class="section-title">PC Executors</h2>
+      <div class="panels">
+        <div class="card">
+          <h2>Volcano Executor</h2>
+          <a href="https://volcano.wtf/" target="_blank" class="btn">Open Link</a>
+        </div>
+
+        <div class="card">
+          <h2>Xeno Executor</h2>
+          <a href="https://www.xeno.onl/download" target="_blank" class="btn">Open Link</a>
+        </div>
+
+        <div class="card">
+          <h2>Bunni.lol</h2>
+          <a href="https://gofile.io/d/JzrHU7" target="_blank" class="btn">Open Link</a>
+        </div>
       </div>
-    </section>
+    </div>
 
-  </main>
+    <footer>use at your own risk • 2025–2026</footer>
 
-  <footer>
-    <p>© 2026 VØID X — Dominate Roblox. No keys. No mercy.</p>
-  </footer>
+  </div>
 
   <script>
-    // minimal header scroll effect
-    window.addEventListener('scroll', () => {
-      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 30);
+    // Page switch with smooth transition
+    const navButtons = document.querySelectorAll('.nav-btn');
+    const pages = document.querySelectorAll('.page');
+
+    function showPage(pageId) {
+      // Fade out all pages first
+      pages.forEach(p => {
+        p.classList.remove('active');
+      });
+
+      // Small delay then fade in the target page
+      setTimeout(() => {
+        document.getElementById(pageId).classList.add('active');
+      }, 100); // short delay for fade-out to be visible
+    }
+
+    navButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const pageId = this.getAttribute('data-page');
+
+        // Update active button style
+        navButtons.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+
+        showPage(pageId);
+      });
     });
+
+    // Particles config (unchanged)
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {"value": 80, "density": {"enable": true, "value_area": 900}},
+        "color": {"value": "#a855f7"},
+        "shape": {"type": "circle"},
+        "opacity": {"value": 0.55, "random": true},
+        "size": {"value": 3.5, "random": true},
+        "line_linked": {"enable": true, "distance": 140, "color": "#c084fc", "opacity": 0.35, "width": 1.2},
+        "move": {"enable": true, "speed": 2.5, "direction": "none", "random": true, "straight": false, "out_mode": "out"}
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {"onhover": {"enable": true, "mode": "grab"}, "onclick": {"enable": true, "mode": "push"}, "resize": true},
+        "modes": {"grab": {"distance": 160, "line_linked": {"opacity": 0.7}}, "push": {"particles_nb": 4}}
+      },
+      "retina_detect": true
+    });
+
+    // Copy to clipboard (unchanged)
+    function copyToClipboard(elementId) {
+      const text = document.getElementById(elementId).innerText.trim();
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = event.target;
+        const original = btn.innerText;
+        btn.innerText = "Copied!";
+        btn.style.background = "linear-gradient(90deg, #10b981, #34d399)";
+        setTimeout(() => {
+          btn.innerText = original;
+          btn.style.background = "linear-gradient(90deg, #7c3aed, #a855f7)";
+        }, 1800);
+      });
+    }
   </script>
 
 </body>
-</html>
+</html> 
